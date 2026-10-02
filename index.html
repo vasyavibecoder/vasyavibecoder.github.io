@@ -2,10 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Онлайн игра Пираты</title>
     <style>
-        /* ===== СТИЛИ (аналогичные default_x10.css) ===== */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,365 +13,176 @@
 
         body {
             background-color: #000;
-            color: #e3ba7c;
-            font-size: 16px;
-            font-family: tahoma, verdana, arial;
-            line-height: 18px;
+            color: #fff;
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            padding: 10px;
+            padding-top: 20px;
         }
 
         .game-container {
-            max-width: 640px;
             width: 100%;
-            background: #060403;
-            margin: auto;
-            border: 1px solid #2a1a0a;
+            max-width: 600px;
+            background-color: #1a1a1a;
+            border: 1px solid #333;
             display: flex;
             flex-direction: column;
         }
 
-        /* ===== ОРИГИНАЛЬНЫЕ КЛАССЫ ===== */
-        .title {
-            background-color: #2a0808;
+        .header {
+            background-color: #3d0e0e;
             padding: 10px;
             text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-            color: #e3ba7c;
-            border-bottom: 2px solid #4a1010;
+            border-bottom: 2px solid #5a1a1a;
         }
 
-        .gorod {
-            padding: 15px 10px;
+        .header h1 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        /* Блок с главной картинкой */
+        .image-wrapper {
+            padding: 10px;
             text-align: center;
         }
 
-        .gorod img.pirates_logo {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .info_blue { color: #4da6ff; }
-        .info_green { color: #7ec850; }
-        .info_red { color: #ff4444; }
-        .info_purple { color: #b07ce8; }
-
-        .ico { vertical-align: middle; }
-        .ico2 { vertical-align: middle; }
-
-        .but {
-            background-color: #3a1010;
-            border: 2px solid #e3ba7c;
-            color: #e3ba7c;
-            font-size: 16px;
-            font-weight: bold;
-            font-family: tahoma, verdana, arial;
-            padding: 8px 20px;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-transform: lowercase;
-        }
-
-        .but:hover {
-            background-color: #e3ba7c;
-            color: #060403;
-        }
-
-        .link {
-            color: #e3ba7c;
-            text-decoration: none;
-            display: inline-block;
-            padding: 10px 15px;
-            font-size: 16px;
-            font-family: tahoma, verdana, arial;
-        }
-
-        .link:hover { text-decoration: underline; }
-        .link strong { color: #e3ba7c; }
-
-        .under {
-            padding: 15px;
-            border-top: 1px solid #2a1a0a;
-            font-size: 13px;
-            color: #a88a6a;
-            line-height: 18px;
-        }
-
-        .under table { width: 100%; border-collapse: collapse; }
-        .under td { vertical-align: top; padding: 2px; }
-        .under strong { color: #e3ba7c; }
-
-        /* ===== ФОРМЫ ===== */
-        form { text-align: center; }
-        form strong { color: #e3ba7c; font-size: 16px; }
-        form small { color: #8a6a4a; font-size: 13px; }
-
-        form input[type="text"],
-        form input[type="password"] {
-            width: 250px;
-            padding: 5px 8px;
-            background-color: #0d0705;
-            border: 1px solid #4a3018;
-            color: #e3ba7c;
-            font-size: 16px;
-            font-family: tahoma, verdana, arial;
-            outline: none;
-            margin: 3px 0;
-        }
-
-        form input[type="text"]:focus,
-        form input[type="password"]:focus {
-            border-color: #e3ba7c;
-        }
-
-        form select {
-            background-color: #0d0705;
-            border: 1px solid #4a3018;
-            color: #e3ba7c;
-            font-size: 16px;
-            font-family: tahoma, verdana, arial;
-            padding: 5px;
-            outline: none;
-            margin: 5px 0;
-        }
-
-        form select:focus { border-color: #e3ba7c; }
-
-        /* ===== МОДАЛЬНЫЕ ОКНА ===== */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .modal-overlay.active { display: flex; }
-
-        .modal-window {
+        .image-wrapper img {
             width: 100%;
-            max-width: 640px;
-            background: #060403;
-            border: 2px solid #4a1010;
-            position: relative;
-            animation: fadeIn 0.3s ease;
-            max-height: 95vh;
-            overflow-y: auto;
+            height: auto;
+            border: 1px solid #444;
+            display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+        .caption {
+            color: #4da6ff;
+            font-size: 14px;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .caption span {
+            font-size: 16px;
         }
 
-        .modal-close {
-            position: absolute;
-            top: 8px; right: 12px;
-            background: none;
-            border: none;
-            color: #e3ba7c;
-            font-size: 22px;
-            font-weight: bold;
+        /* Кнопка "Начать игру" */
+        .start-btn-container {
+            text-align: center;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pirate-btn-img {
+            width: 100%;
+            max-width: 300px; /* Размер кнопки */
+            height: auto;
             cursor: pointer;
-            line-height: 1;
-            z-index: 10;
+            transition: transform 0.1s ease;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6)); 
         }
-        .modal-close:hover { color: #fff; }
+
+        .pirate-btn-img:active {
+            transform: scale(0.95);
+        }
+
+        /* Описание */
+        .description {
+            text-align: center;
+            color: #ff3333;
+            font-size: 14px;
+            padding: 0 20px 20px 20px;
+            line-height: 1.4;
+        }
+
+        /* Ссылки */
+        .footer-links {
+            border-top: 1px solid #333;
+            padding: 0;
+        }
+
+        .footer-link {
+            display: block;
+            padding: 10px 15px;
+            color: #ff8c00;
+            text-decoration: none;
+            font-size: 14px;
+            border-bottom: 1px solid #222;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-link:hover {
+            background-color: #222;
+        }
+
+        /* Футер */
+        .version-info {
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+            padding: 15px;
+            line-height: 1.6;
+        }
+
+        .version-info a {
+            color: #888;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
 
-    <!-- ===== ГЛАВНАЯ СТРАНИЦА ===== -->
     <div class="game-container">
-        <div class="title">Онлайн игра Пираты</div>
-
-        <div class="gorod">
-            <img class="pirates_logo" src="piratgo_logox.jpg" alt="Пираты Лого" width="400px" height="150px"><br>
-            <span class="info_blue">
-                <img class="ico2" src="wargame.jpg" width="24px" height="24px"> Стань круче Джека Воробья!
-            </span><br>
-            <br>
-            <a href="#" onclick="openModal('regModal'); return false;">
-                <img src="start.png" width="160px" height="40px" alt="Начать игру">
-            </a><br>
-            <br>
-            <span class="info_red">
-                Пираты - настоящий пиратский мир для вашего телефона!<br>
-                Сражайся, общайся, люби!
-            </span><br>
-            <br>
+        <!-- Заголовок -->
+        <div class="header">
+            <h1>Онлайн игра Пираты</h1>
         </div>
 
-        <!-- ССЫЛКА "ВХОД В ИГРУ" -> открывает окно авторизации -->
-        <a class="link" href="#" onclick="openModal('authModal'); return false;">
-            <img class="ico2" src="dir.png" alt="[+]" width="16" height="16"> <strong>Вход в игру</strong>
-        </a>
-        <!-- ССЫЛКА "РЕГИСТРАЦИЯ" -> открывает окно регистрации -->
-        <a class="link" href="#" onclick="openModal('regModal'); return false;">
-            <img class="ico2" src="dir.png" alt="[+]" width="16" height="16"> <strong>Регистрация</strong>
-        </a><br>
-
-        <center style="color:#6e5f4a;">
-            19:29 <img class="ico2" src="pirat.png" width="13" height="13" alt=""><strong>24</strong>
-        </center>
-        <center>
-            <small>game-seawar.com ©tg:dev_nwstdio, 2026</small><br>
-            # 0.00121 s.
-        </center>
-    </div>
-
-    <!-- ============================================== -->
-    <!-- МОДАЛЬНОЕ ОКНО 1: РЕГИСТРАЦИЯ (копия /reg)     -->
-    <!-- ============================================== -->
-    <div class="modal-overlay" id="regModal">
-        <div class="modal-window">
-            <button class="modal-close" onclick="closeModal('regModal')">&times;</button>
-
-            <div class="title">Начало игры - Пираты</div>
-
-            <div class="gorod">
-                <img src="more.jpg" alt="" class="ico2" width="200px" height="80px"><br><br>
-                <span class="info_green">
-                    Акция! Начни игру сегодня и получи 1000
-                    <img class="ico2" src="money.png" alt="золото" width="16" height="16">
-                    в подарок!<br><small>До конца акции 2 часа!</small>
-                </span><br><br>
-
-                <form method="POST" action="/reg?cmd=ok" onsubmit="event.preventDefault(); alert('Регистрация отправлена!'); closeModal('regModal');">
-                    <strong>Ваше имя:</strong> <small>(3-40 букв)</small><br>
-                    <input type="text" name="login" minlength="3" maxlength="40" required><br>
-
-                    <strong>Пароль</strong> <small>(для входа в игру): от 8 символов</small><br>
-                    <input type="text" name="password" minlength="8" required><br>
-
-                    <strong>Ваш Пол</strong><br>
-                    <select name="sex">
-                        <option value="1" selected>мужской</option>
-                        <option value="0">женский</option>
-                    </select><br><br>
-
-                    <input type="submit" class="but" value="начать игру!">
-                </form>
-                <br>
+        <!-- ГЛАВНАЯ КАРТИНКА -->
+        <div class="image-wrapper">
+            <img src="piratgo_logox.jpg" alt="Пираты">
+            <div class="caption">
+                <span>⚓</span> Стань круче Джека Воробья!
             </div>
-
-            <div class="under">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td style="width:1%;vertical-align:top;padding:2px;">
-                                <img class="ico" src="info.png" alt="[i]" width="16" height="16">
-                            </td>
-                            <td style="vertical-align:top;">
-                                <strong>Придумайте себе уникальный пароль для входа в игру, запомните или запишите его где-то.</strong><br>
-                                * Для пароля используйте <strong><span class="info_green">англ. буквы</span> в разных регистрах, <span class="info_green">цифры</span> и символы <span class="info_green">@#$!%^&amp;*()-=+_</span></strong><br>
-                                * Чем сложней пароль, тем лучше!<br>
-                                * <strong class="info_red">Для безопасности, не используйте на каждом сайте одинаковый пароль!</strong><br>
-                                * <strong class="info_purple">Запишите или запомните свой пароль, иногда вам прийдется заходить заново в игру!</strong>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <a class="link" href="#" onclick="closeModal('regModal'); return false;">
-                <img class="ico2" src="dir.png" alt="[+]" width="16" height="16"> На главную
-            </a><br>
-
-            <center style="color:#6e5f4a;">
-                19:48 <img class="ico2" src="pirat.png" width="13" height="13" alt=""><strong>28</strong>
-            </center>
-            <center>
-                <small>game-seawar.com ©tg:dev_nwstdio, 2026</small><br>
-                # 0.00173 s.
-            </center>
         </div>
-    </div>
 
-    <!-- ============================================== -->
-    <!-- МОДАЛЬНОЕ ОКНО 2: АВТОРИЗАЦИЯ (копия /auth)   -->
-    <!-- ============================================== -->
-    <div class="modal-overlay" id="authModal">
-        <div class="modal-window">
-            <button class="modal-close" onclick="closeModal('authModal')">&times;</button>
+        <!-- КНОПКА -->
+        <div class="start-btn-container">
+            <img src="start.png" alt="Начать игру" class="pirate-btn-img">
+        </div>
 
-            <div class="title">Вход в Игру</div>
+        <!-- Описание -->
+        <div class="description">
+            Пираты - настоящий пиратский мир для вашего телефона!<br>
+            Сражайся, общайся, люби!
+        </div>
 
-            <div class="gorod">
-                <img src="logo_lux.jpg" alt="Пираты Лого" width="220px" height="140px"><br><br>
-
-                <form method="POST" action="/auth?cmd=send" onsubmit="event.preventDefault(); alert('Вход выполняется...'); closeModal('authModal');">
-                    <strong>Ник персонажа:</strong><br>
-                    <input type="text" name="login" required><br>
-
-                    <strong>Пароль:</strong><br>
-                    <input type="text" name="password" required><br><br>
-
-                    <!-- Скрытое поле fingerprint (как в оригинале) -->
-                    <input type="hidden" name="fp" id="browser_fp" value="2c0fb894de4ddf055b553c998f8bf9cb">
-
-                    <input type="submit" class="but" value="войти">
-                </form><br>
-            </div>
-
-            <a class="link" href="#">
-                <img class="ico2" src="dir.png" alt="[+]" width="16" height="16"> <strong>Забыли пароль?</strong>
+        <!-- Ссылки -->
+        <div class="footer-links">
+            <a href="#" class="footer-link">
+                <span>⛵</span> Вход в игру
             </a>
-            <a class="link" href="#" onclick="closeModal('authModal'); return false;">
-                <img class="ico2" src="dir.png" alt="[+]" width="16" height="16"> <strong>На главную</strong>
-            </a><br>
+            <a href="#" class="footer-link">
+                <span>📝</span> Регистрация
+            </a>
+        </div>
 
-            <center style="color:#6e5f4a;">
-                19:54 <img class="ico2" src="pirat.png" width="13" height="13" alt=""><strong>25</strong>
-            </center>
-            <center>
-                <small>game-seawar.com ©tg:dev_nwstdio, 2026</small><br>
-                # 0.00171 s.
-            </center>
+        <!-- Футер -->
+        <div class="version-info">
+            19:29 # 24<br>
+            game-seawar.com @tg:dev_nwstdio, 2026<br>
+            # 0.00121 s.
         </div>
     </div>
-
-    <script>
-        // Универсальные функции для открытия/закрытия любого окна
-        function openModal(id) {
-            document.getElementById(id).classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Закрытие по клику на темный фон
-        document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
-            overlay.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-
-        // Закрытие по Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.modal-overlay.active').forEach(function(overlay) {
-                    overlay.classList.remove('active');
-                });
-                document.body.style.overflow = '';
-            }
-        });
-    </script>
 
 </body>
 </html>
