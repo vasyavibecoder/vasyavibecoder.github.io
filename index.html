@@ -1,465 +1,650 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Онлайн игра Пираты</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            background-color: #000;
-            color: #e3ba7c;
-            font-size: 16px;
-            font-family: tahoma, verdana, arial;
-            line-height: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            padding: 10px;
-        }
-
-        .game-container {
-            max-width: 640px;
-            width: 100%;
-            background: #060403;
-            margin: auto;
-            border: 1px solid #2a1a0a;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .title {
-            background-color: #2a0808;
-            padding: 10px;
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-            color: #e3ba7c;
-            border-bottom: 2px solid #4a1010;
-        }
-
-        .gorod { padding: 15px 10px; text-align: center; }
-        .gorod img.pirates_logo { max-width: 100%; height: auto; }
-
-        .info_blue { color: #4da6ff; }
-        .info_green { color: #7ec850; }
-        .info_red { color: #ff4444; }
-        .info_purple { color: #b07ce8; }
-        .info_pearl { color: #e8d4b8; }
-        .info_gold { color: #ffd700; }
-        .info_trader { color: #4da6ff; }
-        .info_iron { color: #aaa; }
-        .info_crystal { color: #b07ce8; }
-        .info_salat { color: #7ec850; }
-        .info_cask { color: #c9a06a; }
-        .info_grey { color: #888; }
-
-        .ico { vertical-align: middle; }
-        .ico2 { vertical-align: middle; }
-
-        .but {
-            background-color: #3a1010;
-            border: 2px solid #e3ba7c;
-            color: #e3ba7c;
-            font-size: 16px;
-            font-weight: bold;
-            font-family: tahoma, verdana, arial;
-            padding: 8px 20px;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-transform: lowercase;
-        }
-        .but:hover { background-color: #e3ba7c; color: #060403; }
-
-        .link {
-            color: #e3ba7c;
-            text-decoration: none;
-            display: inline-block;
-            padding: 10px 15px;
-            font-size: 16px;
-            font-family: tahoma, verdana, arial;
-        }
-        .link:hover { text-decoration: underline; }
-        .link strong { color: #e3ba7c; }
-
-        .under {
-            padding: 15px;
-            border-top: 1px solid #2a1a0a;
-            font-size: 13px;
-            color: #a88a6a;
-            line-height: 18px;
-        }
-        .under table { width: 100%; border-collapse: collapse; }
-        .under td { vertical-align: top; padding: 2px; }
-        .under strong { color: #e3ba7c; }
-
-        form { text-align: center; }
-        form strong { color: #e3ba7c; font-size: 16px; }
-        form small { color: #8a6a4a; font-size: 13px; }
-
-        form input[type="text"],
-        form input[type="password"] {
-            width: 250px;
-            padding: 5px 8px;
-            background-color: #0d0705;
-            border: 1px solid #4a3018;
-            color: #e3ba7c;
-            font-size: 16px;
-            font-family: tahoma, verdana, arial;
-            outline: none;
-            margin: 3px 0;
-        }
-        form input[type="text"]:focus,
-        form input[type="password"]:focus { border-color: #e3ba7c; }
-
-        form select {
-            background-color: #0d0705;
-            border: 1px solid #4a3018;
-            color: #e3ba7c;
-            font-size: 16px;
-            font-family: tahoma, verdana, arial;
-            padding: 5px;
-            outline: none;
-            margin: 5px 0;
-        }
-        form select:focus { border-color: #e3ba7c; }
-
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        .modal-overlay.active { display: flex; }
-
-        .modal-window {
-            width: 100%;
-            max-width: 640px;
-            background: #060403;
-            border: 2px solid #4a1010;
-            position: relative;
-            animation: fadeIn 0.3s ease;
-            max-height: 95vh;
-            overflow-y: auto;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 8px; right: 12px;
-            background: none;
-            border: none;
-            color: #e3ba7c;
-            font-size: 22px;
-            font-weight: bold;
-            cursor: pointer;
-            line-height: 1;
-            z-index: 10;
-        }
-        .modal-close:hover { color: #fff; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Онлайн игра Пираты</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background:#000; color:#e3ba7c; font-size:16px; font-family:tahoma,verdana,arial; line-height:18px; display:flex; justify-content:center; align-items:flex-start; min-height:100vh; padding:10px; }
+.game-container { max-width:640px; width:100%; background:#060403; margin:auto; border:1px solid #2a1a0a; display:flex; flex-direction:column; }
+.title { background-color:#2a0808; padding:10px; text-align:center; font-size:20px; font-weight:bold; color:#e3ba7c; border-bottom:2px solid #4a1010; }
+.gorod { padding:15px 10px; text-align:center; }
+.gorod img.pirates_logo { max-width:100%; height:auto; }
+.info_blue { color:#4da6ff; } .info_green { color:#7ec850; } .info_red { color:#ff4444; }
+.info_purple { color:#b07ce8; } .info_pearl { color:#e8d4b8; } .info_gold { color:#ffd700; }
+.info_trader { color:#4da6ff; } .info_iron { color:#aaa; } .info_crystal { color:#b07ce8; }
+.info_salat { color:#7ec850; } .info_cask { color:#c9a06a; } .info_grey { color:#888; }
+.ico, .ico2 { vertical-align:middle; }
+.but { background-color:#3a1010; border:2px solid #e3ba7c; color:#e3ba7c; font-size:16px; font-weight:bold; font-family:tahoma,verdana,arial; padding:8px 20px; cursor:pointer; transition:all .2s; text-transform:lowercase; }
+.but:hover { background-color:#e3ba7c; color:#060403; }
+.link { color:#e3ba7c; text-decoration:none; display:inline-block; padding:10px 15px; font-size:16px; font-family:tahoma,verdana,arial; }
+.link:hover { text-decoration:underline; } .link strong { color:#e3ba7c; }
+.under { padding:15px; border-top:1px solid #2a1a0a; font-size:13px; color:#a88a6a; line-height:18px; }
+.under table { width:100%; border-collapse:collapse; } .under td { vertical-align:top; padding:2px; }
+.under strong { color:#e3ba7c; }
+form { text-align:center; } form strong { color:#e3ba7c; font-size:16px; } form small { color:#8a6a4a; font-size:13px; }
+form input[type="text"], form input[type="password"] { width:250px; padding:5px 8px; background-color:#0d0705; border:1px solid #4a3018; color:#e3ba7c; font-size:16px; font-family:tahoma,verdana,arial; outline:none; margin:3px 0; }
+form input[type="text"]:focus, form input[type="password"]:focus { border-color:#e3ba7c; }
+form select { background-color:#0d0705; border:1px solid #4a3018; color:#e3ba7c; font-size:16px; font-family:tahoma,verdana,arial; padding:5px; outline:none; margin:5px 0; }
+form select:focus { border-color:#e3ba7c; }
+.modal-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,.9); z-index:1000; justify-content:center; align-items:center; padding:20px; overflow-y:auto; }
+.modal-overlay.active { display:flex; }
+.modal-window { width:100%; max-width:640px; background:#060403; border:2px solid #4a1010; position:relative; animation:fadeIn .3s ease; max-height:95vh; overflow-y:auto; }
+@keyframes fadeIn { from { opacity:0; transform:scale(.95); } to { opacity:1; transform:scale(1); } }
+.modal-close { position:absolute; top:8px; right:12px; background:none; border:none; color:#e3ba7c; font-size:22px; font-weight:bold; cursor:pointer; line-height:1; z-index:10; }
+.modal-close:hover { color:#fff; }
+</style>
 </head>
 <body>
 
-<!-- ===================== ГЛАВНАЯ ===================== -->
+<!-- ГЛАВНАЯ -->
 <div class="game-container">
-    <div class="title">Онлайн игра Пираты</div>
-
-    <div class="gorod">
-        <img class="pirates_logo" src="https://game-seawar.com/assets/img/piratgo_logox.jpg" alt="Пираты Лого" width="400px" height="150px"><br>
-        <span class="info_blue">
-            <img class="ico2" src="https://game-seawar.com/assets/pic/wargame.jpg" width="24px" height="24px"> Стань круче Джека Воробья!
-        </span><br><br>
-        <a href="#" onclick="openModal('regModal'); return false;">
-            <img src="https://game-seawar.com/assets/img/start.png" width="160px" height="40px" alt="Начать игру">
-        </a><br><br>
-        <span class="info_red">
-            Пираты - настоящий пиратский мир для вашего телефона!<br>
-            Сражайся, общайся, люби!
-        </span><br><br>
-    </div>
-
-    <a class="link" href="#" onclick="openModal('authModal'); return false;">
-        <img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" alt="[+]" width="16" height="16"> <strong>Вход в игру</strong>
-    </a>
-    <a class="link" href="#" onclick="openModal('regModal'); return false;">
-        <img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" alt="[+]" width="16" height="16"> <strong>Регистрация</strong>
-    </a><br>
-
-    <center style="color:#6e5f4a;">
-        19:29 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13" alt=""><strong>24</strong>
-    </center>
-    <center>
-        <small>game-seawar.com ©tg:dev_nwstdio, 2026</small><br>
-        # 0.00121 s.
-    </center>
+<div class="title">Онлайн игра Пираты</div>
+<div class="gorod">
+<img class="pirates_logo" src="https://game-seawar.com/assets/img/piratgo_logox.jpg" alt="Пираты Лого" width="400" height="150"><br>
+<span class="info_blue"><img class="ico2" src="https://game-seawar.com/assets/pic/wargame.jpg" width="24" height="24"> Стань круче Джека Воробья!</span><br><br>
+<a href="#" onclick="openModal('regModal'); return false;"><img src="https://game-seawar.com/assets/img/start.png" width="160" height="40" alt="Начать игру"></a><br><br>
+<span class="info_red">Пираты - настоящий пиратский мир для вашего телефона!<br>Сражайся, общайся, люби!</span><br><br>
+</div>
+<a class="link" href="#" onclick="openModal('authModal'); return false;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" alt="[+]" width="16" height="16"> <strong>Вход в игру</strong></a>
+<a class="link" href="#" onclick="openModal('regModal'); return false;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" alt="[+]" width="16" height="16"> <strong>Регистрация</strong></a><br>
+<center style="color:#6e5f4a;">19:29 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13" alt=""><strong>24</strong></center>
+<center><small>game-seawar.com ©tg:dev_nwstdio, 2026</small><br># 0.00121 s.</center>
 </div>
 
-<!-- ===================== РЕГИСТРАЦИЯ ===================== -->
+<!-- РЕГИСТРАЦИЯ -->
 <div class="modal-overlay" id="regModal">
-    <div class="modal-window">
-        <button class="modal-close" onclick="closeModal('regModal')">&times;</button>
-        <div class="title">Начало игры - Пираты</div>
-        <div class="gorod">
-            <img src="https://game-seawar.com/assets/img/more.jpg" alt="" class="ico2" width="200px" height="80px"><br><br>
-            <span class="info_green">
-                Акция! Начни игру сегодня и получи 1000
-                <img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" alt="золото" width="16" height="16">
-                в подарок!<br><small>До конца акции 2 часа!</small>
-            </span><br><br>
-            <form method="POST" action="#" onsubmit="event.preventDefault(); alert('Регистрация отправлена!'); closeModal('regModal');">
-                <strong>Ваше имя:</strong> <small>(3-40 букв)</small><br>
-                <input type="text" name="login" minlength="3" maxlength="40" required><br>
-                <strong>Пароль</strong> <small>(для входа в игру): от 8 символов</small><br>
-                <input type="text" name="password" minlength="8" required><br>
-                <strong>Ваш Пол</strong><br>
-                <select name="sex">
-                    <option value="1" selected>мужской</option>
-                    <option value="0">женский</option>
-                </select><br><br>
-                <input type="submit" class="but" value="начать игру!">
-            </form><br>
-        </div>
-        <div class="under">
-            <table><tbody><tr>
-                <td style="width:1%;vertical-align:top;padding:2px;">
-                    <img class="ico" src="https://game-seawar.com/assets/icons/info.png" alt="[i]" width="16" height="16">
-                </td>
-                <td style="vertical-align:top;">
-                    <strong>Придумайте себе уникальный пароль для входа в игру, запомните или запишите его где-то.</strong><br>
-                    * Для пароля используйте <strong><span class="info_green">англ. буквы</span> в разных регистрах, <span class="info_green">цифры</span> и символы <span class="info_green">@#$!%^&amp;*()-=+_</span></strong><br>
-                    * Чем сложней пароль, тем лучше!<br>
-                    * <strong class="info_red">Для безопасности, не используйте на каждом сайте одинаковый пароль!</strong><br>
-                    * <strong class="info_purple">Запишите или запомните свой пароль, иногда вам прийдется заходить заново в игру!</strong>
-                </td>
-            </tr></tbody></table>
-        </div>
-        <a class="link" href="#" onclick="closeModal('regModal'); return false;">
-            <img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" alt="[+]" width="16" height="16"> На главную
-        </a><br>
-        <center style="color:#6e5f4a;">
-            19:48 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13" alt=""><strong>28</strong>
-        </center>
-        <center><small>game-seawar.com ©tg:dev_nwstdio, 2026</small><br># 0.00173 s.</center>
-    </div>
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('regModal')">&times;</button>
+<div class="title">Начало игры - Пираты</div>
+<div class="gorod">
+<img src="https://game-seawar.com/assets/img/more.jpg" alt="" class="ico2" width="200" height="80"><br><br>
+<span class="info_green">Акция! Начни игру сегодня и получи 1000 <img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" alt="золото" width="16" height="16"> в подарок!<br><small>До конца акции 2 часа!</small></span><br><br>
+<form method="POST" action="#" onsubmit="event.preventDefault(); alert('Регистрация отправлена!'); closeModal('regModal');">
+<strong>Ваше имя:</strong> <small>(3-40 букв)</small><br>
+<input type="text" name="login" minlength="3" maxlength="40" required><br>
+<strong>Пароль</strong> <small>(для входа в игру): от 8 символов</small><br>
+<input type="text" name="password" minlength="8" required><br>
+<strong>Ваш Пол</strong><br>
+<select name="sex"><option value="1" selected>мужской</option><option value="0">женский</option></select><br><br>
+<input type="submit" class="but" value="начать игру!">
+</form><br>
 </div>
+<div class="under"><table><tbody><tr>
+<td style="width:1%;vertical-align:top;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/icons/info.png" alt="[i]" width="16" height="16"></td>
+<td style="vertical-align:top;">
+<strong>Придумайте себе уникальный пароль для входа в игру, запомните или запишите его где-то.</strong><br>
+* Для пароля используйте <strong><span class="info_green">англ. буквы</span> в разных регистрах, <span class="info_green">цифры</span> и символы <span class="info_green">@#$!%^&amp;*()-=+_</span></strong><br>
+* Чем сложней пароль, тем лучше!<br>
+* <strong class="info_red">Для безопасности, не используйте на каждом сайте одинаковый пароль!</strong><br>
+* <strong class="info_purple">Запишите или запомните свой пароль, иногда вам прийдется заходить заново в игру!</strong>
+</td></tr></tbody></table></div>
+<a class="link" href="#" onclick="closeModal('regModal'); return false;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" alt="[+]" width="16" height="16"> На главную</a><br>
+<center style="color:#6e5f4a;">19:48 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13" alt=""><strong>28</strong></center>
+<center><small>game-seawar.com ©tg:dev_nwstdio, 2026</small><br># 0.00173 s.</center>
+</div></div>
 
-<!-- ===================== АВТОРИЗАЦИЯ ===================== -->
+<!-- АВТОРИЗАЦИЯ -->
 <div class="modal-overlay" id="authModal">
-    <div class="modal-window">
-        <button class="modal-close" onclick="closeModal('authModal')">&times;</button>
-        <div class="title">Вход в Игру</div>
-        <div class="gorod">
-            <img src="https://game-seawar.com/assets/img/logo_lux.jpg" alt="Пираты Лого" width="220px" height="140px"><br><br>
-            <form method="POST" action="#" onsubmit="event.preventDefault(); closeModal('authModal'); openUserModal();">
-                <strong>Ник персонажа:</strong><br>
-                <input type="text" name="login" required><br>
-                <strong>Пароль:</strong><br>
-                <input type="text" name="password" required><br><br>
-                <input type="hidden" name="fp" value="2c0fb894de4ddf055b553c998f8bf9cb">
-                <input type="submit" class="but" value="войти">
-            </form><br>
-        </div>
-        <a class="link" href="#">
-            <img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" alt="[+]" width="16" height="16"> <strong>Забыли пароль?</strong>
-        </a>
-        <a class="link" href="#" onclick="closeModal('authModal'); return false;">
-            <img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" alt="[+]" width="16" height="16"> <strong>На главную</strong>
-        </a><br>
-        <center style="color:#6e5f4a;">
-            19:54 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13" alt=""><strong>25</strong>
-        </center>
-        <center><small>game-seawar.com ©tg:dev_nwstdio, 2026</small><br># 0.00171 s.</center>
-    </div>
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('authModal')">&times;</button>
+<div class="title">Вход в Игру</div>
+<div class="gorod">
+<img src="https://game-seawar.com/assets/img/logo_lux.jpg" alt="Пираты Лого" width="220" height="140"><br><br>
+<form method="POST" action="#" onsubmit="event.preventDefault(); closeModal('authModal'); openUserModal();">
+<strong>Ник персонажа:</strong><br><input type="text" name="login" required><br>
+<strong>Пароль:</strong><br><input type="text" name="password" required><br><br>
+<input type="hidden" name="fp" value="2c0fb894de4ddf055b553c998f8bf9cb">
+<input type="submit" class="but" value="войти">
+</form><br>
 </div>
+<a class="link" href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" alt="[+]" width="16" height="16"> <strong>Забыли пароль?</strong></a>
+<a class="link" href="#" onclick="closeModal('authModal'); return false;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" alt="[+]" width="16" height="16"> <strong>На главную</strong></a><br>
+<center style="color:#6e5f4a;">19:54 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13" alt=""><strong>25</strong></center>
+<center><small>game-seawar.com ©tg:dev_nwstdio, 2026</small><br># 0.00171 s.</center>
+</div></div>
 
-<!-- ===================== ЕЖЕДНЕВНЫЙ ПОДАРОК ===================== -->
+<!-- ЕЖЕДНЕВНЫЙ ПОДАРОК -->
 <div class="modal-overlay" id="prizeModal">
-    <div class="modal-window">
-        <button class="modal-close" onclick="closeModal('prizeModal')">&times;</button>
-        <div class="title">Ежедневный подарок</div>
-        <div class="up" style="padding:10px;">
-            <div style="background:#d1bebe; height:15px; width:100%; margin:6px 0;">
-                <div style="background:#E06D17; height:15px; width:0%;"><div style="color:#fff; font-size:11px;">&nbsp;0%</div></div>
-            </div>
-            <div style="background:#d1bebe; height:15px; width:100%; margin:6px 0;">
-                <div style="background:#bb1515; height:15px; width:26.25%;"><div style="color:#fff; font-size:11px;">&nbsp;105</div></div>
-            </div>
-            <img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> 2K
-            <img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> 0
-            <a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="16" height="16"></a> 0 / 20
-            <div style="text-align:right;">
-                <a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/replay.png" width="26" height="26"></a>
-                <span style="font-size:smaller;">20:41:12 ua</span>
-            </div>
-        </div>
-
-        <div id="prizeStart">
-            <div class="post" style="padding:10px;">
-                <strong class="info_pearl" id="prizeName">Пират</strong>,
-                заходите в игру каждый день и получайте дополнительные награды!<br>
-                Выберите сундук ниже, чтобы забрать свой ежедневный подарок.
-            </div>
-            <div class="under"><table><tbody><tr>
-                <td style="width:1%;padding:2px;"><img src="https://game-seawar.com/assets/pic/art/sunduk_old.jpg" width="64" height="64"></td>
-                <td style="vertical-align:middle;"><strong class="info_pearl">Сундук 1</strong><br>[<a href="#" onclick="showPrizeResult(); return false;" style="color:#e3ba7c;"> Выбрать </a>]</td>
-            </tr></tbody></table></div>
-            <div class="under"><table><tbody><tr>
-                <td style="width:1%;padding:2px;"><img src="https://game-seawar.com/assets/pic/art/sunduk_old.jpg" width="64" height="64"></td>
-                <td style="vertical-align:middle;"><strong class="info_pearl">Сундук 2</strong><br>[<a href="#" onclick="showPrizeResult(); return false;" style="color:#e3ba7c;"> Выбрать </a>]</td>
-            </tr></tbody></table></div>
-            <div class="under"><table><tbody><tr>
-                <td style="width:1%;padding:2px;"><img src="https://game-seawar.com/assets/pic/art/sunduk_old.jpg" width="64" height="64"></td>
-                <td style="vertical-align:middle;"><strong class="info_pearl">Сундук 3</strong><br>[<a href="#" onclick="showPrizeResult(); return false;" style="color:#e3ba7c;"> Выбрать </a>]</td>
-            </tr></tbody></table></div>
-            <div class="post" style="padding:10px;"><strong class="info_purple">Прогресс: 0/14</strong></div>
-        </div>
-
-        <div id="prizeResult" style="display:none;">
-            <div class="post" style="padding:10px;">
-                <strong class="info_green">Вы выбрали Сундук 1</strong><br>
-                Ваша награда: <strong class="info_purple">X3</strong>
-                <div class="post"><table><tbody><tr>
-                    <td style="width:1%;padding:2px;"><img src="https://game-seawar.com/assets/pic/art/sunduk_old.jpg" width="64" height="64"></td>
-                    <td style="vertical-align:top;">
-                        <strong class="info_gold">5106<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"></strong><br>
-                        <strong class="info_pearl">54<img class="ico2" src="https://game-seawar.com/assets/icons/res/pearl.png" width="16" height="16"></strong>
-                    </td>
-                </tr></tbody></table></div>
-            </div>
-            <div class="post" style="padding:10px;">
-                <strong>В других сундуках было:</strong>
-                <div class="post"><table><tbody><tr>
-                    <td style="width:1%;padding:2px;"><img src="https://game-seawar.com/assets/pic/art/sunduk_old.jpg" width="64" height="64"></td>
-                    <td style="vertical-align:top;">
-                        <strong class="info_gold">2524<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"></strong><br>
-                        <strong class="info_pearl">26<img class="ico2" src="https://game-seawar.com/assets/icons/res/pearl.png" width="16" height="16"></strong><br>
-                        <strong class="info_trader">30<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"></strong>
-                    </td>
-                </tr></tbody></table></div>
-                <div class="post"><table><tbody><tr>
-                    <td style="width:1%;padding:2px;"><img src="https://game-seawar.com/assets/pic/art/sunduk_old.jpg" width="64" height="64"></td>
-                    <td style="vertical-align:top;">
-                        <strong class="info_gold">1056<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"></strong>
-                    </td>
-                </tr></tbody></table></div>
-            </div>
-            <div class="post" style="padding:10px;"><strong class="info_purple">Прогресс: 1/14</strong></div>
-        </div>
-
-        <div class="under"><table><tbody><tr>
-            <td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/icons/info.png" width="16" height="16"></td>
-            <td>С каждым днем ваш шанс на лучшую награду растет.<br>Заходите в игру ежедневно, чтобы не сбросить прогресс!</td>
-        </tr></tbody></table></div>
-
-        <div class="rek" style="text-align:center;padding:10px;">
-            <a href="#" onclick="closeModal('prizeModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;">Вернуться в Город</a>
-        </div>
-        <div class="foot" style="text-align:center;padding:10px;border-top:1px solid #2a1a0a;">
-            <a class="down" href="#" onclick="closeModal('prizeModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;margin:0 10px;">
-                <img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город
-            </a>
-            <a class="down" href="#" onclick="closeModal('prizeModal'); openUserModal(); return false;" style="color:#e3ba7c;margin:0 10px;">
-                <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират
-            </a>
-        </div>
-        <br>
-        <center style="color:#6e5f4a;">20:41 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>30</strong></center>
-        <center># 0.00537 s.</center>
-    </div>
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('prizeModal')">&times;</button>
+<div class="title">Ежедневный подарок</div>
+<div class="up" style="padding:10px;">
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#E06D17;height:15px;width:0%;"><div style="color:#fff;font-size:11px;">&nbsp;0%</div></div></div>
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#bb1515;height:15px;width:26.25%;"><div style="color:#fff;font-size:11px;">&nbsp;105</div></div></div>
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> 2K
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> 0
+<a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="16" height="16"></a> 0 / 20
+<div style="text-align:right;"><a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/replay.png" width="26" height="26"></a> <span style="font-size:smaller;">20:41:12 ua</span></div>
 </div>
+<div id="prizeStart">
+<div class="post" style="padding:10px;"><strong class="info_pearl" id="prizeName">Пират</strong>, заходите в игру каждый день и получайте дополнительные награды!<br>Выберите сундук ниже, чтобы забрать свой ежедневный подарок.</div>
+<div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img src="https://game-seawar.com/assets/pic/art/sunduk_old.jpg" width="64" height="64"></td><td style="vertical-align:middle;"><strong class="info_pearl">Сундук 1</strong><br>[<a href="#" onclick="showPrizeResult(); return false;" style="color:#e3ba7c;"> Выбрать </a>]</td></tr></tbody></table></div>
+<div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img src="https://game-seawar.com/assets/pic/art/sunduk_old.jpg" width="64" height="64"></td><td style="vertical-align:middle;"><strong class="info_pearl">Сундук 2</strong><br>[<a href="#" onclick="showPrizeResult(); return false;" style="color:#e3ba7c;"> Выбрать </a>]</td></tr></tbody></table></div>
+<div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img src="https://game-seawar.com/assets/pic/art/sunduk_old.jpg" width="64" height="64"></td><td style="vertical-align:middle;"><strong class="info_pearl">Сундук 3</strong><br>[<a href="#" onclick="showPrizeResult(); return false;" style="color:#e3ba7c;"> Выбрать </a>]</td></tr></tbody></table></div>
+<div class="post" style="padding:10px;"><strong class="info_purple">Прогресс: 0/14</strong></div>
+</div>
+<div id="prizeResult" style="display:none;">
+<div class="post" style="padding:10px;"><strong class="info_green">Вы выбрали Сундук 1</strong><br>Ваша награда: <strong class="info_purple">X3</strong>
+<div class="post"><table><tbody><tr><td style="width:1%;padding:2px;"><img src="https://game-seawar.com/assets/pic/art/sunduk_old.jpg" width="64" height="64"></td><td style="vertical-align:top;"><strong class="info_gold">5106<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"></strong><br><strong class="info_pearl">54<img class="ico2" src="https://game-seawar.com/assets/icons/res/pearl.png" width="16" height="16"></strong></td></tr></tbody></table></div></div>
+<div class="post" style="padding:10px;"><strong>В других сундуках было:</strong>
+<div class="post"><table><tbody><tr><td style="width:1%;padding:2px;"><img src="https://game-seawar.com/assets/pic/art/sunduk_old.jpg" width="64" height="64"></td><td style="vertical-align:top;"><strong class="info_gold">2524<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"></strong><br><strong class="info_pearl">26<img class="ico2" src="https://game-seawar.com/assets/icons/res/pearl.png" width="16" height="16"></strong><br><strong class="info_trader">30<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"></strong></td></tr></tbody></table></div>
+<div class="post"><table><tbody><tr><td style="width:1%;padding:2px;"><img src="https://game-seawar.com/assets/pic/art/sunduk_old.jpg" width="64" height="64"></td><td style="vertical-align:top;"><strong class="info_gold">1056<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"></strong></td></tr></tbody></table></div></div>
+<div class="post" style="padding:10px;"><strong class="info_purple">Прогресс: 1/14</strong></div>
+</div>
+<div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/icons/info.png" width="16" height="16"></td><td>С каждым днем ваш шанс на лучшую награду растет.<br>Заходите в игру ежедневно, чтобы не сбросить прогресс!</td></tr></tbody></table></div>
+<div class="rek" style="text-align:center;padding:10px;"><a href="#" onclick="closeModal('prizeModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;">Вернуться в Город</a></div>
+<div class="foot" style="text-align:center;padding:10px;border-top:1px solid #2a1a0a;">
+<a class="down" href="#" onclick="closeModal('prizeModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
+<a class="down" href="#" onclick="closeModal('prizeModal'); openUserModal(); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
+</div>
+<br><center style="color:#6e5f4a;">20:41 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>30</strong></center>
+<center># 0.00537 s.</center>
+</div></div>
 
-<!-- ===================== ГОРОД ===================== -->
+<!-- ГОРОД -->
 <div class="modal-overlay" id="cityModal">
-    <div class="modal-window">
-        <button class="modal-close" onclick="closeModal('cityModal')">&times;</button>
-        <div class="title">Город Толедо</div>
-        <div class="up" style="padding:10px;">
-            <div style="background:#d1bebe; height:15px; width:100%; margin:6px 0;">
-                <div style="background:#E06D17; height:15px; width:0%;"><div style="color:#fff; font-size:11px;">&nbsp;0%</div></div>
-            </div>
-            <div style="background:#d1bebe; height:15px; width:100%; margin:6px 0;">
-                <div style="background:#bb1515; height:15px; width:33.75%;"><div style="color:#fff; font-size:11px;">&nbsp;135</div></div>
-            </div>
-            <img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> 7.11K
-            <img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> 0
-            <a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="16" height="16"></a> 0 / 20
-            <div style="text-align:right;">
-                <a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/replay.png" width="26" height="26"></a>
-                <span style="font-size:smaller;">20:42:49 ua</span>
-            </div>
-        </div>
-        <div class="gorod" style="text-align:center;padding:10px;">
-            <img src="https://game-seawar.com/assets/img/city/1.jpg" alt="" width="200" height="100"><br><br>
-        </div>
-        <div class="under" style="text-align:center;">
-            <strong class="info_red">
-                Игра на этапе Бета Тестирования!<br>
-                Много что еще не реализовано, либо добавлено визуально и не имеет функционала!<br>***<br>
-                Нашли баг?<br>Пишите на <a href="#" style="color:#e3ba7c;">форум</a><br>***<br>
-                Что такое WIP? WIP (work in progress) - это значит что данная функция/раздел пока не доступны!<br>***<br>
-                <span class="info_purple">Не забывайте качать защиту, скорость только усиливает все, но без атаки и защиты, вы будете слабы!</span>
-            </strong><br><br>
-        </div>
-        <div class="under"><table><tbody><tr>
-            <td style="width:1%;padding:2px;">
-                <img src="https://game-seawar.com/assets/img/pirate_newgame.jpg" alt="Анжела" style="border-radius:21px;margin:5px;" width="96" height="96">
-            </td>
-            <td style="vertical-align:middle;">
-                <span id="cityName">dssdnejd</span>, на Пинасе далеко не уплыть. Нужно в <a href="#" style="color:#e3ba7c;"><strong>Верфи</strong></a> купить новый корабль — <strong><span class="info_salat">Корвет</span></strong>.<br>
-                C золотом у тебя не густо...<br>
-                Я слышала что в <a href="#" style="color:#e3ba7c;"><strong>Таверне</strong></a> есть несколько заданий. Платят хорошо!
-            </td>
-        </tr></tbody></table></div>
-        <div class="razd" style="padding:10px;font-weight:bold;color:#e3ba7c;border-bottom:1px solid #2a1a0a;">Приключения</div>
-        <a class="link" href="#" onclick="closeModal('cityModal'); openModal('locationModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/more.jpg" width="24" height="24"> В море!</a>
-        <div class="post" style="padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/pursuit.jpg" width="24" height="24"> Битва за Карибы (с 20 ур.)</div>
-        <a class="link" href="#" onclick="closeModal('cityModal'); openModal('treasuresModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/treasure.jpg" width="24" height="24"> Поиски сокровищ</a>
-        <a class="link" href="#" onclick="closeModal('cityModal'); openModal('monstersModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/monsters_ico.jpg" width="24" height="24"> Монстры <strong><span class="info_green">(+)</span></strong></a>
-        <a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/travel.jpg" width="24" height="24"> Путешествие</a>
-        <div class="razd" style="padding:10px;font-weight:bold;color:#e3ba7c;border-bottom:1px solid #2a1a0a;">Город</div>
-        <a class="link" href="#" onclick="closeModal('cityModal'); openModal('tavernaModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/taverna.jpg" width="24" height="24"> Таверна <span class="info_pearl">(+)</span> <img src="https://game-seawar.com/assets/icons/nav/strelka.png" class="ico2" width="16" height="16"></a>
-        <a class="link" href="#" onclick="closeModal('cityModal'); openModal('shopModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/shop.jpg" width="24" height="24"> Верфь</a>
-        <a class="link" href="#" onclick="closeModal('cityModal'); openModal('marketModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk.jpg" width="24" height="24"> Черный рынок</a>
-        <a class="link" href="#" onclick="closeModal('cityModal'); openModal('mastersModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/masters.jpg" width="24" height="24"> Пиратские мастера</a>
-        <a class="link" href="#" onclick="closeModal('cityModal'); openModal('comuniModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/comuni.jpg" width="24" height="24"> Общение <span class="info_grey">(31)</span></a>
-        <a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/wargame.jpg" width="24" height="24"> Легенды и флоты</a>
-        <div class="foot" style="text-align:center;padding:10px;border-top:1px solid #2a1a0a;">
-            <a class="down" href="#" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
-            <a class="down" href="#" onclick="closeModal('cityModal'); openUserModal(); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
-        </div>
-        <div class="foot_help" style="text-align:center;font-size:12px;">
-            <a href="#" style="color:#e3ba7c;">Наставник</a> | <a href="#" style="color:#e3ba7c;">Поддержка</a> | <a href="#" style="color:#e3ba7c;">Правила</a>
-        </div>
-        <div class="foot_help" style="text-align:center;font-size:12px;">
-            <a href="#" style="color:#e3ba7c;">Общий чат</a> | <a href="#" style="color:#e3ba7c;">Форум</a>
-        </div>
-        <br>
-        <center style="color:#6e5f4a;">20:42 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>31</strong></center>
-        <center># 0.07508 s.</center>
-    </div>
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('cityModal')">&times;</button>
+<div class="title">Город Толедо</div>
+<div class="up" style="padding:10px;">
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#E06D17;height:15px;width:0%;"><div style="color:#fff;font-size:11px;">&nbsp;0%</div></div></div>
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#bb1515;height:15px;width:33.75%;"><div style="color:#fff;font-size:11px;">&nbsp;135</div></div></div>
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> 7.11K
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> 0
+<a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="16" height="16"></a> 0 / 20
+<div style="text-align:right;"><a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/replay.png" width="26" height="26"></a> <span style="font-size:smaller;">20:42:49 ua</span></div>
 </div>
+<div class="gorod" style="text-align:center;padding:10px;"><img src="https://game-seawar.com/assets/img/city/1.jpg" alt="" width="200" height="100"><br><br></div>
+<div class="under" style="text-align:center;"><strong class="info_red">Игра на этапе Бета Тестирования!<br>Много что еще не реализовано, либо добавлено визуально и не имеет функционала!<br>***<br>Нашли баг?<br>Пишите на <a href="#" style="color:#e3ba7c;">форум</a><br>***<br>Что такое WIP? WIP (work in progress) - это значит что данная функция/раздел пока не доступны!<br>***<br><span class="info_purple">Не забывайте качать защиту, скорость только усиливает все, но без атаки и защиты, вы будете слабы!</span></strong><br><br></div>
+<div class="under"><table><tbody><tr>
+<td style="width:1%;padding:2px;"><img src="https://game-seawar.com/assets/img/pirate_newgame.jpg" alt="Анжела" style="border-radius:21px;margin:5px;" width="96" height="96"></td>
+<td style="vertical-align:middle;"><span id="cityName">dssdnejd</span>, на Пинасе далеко не уплыть. Нужно в <a href="#" style="color:#e3ba7c;"><strong>Верфи</strong></a> купить новый корабль — <strong><span class="info_salat">Корвет</span></strong>.<br>C золотом у тебя не густо...<br>Я слышала что в <a href="#" style="color:#e3ba7c;"><strong>Таверне</strong></a> есть несколько заданий. Платят хорошо!</td>
+</tr></tbody></table></div>
+<div class="razd" style="padding:10px;font-weight:bold;color:#e3ba7c;border-bottom:1px solid #2a1a0a;">Приключения</div>
+<a class="link" href="#" onclick="closeModal('cityModal'); openModal('locationModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/more.jpg" width="24" height="24"> В море!</a>
+<div class="post" style="padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/pursuit.jpg" width="24" height="24"> Битва за Карибы (с 20 ур.)</div>
+<a class="link" href="#" onclick="closeModal('cityModal'); openModal('treasuresModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/treasure.jpg" width="24" height="24"> Поиски сокровищ</a>
+<a class="link" href="#" onclick="closeModal('cityModal'); openModal('monstersModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/monsters_ico.jpg" width="24" height="24"> Монстры <strong><span class="info_green">(+)</span></strong></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/travel.jpg" width="24" height="24"> Путешествие</a>
+<div class="razd" style="padding:10px;font-weight:bold;color:#e3ba7c;border-bottom:1px solid #2a1a0a;">Город</div>
+<a class="link" href="#" onclick="closeModal('cityModal'); openModal('tavernaModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/taverna.jpg" width="24" height="24"> Таверна <span class="info_pearl">(+)</span> <img src="https://game-seawar.com/assets/icons/nav/strelka.png" class="ico2" width="16" height="16"></a>
+<a class="link" href="#" onclick="closeModal('cityModal'); openModal('shopModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/shop.jpg" width="24" height="24"> Верфь</a>
+<a class="link" href="#" onclick="closeModal('cityModal'); openModal('marketModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk.jpg" width="24" height="24"> Черный рынок</a>
+<a class="link" href="#" onclick="closeModal('cityModal'); openModal('mastersModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/masters.jpg" width="24" height="24"> Пиратские мастера</a>
+<a class="link" href="#" onclick="closeModal('cityModal'); openModal('comuniModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/comuni.jpg" width="24" height="24"> Общение <span class="info_grey">(31)</span></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/wargame.jpg" width="24" height="24"> Легенды и флоты</a>
+<div class="foot" style="text-align:center;padding:10px;border-top:1px solid #2a1a0a;">
+<a class="down" href="#" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
+<a class="down" href="#" onclick="closeModal('cityModal'); openUserModal(); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
+</div>
+<br><center style="color:#6e5f4a;">20:42 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>31</strong></center>
+<center># 0.07508 s.</center>
+</div></div>
 
-<!-- ===================== ПРОФИЛЬ ПИРАТА ===================== -->
+<!-- ПРОФИЛЬ -->
 <div class="modal-overlay" id="userModal">
-    <div class="modal-window">
-        <button class="modal-close" onclick="closeModal('userModal')">&times;</button>
-        <div class="title" id="userTitle">dssdnejd</div>
-        <div class="up" style="padding:10px;">
-            <div style="background:#d1bebe; height:15px; width:100%; margin:6px 0;">
-                <div style="background:#E06D17; height:15px; width:0%;"><div style="color:#fff; font-size:11px;">&nbsp;0%</div></div>
-            </div>
-            <div style="background:#d1bebe; height:15px; width:100%; margin:6px 0;">
-                <div style="background:#bb1515
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('userModal')">&times;</button>
+<div class="title" id="userTitle">dssdnejd</div>
+<div class="up" style="padding:10px;">
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#E06D17;height:15px;width:0%;"><div style="color:#fff;font-size:11px;">&nbsp;0%</div></div></div>
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#bb1515;height:15px;width:35%;"><div style="color:#fff;font-size:11px;">&nbsp;140</div></div></div>
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> 7.11K
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> 0
+<a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="16" height="16"></a> 0 / 20
+<div style="text-align:right;"><a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/replay.png" width="26" height="26"></a> <span style="font-size:smaller;">20:43:53 ua</span></div>
+</div>
+<div class="under" style="text-align:center;">
+<img class="ico2" id="userAvatar" src="https://game-seawar.com/assets/pic/avatar/sex_1.jpg" style="border:1px solid #1e190f;border-radius:5px;" width="100" height="100"><br>
+<strong id="userRole">Матрос dssdnejd 1 уровень.</strong><br>Пол: <span id="userSex">Парень</span><br>
+Ранг: <img src="https://game-seawar.com/assets/icons/rank_label/1.png" class="ico2" width="16" height="16"><strong>Молодой</strong>
+</div>
+<a class="large" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/mail.jpg" width="24" height="24"> <strong>Почта</strong></a>
+<a class="large" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="24" height="24"> <strong>Сундук <span class="info_grey">(0)</span></strong></a>
+<a class="large" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/artefact.jpg" width="24" height="24"> <strong>Мой корабль</strong></a>
+<a class="large" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/quest.jpg" width="24" height="24"> Квесты <span class="info_green">(+)</span></a>
+<a class="large" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/colect.jpg" width="24" height="24"> Коллекции</a>
+<a class="large" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/profi.jpg" width="24" height="24"> Профессия</a>
+<a class="large" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/navi.jpg" width="24" height="24"> Навыки <strong class="info_grey">(0)</strong></a>
+<a class="large" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/progress.jpg" width="24" height="24"> Метки <strong class="info_grey">(0)</strong></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img src="https://game-seawar.com/assets/icons/nav/trophy.jpg" class="ico2" width="24" height="24"> Трофеи</a>
+<div class="post" style="text-align:center;padding:10px;"><strong>Питомец доступен с 30 уровня пирата.</strong></div>
+<div class="under" style="padding:10px 15px;">
+<img class="ico" src="https://game-seawar.com/assets/icons/skills/pistol.png" width="16" height="16">Мощность: <strong>24</strong><br>
+<img class="ico" src="https://game-seawar.com/assets/icons/skills/swords.png" width="16" height="16">Защита: <strong>20 (0%)</strong><br>
+<img class="ico" src="https://game-seawar.com/assets/icons/skills/hp2.png" width="16" height="16">Жизнь: <strong>140</strong><br>
+<img class="ico" src="https://game-seawar.com/assets/icons/skills/manevr.png" width="16" height="16">Скорость: <strong>28</strong><br>
+<img class="ico" src="https://game-seawar.com/assets/icons/skills/speed.png" width="16" height="16">Маневренность: <strong>0 (0%)</strong><br>
+<img class="ico" src="https://game-seawar.com/assets/icons/skills/remont.png" width="16" height="16">Скорость ремонта: <strong>+0</strong><br>
+<img class="ico" src="https://game-seawar.com/assets/icons/skills/sum.png" width="16" height="16">Сумма: <strong>72</strong><br>
+<img class="ico" src="https://game-seawar.com/assets/icons/skills/recomend.png" width="16" height="16">Рекомендован: <strong>0</strong>
+</div>
+<div class="under" style="padding:8px 15px;">Находится: <strong>персонаж</strong></div>
+<div class="under" style="padding:10px 15px;">
+<img class="ico" src="https://game-seawar.com/assets/icons/bank_big.png" width="24" height="24"> Ваши ресурсы:
+<span class="info_trader">0<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"></span>,
+<span class="info_iron">0<img class="ico2" src="https://game-seawar.com/assets/icons/res/iron.png" width="16" height="16"></span>,
+<span class="info_gold">7106<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"></span>,
+<span class="info_pearl">54<img class="ico2" src="https://game-seawar.com/assets/icons/res/pearl.png" width="16" height="16"></span><br>
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/gun.png" width="16" height="16"> Порох для мортиры: <strong>0</strong> из <strong>70</strong>
+</div>
+<a class="large" href="#" onclick="closeModal('userModal'); openModal('settingsModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/set.png" width="24" height="24"> <strong>Настройки</strong></a>
+<div class="foot" style="text-align:center;padding:10px;border-top:1px solid #2a1a0a;">
+<a class="down" href="#" onclick="closeModal('userModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
+<a class="down" href="#" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
+</div>
+<br><center style="color:#6e5f4a;">20:43 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>30</strong></center>
+<center># 0.00534 s.</center>
+</div></div>
+
+<!-- НАСТРОЙКИ -->
+<div class="modal-overlay" id="settingsModal">
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('settingsModal')">&times;</button>
+<div class="title">Настройки игры</div>
+<div class="up" style="padding:10px;">
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#E06D17;height:15px;width:0%;"><div style="color:#fff;font-size:11px;">&nbsp;0%</div></div></div>
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#bb1515;height:15px;width:37.5%;"><div style="color:#fff;font-size:11px;">&nbsp;150</div></div></div>
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> 7.11K
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> 0
+<a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="16" height="16"></a> 0 / 20
+<div style="text-align:right;"><a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/replay.png" width="26" height="26"></a> <span style="font-size:smaller;">20:45:33 ua</span></div>
+</div>
+<div class="under" style="padding:10px 15px;"><span class="info_pearl">Выберите самые удобные настройки для приятной игры!</span></div>
+<div class="razd" style="padding:10px;font-weight:bold;color:#e3ba7c;border-bottom:1px solid #2a1a0a;">Основные:</div>
+<div class="under" style="padding:10px 15px;line-height:22px;">
+<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <a href="#" style="color:#e3ba7c;">Игровой дизайн:</a> большой<br>
+<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <a href="#" style="color:#e3ba7c;">Графические показатели опыта и состояния ХП:</a> да<br>
+<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <a href="#" style="color:#e3ba7c;">Заголовок страницы:</a> показывать<br>
+<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <a href="#" style="color:#e3ba7c;">Чат на всех страницах:</a> нет<br>
+<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <a href="#" style="color:#e3ba7c;">Кнопка ОБНОВИТЬ на каждой странице:</a> да<br>
+<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <a href="#" style="color:#e3ba7c;">Скрывать появление Ванху в городе, если уже собрал 5 за сегодня:</a> нет
+</div>
+<div class="razd" style="padding:10px;font-weight:bold;color:#e3ba7c;border-bottom:1px solid #2a1a0a;">Боевые настройки:</div>
+<div class="under" style="padding:10px 15px;line-height:22px;">
+<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <a href="#" style="color:#e3ba7c;">Скрывать в море нахождения ЧЖ, квестовых, пороха, бананов:</a> да<br>
+<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <a href="#" style="color:#e3ba7c;">Показывать в море аватарки игроков и ботов:</a> показывать<br>
+<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <a href="#" style="color:#e3ba7c;">Какой чат показывать в бою:</a> общий<br>
+<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <a href="#" style="color:#e3ba7c;">Показывать количество софлота в море:</a> да<br>
+<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <a href="#" style="color:#e3ba7c;">Показывать События:</a> да<br>
+<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <a href="#" style="color:#e3ba7c;">Принимать приглашение на монстров:</a> да<br>
+<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <a href="#" style="color:#e3ba7c;">Часы вверху и индикатор сундука:</a> показывать<br>
+<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <a href="#" style="color:#e3ba7c;">Показывать в море Рейдер:</a> показывать<br>
+<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <a href="#" style="color:#e3ba7c;">Пить Ром (авто) если жизнь меньше 25%:</a> нет
+</div>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/map.png" width="24" height="24"> Изменить аватар</a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/text.png" width="24" height="24"> Изменить ник <span class="info_grey">100000<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"></span></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/kafe.png" width="24" height="24"> Изменить пол <span class="info_grey">25000<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"></span></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/text.png" width="24" height="24"> Безопасность</a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/kafe.png" width="24" height="24"> Автологин</a>
+<a class="link" href="#" onclick="closeModal('settingsModal'); openModal('authModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/frend.png" width="24" height="24"> <strong>Выйти из игры</strong></a>
+<div class="rek" style="text-align:center;padding:10px;"><a href="#" onclick="closeModal('settingsModal'); openModal('userModal'); return false;" style="color:#e3ba7c;">Назад</a></div>
+<div class="foot" style="text-align:center;padding:10px;border-top:1px solid #2a1a0a;">
+<a class="down" href="#" onclick="closeModal('settingsModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
+<a class="down" href="#" onclick="closeModal('settingsModal'); openModal('userModal'); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
+</div>
+<br><center style="color:#6e5f4a;">20:45 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>32</strong></center>
+<center># 0.00943 s.</center>
+</div></div>
+
+<!-- ТАВЕРНА -->
+<div class="modal-overlay" id="tavernaModal">
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('tavernaModal')">&times;</button>
+<div class="title">Таверна</div>
+<div class="up" style="padding:10px;">
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#E06D17;height:15px;width:0%;"><div style="color:#fff;font-size:11px;">&nbsp;0%</div></div></div>
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#bb1515;height:15px;width:30%;"><div style="color:#fff;font-size:11px;">&nbsp;120</div></div></div>
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> 6.79K
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> 0
+<a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="16" height="16"></a> 0 / 20
+<div style="text-align:right;"><a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/replay.png" width="26" height="26"></a> <span style="font-size:smaller;">20:50:55 ua</span></div>
+</div>
+<div class="gorod" style="text-align:center;padding:10px;"><img src="https://game-seawar.com/assets/img/taverna.jpg" class="ico2" width="200" height="100"><br><br></div>
+<div class="under"><img class="ico" src="https://game-seawar.com/assets/img/taverna_cask.jpg" width="24" height="24"> <span style="color:#49c6b9;"><span id="tavernaName">Пират</span>, Якорь мне в ребро! Сегодня эль вкуснее, чем вчерашняя победа!</span></div>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico2" src="https://game-seawar.com/assets/icons/res/rum.png" width="16" height="16"> Выпить ром! <strong class="info_gold">250<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"></strong></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/star_red.png" width="16" height="16"> Бордель</a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <strong class="info_green">Доступные задания</strong></a>
+<a class="link" href="#" onclick="closeModal('tavernaModal'); openModal('forumModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Таверна Веселый Роджер</a>
+<div class="rek" style="text-align:center;padding:10px;"><a href="#" onclick="closeModal('tavernaModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;">Назад в Город</a></div>
+<div class="foot" style="text-align:center;padding:10px;border-top:1px solid #2a1a0a;">
+<a class="down" href="#" onclick="closeModal('tavernaModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
+<a class="down" href="#" onclick="closeModal('tavernaModal'); openUserModal(); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
+</div>
+<br><center style="color:#6e5f4a;">20:50 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>32</strong></center>
+<center># 0.00622 s.</center>
+</div></div>
+
+<!-- ФОРУМ -->
+<div class="modal-overlay" id="forumModal">
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('forumModal')">&times;</button>
+<div class="title">Таверна Веселый Роджер</div>
+<div class="up" style="padding:10px;">
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#E06D17;height:15px;width:0%;"><div style="color:#fff;font-size:11px;">&nbsp;0%</div></div></div>
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#bb1515;height:15px;width:31.25%;"><div style="color:#fff;font-size:11px;">&nbsp;125</div></div></div>
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> 6.79K
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> 0
+<a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="16" height="16"></a> 0 / 20
+<div style="text-align:right;"><a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/replay.png" width="26" height="26"></a> <span style="font-size:smaller;">20:51:53 ua</span></div>
+</div>
+<div class="post" style="padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> <a href="#" style="color:#e3ba7c;">тест</a> <small style="color:#888;">(23 сен. 2026 11:49)</small></div>
+<div class="post" style="padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> <a href="#" style="color:#e3ba7c;">Как вы играете?</a> <small style="color:#888;">(01 мая 2026 23:23)</small></div>
+<div class="post" style="padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> <a href="#" style="color:#e3ba7c;">Анекдоты</a> <small style="color:#888;">(30 апр. 2026 01:56)</small></div>
+<div class="post" style="padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> <a href="#" style="color:#e3ba7c;">побежали?</a> <small style="color:#888;">(13 апр. 2026 00:37)</small></div>
+<div class="post" style="padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> <a href="#" style="color:#e3ba7c;">Всем Привет!</a> <small style="color:#888;">(02 апр. 2026 07:36)</small></div>
+<div class="page_nav" style="padding:10px;"><center><strong><span style="color:#e3ba7c;">1</span></strong></center></div>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/add_2.png" width="16" height="16"> <strong>Новая тема</strong></a>
+<div class="rek" style="text-align:center;padding:10px;"><a href="#" onclick="closeModal('forumModal'); openModal('tavernaModal'); return false;" style="color:#e3ba7c;">- Форум</a></div>
+<div class="foot" style="text-align:center;padding:10px;border-top:1px solid #2a1a0a;">
+<a class="down" href="#" onclick="closeModal('forumModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
+<a class="down" href="#" onclick="closeModal('forumModal'); openUserModal(); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
+</div>
+<br><center style="color:#6e5f4a;">20:51 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>32</strong></center>
+<center># 0.00587 s.</center>
+</div></div>
+
+<!-- ВЕРФЬ -->
+<div class="modal-overlay" id="shopModal">
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('shopModal')">&times;</button>
+<div class="title">Верфь</div>
+<div class="up" style="padding:10px;">
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#E06D17;height:15px;width:0%;"><div style="color:#fff;font-size:11px;">&nbsp;0%</div></div></div>
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#bb1515;height:15px;width:35%;"><div style="color:#fff;font-size:11px;">&nbsp;140</div></div></div>
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> 6.79K
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> 0
+<a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="16" height="16"></a> 0 / 20
+<div style="text-align:right;"><a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/replay.png" width="26" height="26"></a> <span style="font-size:smaller;">20:53:30 ua</span></div>
+</div>
+<div class="under"><table><tbody><tr>
+<td style="width:1%;vertical-align:top;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/img/shop1.png" border="0" width="72" height="72"></td>
+<td style="vertical-align:top;"><span class="info_green"><strong class="info_pearl" id="shopName">Пират</strong>, верфь города <strong class="info_purple">Толедо</strong> к вашим услугам!</span></td>
+</tr></tbody></table></div>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/upgrade.png" width="24" height="24"> <strong class="info_salat">Железный Корсар</strong></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/ship.png" width="24" height="24"> <strong>Купить корабль</strong></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pushka.png" width="24" height="24"> Установить пушки</a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить гарпуны</a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить мортиру</a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить паруса</a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить броню</a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить спутник</a>
+<div class="post" style="padding:10px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/info.png" width="16" height="16"> С каждым новым уровнем тебе станет доступно новое комплектующее.</div>
+<div class="rek" style="text-align:center;padding:10px;"><a href="#" onclick="closeModal('shopModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;">Назад</a></div>
+<div class="foot" style="text-align:center;padding:10px;border-top:1px solid #2a1a0a;">
+<a class="down" href="#" onclick="closeModal('shopModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
+<a class="down" href="#" onclick="closeModal('shopModal'); openUserModal(); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
+</div>
+<br><center style="color:#6e5f4a;">20:53 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>31</strong></center>
+<center># 0.00827 s.</center>
+</div></div>
+
+<!-- ЧЕРНЫЙ РЫНОК -->
+<div class="modal-overlay" id="marketModal">
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('marketModal')">&times;</button>
+<div class="title">Черный рынок</div>
+<div class="up" style="padding:10px;">
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#E06D17;height:15px;width:0%;"><div style="color:#fff;font-size:11px;">&nbsp;0%</div></div></div>
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#bb1515;height:15px;width:36.25%;"><div style="color:#fff;font-size:11px;">&nbsp;145</div></div></div>
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> 6.79K
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> 0
+<a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="16" height="16"></a> 0 / 20
+<div style="text-align:right;"><a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/replay.png" width="26" height="26"></a> <span style="font-size:smaller;">20:55:21 ua</span></div>
+</div>
+<div class="post"><table><tbody><tr>
+<td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/img/auk_index.png" border="0" width="64" height="64"></td>
+<td style="vertical-align:top;"><span id="marketName">Пират</span>, добро пожаловать на <strong>Черный Рынок SeaWars</strong>!<br><span class="info_purple">Уже прочитали Торговый Чат?</span></td>
+</tr></tbody></table></div>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/bank.jpg" width="24" height="24"> <strong>Мой тайник</strong></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk_piastr.jpg" width="24" height="24"> <strong>Рынок пиастров</strong></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk_res.jpg" width="24" height="24"> <strong>Ресурсы</strong></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk_art.jpg" width="24" height="24"> <strong>Артефакты</strong></a>
+<div class="post" style="padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk_real.jpg" width="24" height="24"> <strong>Аукцион</strong></div>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/art_shop.jpg" width="24" height="24"> <strong>Торговец редкими артефактами</strong></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/trade_chat.jpg" width="24" height="24"> <strong>Торговый чат</strong></a>
+<div class="rek" style="text-align:center;padding:10px;"><a href="#" onclick="closeModal('marketModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;">Назад в Город</a></div>
+<div class="foot" style="text-align:center;padding:10px;border-top:1px solid #2a1a0a;">
+<a class="down" href="#" onclick="closeModal('marketModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
+<a class="down" href="#" onclick="closeModal('marketModal'); openUserModal(); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
+</div>
+<br><center style="color:#6e5f4a;">20:55 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>32</strong></center>
+<center># 0.00898 s.</center>
+</div></div>
+
+<!-- МАСТЕРА -->
+<div class="modal-overlay" id="mastersModal">
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('mastersModal')">&times;</button>
+<div class="title">Пиратские Мастера</div>
+<div class="up" style="padding:10px;">
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#E06D17;height:15px;width:0%;"><div style="color:#fff;font-size:11px;">&nbsp;0%</div></div></div>
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#bb1515;height:15px;width:37.5%;"><div style="color:#fff;font-size:11px;">&nbsp;150</div></div></div>
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> 6.79K
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> 0
+<a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="16" height="16"></a> 0 / 20
+<div style="text-align:right;"><a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/replay.png" width="26" height="26"></a> <span style="font-size:smaller;">20:57:45 ua</span></div>
+</div>
+<div class="gorod" style="text-align:center;padding:10px;"><img src="https://game-seawar.com/assets/img/masters.jpg" class="ico2" style="border:1px solid #2f3d46;border-radius:3px;" width="220" height="100"><br><br></div>
+<div class="post" style="padding:10px 15px;"><span class="info_green">Здесь находятся пиратские мастера.<br>Они могут создать уникальные артефакты, комплектующее или обучить пиратству.</span></div>
+<div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/pic/masters/blacksmith.png" width="62" height="54"></td><td style="vertical-align:middle;"><a href="#" style="color:#e3ba7c;"><strong>Кузнец</strong></a><br><small style="color:#888;">Создает и улучшает артефакты.</small></td></tr></tbody></table></div>
+<div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/pic/masters/silver.png" width="62" height="54"></td><td style="vertical-align:middle;"><a href="#" style="color:#e3ba7c;"><strong>Сильвер</strong></a><br><small style="color:#888;">Может увеличить получаемый опыт до +500%.</small></td></tr></tbody></table></div>
+<div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/pic/masters/john.png" width="62" height="54"></td><td style="vertical-align:middle;"><a href="#" style="color:#e3ba7c;"><strong>Старый пират Джон</strong></a><br><small style="color:#888;">Обучает пиратству.</small></td></tr></tbody></table></div>
+<div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/pic/masters/calipso.png" width="62" height="54"></td><td style="vertical-align:middle;"><a href="#" style="color:#e3ba7c;"><strong>Калипсо</strong></a><br><small style="color:#888;">Может создать мощнейшие артефакты.</small></td></tr></tbody></table></div>
+<div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/pic/masters/erik.png" width="62" height="54"></td><td style="vertical-align:middle;"><a href="#" style="color:#e3ba7c;"><strong>Эрик</strong></a><br><small style="color:#888;">Мастер по пиратским флотам.</small></td></tr></tbody></table></div>
+<div class="rek" style="text-align:center;padding:10px;"><a href="#" onclick="closeModal('mastersModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;">Город</a></div>
+<div class="foot" style="text-align:center;padding:10px;border-top:1px solid #2a1a0a;">
+<a class="down" href="#" onclick="closeModal('mastersModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
+<a class="down" href="#" onclick="closeModal('mastersModal'); openUserModal(); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
+</div>
+<br><center style="color:#6e5f4a;">20:57 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>31</strong></center>
+<center># 0.00469 s.</center>
+</div></div>
+
+<!-- ОБЩЕНИЕ -->
+<div class="modal-overlay" id="comuniModal">
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('comuniModal')">&times;</button>
+<div class="title">Общение</div>
+<div class="up" style="padding:10px;">
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#E06D17;height:15px;width:0%;"><div style="color:#fff;font-size:11px;">&nbsp;0%</div></div></div>
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#bb1515;height:15px;width:38.75%;"><div style="color:#fff;font-size:11px;">&nbsp;155</div></div></div>
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> 6.79K
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> 0
+<a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="16" height="16"></a> 0 / 20
+<div style="text-align:right;"><a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/replay.png" width="26" height="26"></a> <span style="font-size:smaller;">20:58:19 ua</span></div>
+</div>
+<div class="gorod" style="text-align:center;padding:10px;"><img src="https://game-seawar.com/assets/img/city/1.jpg" style="border:1px solid #d76082;border-radius:5px;" width="200" height="100"><br><br></div>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/kafe.png" width="16" height="16"> Чат</a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/kafe.png" width="16" height="16"> Новости <span class="info_grey">(от 13 сен.)</span></a>
+<a class="link" href="#" onclick="closeModal('comuniModal'); openModal('forumModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/kafe.png" width="16" height="16"> Форум</a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/man.png" width="16" height="16"> Кто онлайн <span class="info_grey">(32)</span></a>
+<div class="rek" style="text-align:center;padding:10px;"><a href="#" onclick="closeModal('comuniModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;">Назад в Город</a></div>
+<div class="foot" style="text-align:center;padding:10px;border-top:1px solid #2a1a0a;">
+<a class="down" href="#" onclick="closeModal('comuniModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
+<a class="down" href="#" onclick="closeModal('comuniModal'); openUserModal(); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
+</div>
+<br><center style="color:#6e5f4a;">20:58 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>32</strong></center>
+<center># 0.00539 s.</center>
+</div></div>
+
+<!-- МОРЕ -->
+<div class="modal-overlay" id="locationModal">
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('locationModal')">&times;</button>
+<div class="title">Море</div>
+<div class="up" style="padding:10px;">
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#E06D17;height:15px;width:0%;"><div style="color:#fff;font-size:11px;">&nbsp;0%</div></div></div>
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#bb1515;height:15px;width:40%;"><div style="color:#fff;font-size:11px;">&nbsp;160</div></div></div>
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> 6.79K
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> 0
+<a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="16" height="16"></a> 0 / 20
+<div style="text-align:right;"><a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/replay.png" width="26" height="26"></a> <span style="font-size:smaller;">20:58:51 ua</span></div>
+</div>
+<div class="gorod" style="text-align:center;padding:10px;"><img src="https://game-seawar.com/assets/img/wargames.jpg" style="border:2px solid #4b261e;border-radius:3px;" width="220" height="85"><br><br></div>
+<div class="post" style="padding:8px 15px;"><span class="info_green"><img class="ico" src="https://game-seawar.com/assets/icons/weather/5.png" width="16" height="16"> Караваны нежити потеряли Сундуки Ванху...</span></div>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/home.jpg" width="24" height="24"> <strong>Порт Мертвецов</strong></a>
+<div class="post" style="padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/home.jpg" width="24" height="24"> <strong><span class="info_red">Острова Сирен</span></strong><span class="info_red">, от 3 ур.</span></div>
+<div class="post" style="padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/home.jpg" width="24" height="24"> <strong><span class="info_red">Ост-Индия</span></strong><span class="info_red">, от 6 ур.</span></div>
+<div class="post" style="padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/home.jpg" width="24" height="24"> <strong><span class="info_red">Пенная бухта</span></strong><span class="info_red">, от 13 ур.</span></div>
+<div class="post" style="padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/home.jpg" width="24" height="24"> <strong><span class="info_red">Говорящие Скалы</span></strong><span class="info_red">, от 18 ур.</span></div>
+<div class="post" style="padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/home.jpg" width="24" height="24"> <strong><span class="info_red">Исла де Муэрто</span></strong><span class="info_red">, от 25 ур.</span></div>
+<div class="under" style="padding:10px 15px;"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/more_rait.png" width="32" height="32"></td><td>Рейтинг навыка: <strong>1500</strong> <span class="info_green">Л</span></td></tr></tbody></table></div>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img src="https://game-seawar.com/assets/icons/nav/invis.png" class="ico2" width="16" height="16"> Поклонение невидимки</a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img src="https://game-seawar.com/assets/icons/nav/maps.png" class="ico2" width="16" height="16"> <strong>Карты морей</strong></a>
+<div class="post" style="padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/info.png" width="16" height="16"> Новые пути будут открываться по мере прохождения игры.</div>
+<div class="foot" style="text-align:center;padding:10px;border-top:1px solid #2a1a0a;">
+<a class="down" href="#" onclick="closeModal('locationModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
+<a class="down" href="#" onclick="closeModal('locationModal'); openUserModal(); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
+</div>
+<br><center style="color:#6e5f4a;">20:58 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>31</strong></center>
+<center># 0.01411 s.</center>
+</div></div>
+
+<!-- ПОИСКИ СОКРОВИЩ -->
+<div class="modal-overlay" id="treasuresModal">
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('treasuresModal')">&times;</button>
+<div class="title">Поиски Сокровищ</div>
+<div class="up" style="padding:10px;">
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#E06D17;height:15px;width:0%;"><div style="color:#fff;font-size:11px;">&nbsp;0%</div></div></div>
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#bb1515;height:15px;width:41.25%;"><div style="color:#fff;font-size:11px;">&nbsp;165</div></div></div>
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> 6.79K
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> 0
+<a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="16" height="16"></a> 0 / 20
+<div style="text-align:right;"><a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/replay.png" width="26" height="26"></a> <span style="font-size:smaller;">21:00:16 ua</span></div>
+</div>
+<div class="gorod" style="text-align:center;padding:10px;"><img src="https://game-seawar.com/assets/img/treasure.jpg" width="100" height="56"></div>
+<div class="under" style="padding:10px 15px;"><img src="https://game-seawar.com/assets/icons/weapon.png" class="ico2" width="16" height="16"> Капитан <strong id="treasuresName">Пират</strong>!<br>Хотите отправится на поиски сокровищ?!</div>
+<div class="under" style="padding:10px 15px;">Предупреждаю, что вас ждет большая опасность в виде других пиратов, а также (только по секрету для Вас) ходят слухи об Адской Нежити...<br><span class="info_red">Три корабля уже пропали за последнюю неделю...</span><br>Но все же, если рискнете, можете найти очень большие сокровища!<br><span class="info_green">(Ресурсы, золото или уникальные артефакты)</span>.<br>Решать вам, Капитан!</div>
+<div class="under" style="text-align:center;padding:10px 15px;"><a class="but" href="#" style="display:inline-block;text-decoration:none;color:#e3ba7c;">На поиски сокровищ!</a></div>
+<div class="under" style="padding:10px 15px;"><strong class="info_green">Лучшая награда:</strong><br><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/pic/art/myadra.jpg" width="48" height="48"></td><td><strong>Маленькие Ядра</strong><br>Ат: <strong class="info_green">+до 150</strong><br>Скор: <strong class="info_green">+до 100</strong><br>Нахождение с <strong class="info_green">30</strong> уровня.</td></tr></tbody></table></div>
+<div class="under" style="padding:10px 15px;"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/icons/info.png" width="16" height="16"></td><td>Шанс нахождения от <strong class="info_trader">1<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"></strong> до <strong class="info_trader">1500<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"></strong> - <strong class="info_purple">33%</strong>.<br><span class="info_purple">Шанс нахождения от <strong class="info_trader">2500<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"></strong> до <strong class="info_trader">15000<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"></strong> - <strong class="info_purple">3%</strong>.</span><br><strong>Чем дольше длится бой, тем сильнее атакует враг.<br>Но чем больше монстров вы уничтожите, тем крупнее будет награда!</strong></td></tr></tbody></table></div>
+<div class="under" style="padding:10px 15px;"><span style="color:#819bc0;">Найди Адские сокровища и получи трофей. (Шанс 66%)<br>Каждое повторное получение улучшит его атаку на <strong>+25</strong>.</span></div>
+<div class="under" style="padding:10px 15px;"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/pic/trophy/69.jpg" width="48" height="48"></td><td><strong>Адские Сокровища</strong>, трофей<br><span class="info_green">Атака: <strong>+200</strong></span></td></tr></tbody></table></div>
+<div class="rek" style="text-align:center;padding:10px;"><a href="#" onclick="closeModal('treasuresModal'); openModal('monstersModal'); return false;" style="color:#e3ba7c;">Назад к Монстрам</a></div>
+<div class="foot" style="text-align:center;padding:10px;border-top:1px solid #2a1a0a;">
+<a class="down" href="#" onclick="closeModal('treasuresModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
+<a class="down" href="#" onclick="closeModal('treasuresModal'); openUserModal(); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
+</div>
+<br><center style="color:#6e5f4a;">21:00 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>29</strong></center>
+<center># 0.00721 s.</center>
+</div></div>
+
+<!-- МОНСТРЫ -->
+<div class="modal-overlay" id="monstersModal">
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('monstersModal')">&times;</button>
+<div class="title">Монстры</div>
+<div class="up" style="padding:10px;">
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#E06D17;height:15px;width:0%;"><div style="color:#fff;font-size:11px;">&nbsp;0%</div></div></div>
+<div style="background:#d1bebe;height:15px;width:100%;margin:6px 0;"><div style="background:#bb1515;height:15px;width:42.5%;"><div style="color:#fff;font-size:11px;">&nbsp;170</div></div></div>
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> 6.79K
+<img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> 0
+<a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="16" height="16"></a> 0 / 20
+<div style="text-align:right;"><a href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/replay.png" width="26" height="26"></a> <span style="font-size:smaller;">21:01:21 ua</span></div>
+</div>
+<div class="gorod" style="text-align:center;padding:10px;"><br><img src="https://game-seawar.com/assets/img/monsters_index.jpg" style="border:1px solid #781e15;border-radius:1px;" width="200" height="80"><br><br></div>
+<div class="post"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/img/bokora.png" width="61" height="53"></td><td><a href="#" style="color:#e3ba7c;"><strong>Чаша Бокора</strong></a><br><small style="color:#888;">Сбрасывайте <img src="https://game-seawar.com/assets/icons/res/slitok.png" class="ico2" width="20" height="20"> и получайте хорошую награду.</small></td></tr></tbody></table></div>
+<div class="post"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/pic/kontr.png" border="0" width="61" height="53"></td><td><a href="#" style="color:#e3ba7c;"><strong>Контрабандист</strong></a><br><small style="color:#888;">Обменивайте <img class="ico" src="https://game-seawar.com/assets/icons/res/gems.png" width="16" height="16"> на ценную награду.</small></td></tr></tbody></table></div>
+<div class="razd" style="padding:10px;font-weight:bold;color:#e3ba7c;border-bottom:1px solid #2a1a0a;">Монстры:</div>
+<a class="link" href="#" onclick="closeModal('monstersModal'); openModal('treasuresModal'); return false;" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/treasure.png" width="24" height="24"> <strong>Поиски сокровищ</strong> <span class="info_grey">от 1 ур.</span> <span class="info_green"> + </span></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/zina.png" width="24" height="24"> <strong>Мемозина</strong> <span class="info_red">от 13 ур.</span></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/barrakuda.png" width="24" height="24"> <strong>Барракуда</strong> <span class="info_red">от 21 ур.</span></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/grap.png" width="24" height="24"> <strong>Морской змей</strong> <span class="info_red">от 21 ур.</span></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/hydra.png" width="24" height="24"> <strong>Гидра</strong> <span class="info_red">от 30 ур.</span></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/maid.png" width="24" height="24"> <strong>Охота на сирен</strong> <span class="info_red">от 35 ур.</span></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/black.png" width="24" height="24"> <strong>Подводные пещеры</strong> <span class="info_red">от 35 ур.</span></a>
+<div class="razd" style="padding:10px;font-weight:bold;color:#e3ba7c;border-bottom:1px solid #2a1a0a;">Дополнительно:</div>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/fish_ico.jpg" width="24" height="24"> <strong>Рыбалка</strong></a>
+<a class="link" href="#" style="display:block;padding:8px 15px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/kirka.jpg" width="24" height="24"> <strong>Добыча руды</strong></a>
+<div class="rek" style="text-align:center;padding:10px;"><a href="#" onclick="closeModal('monstersModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;">Назад в Город</a></div>
+<div class="foot" style="text-align:center;padding:10px;border-top:1px solid #2a1a0a;">
+<a class="down" href="#" onclick="closeModal('monstersModal'); openModal('cityModal'); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
+<a class="down" href="#" onclick="closeModal('monstersModal'); openUserModal(); return false;" style="color:#e3ba7c;margin:0 10px;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
+</div>
+<br><center style="color:#6e5f4a;">21:01 <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>29</strong></center>
+<center># 0.00489 s.</center>
+</div></div>
+
+<script>
+function openModal(id) {
+    var el = document.getElementById(id);
+    if (!el) { console.error('Не найдено окно: ' + id); return; }
+    el.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function showPrizeResult() {
+    var a = document.getElementById('prizeStart');
+    var b = document.getElementById('prizeResult');
+    if (a && b) { a.style.display = 'none'; b.style.display = 'block'; }
+}
+
+function setText(id, val) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = val;
+}
+
+function setSrc(id, val) {
+    var el = document.getElementById(id);
+    if (el) el.src = val;
+}
+
+function openUserModal() {
+    var loginInput = document.querySelector('#authModal input[name="login"]');
+    var login = (loginInput && loginInput.value) ? loginInput.value : 'Пират';
+
+    var sexSelect = document.querySelector('#regModal select[name="sex"]');
+    var sex = sexSelect ? sexSelect.value : '1';
+
+    setText('userTitle', login);
+    setText('userRole', 'Матрос ' + login + ' 1 уровень.');
+    setText('cityName', login);
+    setText('prizeName', login);
+    setText('tavernaName', login);
+    setText('shopName', login);
+    setText('marketName', login);
+    setText('treasuresName', login);
+
+    if (sex === '0') {
+        setSrc('userAvatar', 'https://game-seawar.com/assets/pic/avatar/sex_0.jpg');
+        setText('userSex', 'Девушка');
+    } else {
+        setSrc('userAvatar', 'https://game-seawar.com/assets/pic/avatar/sex_1.jpg');
+        setText('userSex', 'Парень');
+    }
+
+    openModal('userModal');
+}
+
+document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+    overlay.addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(function(overlay) {
+            overlay.classList.remove('active');
+        });
+        document.body.style.overflow = '';
+    }
+});
+</script>
+
+</body>
+</html>
