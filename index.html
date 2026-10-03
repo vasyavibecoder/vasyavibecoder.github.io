@@ -50,7 +50,6 @@ a { color:#e3ba7c; }
 .bar-text { color:#fff; font-size:11px; }
 </style>
 <script>
-// ================== COOKIE ==================
 function setCookie(name, value, days) {
     var expires = '';
     if (days) {
@@ -102,7 +101,7 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="title">Начало игры - Пираты</div>
 <div class="gorod">
 <img src="https://game-seawar.com/assets/img/more.jpg" class="ico2" width="200" height="80"><br><br>
-<span class="info_green">Акция! Начни игру сегодня и получи 1000 <img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> в подарок!<br><small>До конца акции 2 часа!</small></span><br><br>
+<span class="info_green">Акция! Начни игру и получи 1000 <img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> в подарок!<br><small>До конца акции 2 часа!</small></span><br><br>
 <form id="regForm" method="POST" action="#">
 <strong>Ваше имя:</strong> <small>(3-40 букв)</small><br>
 <input type="text" name="login" minlength="3" maxlength="40" required><br>
@@ -189,18 +188,19 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="title">Город Толедо</div>
 <div class="up" style="padding:10px;">
 <div class="bar"><div class="bar-inner" style="background:#E06D17;width:0%;"><div class="bar-text">&nbsp;0%</div></div></div>
-<div class="bar"><div class="bar-inner" style="background:#bb1515;width:33.75%;"><div class="bar-text">&nbsp;135</div></div></div>
+<div class="bar"><div class="bar-inner" style="background:#bb1515;width:33.75%;"><div class="bar-text">&nbsp;<span class="player-hp">140</span></div></div></div>
 <img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"> <span class="player-gold">1000</span>
 <img class="ico2" src="https://game-seawar.com/assets/icons/res/piastr.png" width="16" height="16"> <span class="player-piastr">0</span>
 <div style="text-align:right;"><span style="font-size:smaller;" class="current-time">--:--:--</span></div>
 </div>
 <div class="gorod"><img src="https://game-seawar.com/assets/img/city/1.jpg" width="200" height="100"></div>
 <div class="under" style="text-align:center;">
-<strong class="info_red">Игра на этапе Бета Тестирования!<br>Много что ещё не реализовано.<br>***<br>Не забывайте качать защиту!</strong>
+<strong class="info_red">Игра на этапе Бета Тестирования!<br>Не забывайте качать защиту!</strong>
 </div>
+<div class="under">Опыт: <strong class="player-xp">0</strong> / <strong class="player-xp-max">1000</strong> XP</div>
 <div class="under"><table><tbody><tr>
 <td style="width:1%;padding:2px;"><img src="https://game-seawar.com/assets/img/pirate_newgame.jpg" style="border-radius:21px;margin:5px;" width="96" height="96"></td>
-<td style="vertical-align:middle;"><span id="cityName">Игрок</span>, на Пинасе далеко не уплыть. Нужно в <strong>Верфи</strong> купить новый корабль — <strong><span class="info_salat">Корвет</span></strong>.<br>Я слышала что в <strong>Таверне</strong> есть задания. Платят хорошо!</td>
+<td style="vertical-align:middle;"><span id="cityName">Игрок</span>, на Пинасе далеко не уплыть. Нужно в <strong>Верфи</strong> купить новый корабль!<br>В <strong>Таверне</strong> есть задания.</td>
 </tr></tbody></table></div>
 <div class="razd">Приключения</div>
 <a class="link" href="#" onclick="closeModal('cityModal'); openModal('locationModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/more.jpg" width="24" height="24"> В море!</a>
@@ -235,10 +235,11 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="under" style="text-align:center;">
 <img class="ico2" id="userAvatar" src="https://game-seawar.com/assets/pic/avatar/sex_1.jpg" style="border:1px solid #1e190f;border-radius:5px;" width="100" height="100"><br>
 <strong id="userRole">Матрос Игрок 1 уровень.</strong><br>Пол: <span id="userSex">Парень</span><br>
+Опыт: <strong class="player-xp">0</strong> / <strong class="player-xp-max">1000</strong> XP<br>
 Ранг: <img src="https://game-seawar.com/assets/icons/rank_label/1.png" class="ico2" width="16" height="16"><strong>Молодой</strong>
 </div>
 <a class="link" href="#" onclick="closeModal('userModal'); openModal('mailModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/mail.jpg" width="24" height="24"> <strong>Почта</strong></a>
-<a class="link" href="#" onclick="closeModal('userModal'); openModal('chestModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="24" height="24"> <strong>Сундук</strong></a>
+<a class="link" href="#" onclick="closeModal('userModal'); openModal('chestModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="24" height="24"> <strong>Сундук (<span class="chest-count">0</span>)</strong></a>
 <a class="link" href="#" onclick="closeModal('userModal'); openModal('shipModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/artefact.jpg" width="24" height="24"> <strong>Мой корабль</strong></a>
 <a class="link" href="#" onclick="closeModal('userModal'); openModal('questsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/quest.jpg" width="24" height="24"> Квесты <span class="info_green">(+)</span></a>
 <a class="link" href="#" onclick="closeModal('userModal'); openModal('collectionsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/colect.jpg" width="24" height="24"> Коллекции</a>
@@ -268,33 +269,17 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <button class="modal-close" onclick="closeModal('settingsModal')">&times;</button>
 <div class="title">Настройки игры</div>
 <div class="under"><span class="info_pearl">Выберите удобные настройки!</span></div>
-<div class="razd">Основные:</div>
-<div class="under" style="line-height:22px;">
-<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Игровой дизайн: большой<br>
-<img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Показатели опыта: да
-</div>
 <div class="razd">Сохранение прогресса:</div>
 <a class="link" href="#" onclick="exportProgress(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/set.png" width="24" height="24"> <strong>📥 Скачать файл сохранения</strong></a>
 <a class="link" href="#" onclick="document.getElementById('importFile').click(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/set.png" width="24" height="24"> <strong>📤 Загрузить из файла</strong></a>
 <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importProgress(event)">
 <a class="link" href="#" onclick="showTransferCode(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/set.png" width="24" height="24"> <strong>🔑 Получить код переноса</strong></a>
 <div class="razd">Персонаж:</div>
-<a class="link" href="#" onclick="closeModal('settingsModal'); openModal('avatarModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/map.png" width="24" height="24"> Изменить аватар</a>
 <a class="link" href="#" onclick="closeModal('settingsModal'); openModal('changeLoginModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/text.png" width="24" height="24"> Изменить ник</a>
 <a class="link" href="#" onclick="closeModal('settingsModal'); openModal('changeSexModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/kafe.png" width="24" height="24"> Изменить пол</a>
 <a class="link" href="#" onclick="closeModal('settingsModal'); openModal('securityModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/text.png" width="24" height="24"> Безопасность</a>
 <a class="link" href="#" onclick="logoutPlayer(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/frend.png" width="24" height="24"> <strong>Выйти из игры</strong></a>
 <div class="rek"><a href="#" onclick="closeModal('settingsModal'); openUserModal(); return false;">Назад</a></div>
-</div></div>
-
-<!-- АВАТАР -->
-<div class="modal-overlay" id="avatarModal">
-<div class="modal-window">
-<button class="modal-close" onclick="closeModal('avatarModal')">&times;</button>
-<div class="title">Изменить аватар</div>
-<div class="under"><img src="https://game-seawar.com/assets/icons/nav/masters.jpg" class="ico2" width="24" height="24"> Рекомендуем загружать картинки с пиратской тематикой.</div>
-<div class="post"><strong>У Вас не установлен Диамантовый VIP.</strong></div>
-<div class="rek"><a href="#" onclick="closeModal('avatarModal'); openModal('settingsModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- СМЕНА НИКА -->
@@ -305,7 +290,7 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="post">Текущий ник: <span class="info_purple" id="curLogin">Игрок</span></div>
 <div class="under">Стоимость смены: <strong>100000</strong> пиастров<br>
 <form onsubmit="event.preventDefault(); changeLogin(this.newlogin.value);">
-Смениваем на? (англ-рус буквы, цифры)<br><br>
+Смениваем на?<br><br>
 <input type="text" name="newlogin" required><br>
 <input type="submit" class="but" value="сменить">
 </form></div>
@@ -327,9 +312,11 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="modal-window">
 <button class="modal-close" onclick="closeModal('securityModal')">&times;</button>
 <div class="title">Безопасность персонажа</div>
-<a class="link" href="#" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/text.png" width="24" height="24"> Изменить Email</a>
-<a class="link" href="#" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/text.png" width="24" height="24"> Изменить пароль</a>
-<a class="link" href="#" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/kafe.png" width="24" height="24"> Двухфакторная проверка</a>
+<div class="post">Email: <strong id="secEmail">не указан</strong> <button class="but" onclick="setEmail()">Изменить</button></div>
+<div class="post">Телефон: <strong id="secPhone">не указан</strong> <button class="but" onclick="setPhone()">Изменить</button></div>
+<div class="post">Пароль: <button class="but" onclick="changePassword()">Изменить пароль</button></div>
+<div class="post">2FA: <strong id="sec2FA">отключена</strong> <button class="but" onclick="toggle2FA()">Вкл/Выкл</button></div>
+<div class="post">Автологин: <strong id="secAuto">выкл</strong> <button class="but" onclick="toggleAuto()">Вкл/Выкл</button></div>
 <div class="rek"><a href="#" onclick="closeModal('securityModal'); openModal('settingsModal'); return false;">Назад</a></div>
 </div></div>
 <!-- ТАВЕРНА -->
@@ -352,11 +339,10 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="modal-window">
 <button class="modal-close" onclick="closeModal('chapelModal')">&times;</button>
 <div class="title">Церковь</div>
-<div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/pic/dad.jpg" width="52" height="52"></td><td>Здравствуй <strong id="chapelName">Игрок</strong>, рады приветствовать тебя в храме Господнем!<br>Я могу скрепить Ваши чувства перед богом.</td></tr></tbody></table></div>
+<div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/pic/dad.jpg" width="52" height="52"></td><td>Здравствуй <strong id="chapelName">Игрок</strong>, рады приветствовать тебя в храме Господнем!</td></tr></tbody></table></div>
 <a class="link" href="#" onclick="chapelPropose(); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Сделать предложение</a>
 <a class="link" href="#" onclick="chapelShop(); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Магазин редкостей</a>
 <a class="link" href="#" onclick="chapelEngraving(); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Снять гравировку</a>
-<div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/icons/info.png" width="16" height="16"></td><td>Покупка колец доступна после предложения второй половинке!</td></tr></tbody></table></div>
 <div class="rek"><a href="#" onclick="closeModal('chapelModal'); openModal('tavernaModal'); return false;">Назад</a></div>
 </div></div>
 
@@ -369,12 +355,12 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <a class="link" href="#" onclick="closeModal('shopModal'); openModal('corsarModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/upgrade.png" width="24" height="24"> <strong class="info_salat">Железный Корсар</strong></a>
 <a class="link" href="#" onclick="closeModal('shopModal'); openModal('shipsModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/ship.png" width="24" height="24"> <strong>Купить корабль</strong></a>
 <a class="link" href="#" onclick="closeModal('shopModal'); openModal('gunsModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pushka.png" width="24" height="24"> Установить пушки</a>
-<a class="link" href="#" onclick="closeModal('shopModal'); openModal('gunsModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить гарпуны</a>
+<a class="link" href="#" onclick="closeModal('shopModal'); openModal('harpoonModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить гарпуны</a>
 <a class="link" href="#" onclick="closeModal('shopModal'); openModal('mortiraModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить мортиру</a>
-<a class="link" href="#" onclick="closeModal('shopModal'); openModal('gunsModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить паруса</a>
-<a class="link" href="#" onclick="closeModal('shopModal'); openModal('gunsModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить броню</a>
+<a class="link" href="#" onclick="closeModal('shopModal'); openModal('sailsModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить паруса</a>
+<a class="link" href="#" onclick="closeModal('shopModal'); openModal('armorModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить броню</a>
+<a class="link" href="#" onclick="closeModal('shopModal'); openModal('satelliteModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить спутник</a>
 <a class="link" href="#" onclick="upgradeShip(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/upgrade.png" width="24" height="24"> <strong>Улучшить корабль (+10 мощности, 500 золота)</strong></a>
-<div class="post"><img class="ico" src="https://game-seawar.com/assets/icons/info.png" width="16" height="16"> С каждым уровнем доступно новое комплектующее.</div>
 <div class="under">Мощность: <strong class="player-power">24</strong> | Золото: <span class="player-gold">1000</span></div>
 <div class="rek"><a href="#" onclick="closeModal('shopModal'); openModal('cityModal'); return false;">Назад</a></div>
 </div></div>
@@ -385,18 +371,18 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <button class="modal-close" onclick="closeModal('shipsModal')">&times;</button>
 <div class="title">Покупка корабля</div>
 <div class="under" style="text-align:center;">Ваш корабль: <strong class="player-ship-name">Пинас</strong> | Золото: <strong class="player-gold">1000</strong></div>
-<div class="post"><strong>Пинас</strong> — от 1 ур. — <span class="info_gold">2 зол.</span> <button class="but" onclick="buyShip(0)">Купить</button></div>
-<div class="post"><strong>Посудина (+600)</strong> — от 1 ур. — <span class="info_gold">1000 зол.</span> <button class="but" onclick="buyShip(1)">Купить</button></div>
-<div class="post"><strong>Бриг (+2412)</strong> — от 1 ур. — <span class="info_gold">5000 зол.</span> <button class="but" onclick="buyShip(2)">Купить</button></div>
-<div class="post"><strong>Каравелла (+2732)</strong> — от 1 ур. — <span class="info_gold">8150 зол.</span> <button class="but" onclick="buyShip(3)">Купить</button></div>
-<div class="post"><strong>Когг (+1232)</strong> — от 1 ур. — <span class="info_gold">21000 зол.</span> <button class="but" onclick="buyShip(4)">Купить</button></div>
-<div class="post"><strong>Корвет (+1856)</strong> — от 1 ур. — <span class="info_gold">37800 зол.</span> <button class="but" onclick="buyShip(5)">Купить</button></div>
-<div class="post"><strong>Каракка (+3848)</strong> — от 7 ур. — <span class="info_gold">28600 зол.</span> <button class="but" onclick="buyShip(6)">Купить</button></div>
-<div class="post"><strong>Галеон (+5222)</strong> — от 13 ур. — <span class="info_gold">103500 зол.</span> <button class="but" onclick="buyShip(7)">Купить</button></div>
-<div class="post"><strong>Галера (+4290)</strong> — от 13 ур. — <span class="info_gold">68400 зол.</span> <button class="but" onclick="buyShip(8)">Купить</button></div>
-<div class="post"><strong>Фрегат (+3668)</strong> — от 13 ур. — <span class="info_gold">56000 зол.</span> <button class="but" onclick="buyShip(9)">Купить</button></div>
-<div class="post"><strong>Линейный корабль (+7398)</strong> — от 21 ур. — <span class="info_gold">150000 зол.</span> <button class="but" onclick="buyShip(10)">Купить</button></div>
-<div class="post"><strong>Веселый Роджер (+8408)</strong> — от 21 ур. — <span class="info_gold">312000 зол.</span> <button class="but" onclick="buyShip(11)">Купить</button></div>
+<div class="post"><strong>Пинас</strong> — 2 зол. <button class="but" onclick="buyShip(0)">Купить</button></div>
+<div class="post"><strong>Посудина (+600)</strong> — 1000 зол. <button class="but" onclick="buyShip(1)">Купить</button></div>
+<div class="post"><strong>Бриг (+2412)</strong> — 5000 зол. <button class="but" onclick="buyShip(2)">Купить</button></div>
+<div class="post"><strong>Каравелла (+2732)</strong> — 8150 зол. <button class="but" onclick="buyShip(3)">Купить</button></div>
+<div class="post"><strong>Когг (+1232)</strong> — 21000 зол. <button class="but" onclick="buyShip(4)">Купить</button></div>
+<div class="post"><strong>Корвет (+1856)</strong> — 37800 зол. <button class="but" onclick="buyShip(5)">Купить</button></div>
+<div class="post"><strong>Каракка (+3848)</strong> — 28600 зол. (от 7 ур.) <button class="but" onclick="buyShip(6)">Купить</button></div>
+<div class="post"><strong>Галеон (+5222)</strong> — 103500 зол. (от 13 ур.) <button class="but" onclick="buyShip(7)">Купить</button></div>
+<div class="post"><strong>Галера (+4290)</strong> — 68400 зол. (от 13 ур.) <button class="but" onclick="buyShip(8)">Купить</button></div>
+<div class="post"><strong>Фрегат (+3668)</strong> — 56000 зол. (от 13 ур.) <button class="but" onclick="buyShip(9)">Купить</button></div>
+<div class="post"><strong>Линейный корабль (+7398)</strong> — 150000 зол. (от 21 ур.) <button class="but" onclick="buyShip(10)">Купить</button></div>
+<div class="post"><strong>Веселый Роджер (+8408)</strong> — 312000 зол. (от 21 ур.) <button class="but" onclick="buyShip(11)">Купить</button></div>
 <div class="rek"><a href="#" onclick="closeModal('shipsModal'); openModal('shopModal'); return false;">Назад</a></div>
 </div></div>
 
@@ -406,17 +392,31 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <button class="modal-close" onclick="closeModal('gunsModal')">&times;</button>
 <div class="title">Установка пушек</div>
 <div class="under" style="text-align:center;">Мощность: <strong class="player-power">24</strong> | Золото: <strong class="player-gold">1000</strong></div>
-<div class="post"><strong>8-пудовка</strong> — Ат +25 — <span class="info_gold">125 зол.</span> <button class="but" onclick="buyGun('8-пудовка',25,125)">Купить</button></div>
-<div class="post"><strong>12-пудовка</strong> — Ат +48 — <span class="info_gold">960 зол.</span> <button class="but" onclick="buyGun('12-пудовка',48,960)">Купить</button></div>
-<div class="post"><strong>16-пудовка</strong> — Ат +73 — <span class="info_gold">2570 зол.</span> <button class="but" onclick="buyGun('16-пудовка',73,2570)">Купить</button></div>
-<div class="post"><strong>20-пудовка</strong> — Ат +102 — <span class="info_gold">5800 зол.</span> <button class="but" onclick="buyGun('20-пудовка',102,5800)">Купить</button></div>
-<div class="post"><strong>30-пудовка</strong> — Ат +138 — <span class="info_gold">12300 зол.</span> <button class="but" onclick="buyGun('30-пудовка',138,12300)">Купить</button></div>
-<div class="post"><strong>50-пудовка</strong> — Ат +210 — <span class="info_gold">25700 зол.</span> <button class="but" onclick="buyGun('50-пудовка',210,25700)">Купить</button></div>
-<div class="post"><strong>100-пудовка</strong> — Ат +300 — <span class="info_gold">48600 зол.</span> <button class="but" onclick="buyGun('100-пудовка',300,48600)">Купить</button></div>
-<div class="post"><strong>Регенеративная пушка</strong> — Ат +375 — <span class="info_gold">99600 зол.</span> <button class="but" onclick="buyGun('Регенеративная',375,99600)">Купить</button></div>
-<div class="post"><strong>Крушительница</strong> — Ат +810 — <span class="info_gold">523000 зол.</span> <button class="but" onclick="buyGun('Крушительница',810,523000)">Купить</button></div>
-<div class="post"><strong>Змеиный Глаз</strong> — Ат +1250 — <span class="info_gold">920000 зол.</span> <button class="but" onclick="buyGun('Змеиный Глаз',1250,920000)">Купить</button></div>
+<div class="post"><strong>8-пудовка</strong> — Ат +25 — 125 зол. <button class="but" onclick="buyGun('8-пудовка',25,125)">Купить</button></div>
+<div class="post"><strong>12-пудовка</strong> — Ат +48 — 960 зол. <button class="but" onclick="buyGun('12-пудовка',48,960)">Купить</button></div>
+<div class="post"><strong>16-пудовка</strong> — Ат +73 — 2570 зол. <button class="but" onclick="buyGun('16-пудовка',73,2570)">Купить</button></div>
+<div class="post"><strong>20-пудовка</strong> — Ат +102 — 5800 зол. <button class="but" onclick="buyGun('20-пудовка',102,5800)">Купить</button></div>
+<div class="post"><strong>30-пудовка</strong> — Ат +138 — 12300 зол. <button class="but" onclick="buyGun('30-пудовка',138,12300)">Купить</button></div>
+<div class="post"><strong>50-пудовка</strong> — Ат +210 — 25700 зол. <button class="but" onclick="buyGun('50-пудовка',210,25700)">Купить</button></div>
+<div class="post"><strong>100-пудовка</strong> — Ат +300 — 48600 зол. <button class="but" onclick="buyGun('100-пудовка',300,48600)">Купить</button></div>
+<div class="post"><strong>Регенеративная</strong> — Ат +375 — 99600 зол. <button class="but" onclick="buyGun('Регенеративная',375,99600)">Купить</button></div>
+<div class="post"><strong>Крушительница</strong> — Ат +810 — 523000 зол. <button class="but" onclick="buyGun('Крушительница',810,523000)">Купить</button></div>
+<div class="post"><strong>Змеиный Глаз</strong> — Ат +1250 — 920000 зол. <button class="but" onclick="buyGun('Змеиный Глаз',1250,920000)">Купить</button></div>
 <div class="rek"><a href="#" onclick="closeModal('gunsModal'); openModal('shopModal'); return false;">Назад</a></div>
+</div></div>
+
+<!-- ГАРПУНЫ -->
+<div class="modal-overlay" id="harpoonModal">
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('harpoonModal')">&times;</button>
+<div class="title">Установка гарпунов</div>
+<div class="under" style="text-align:center;">Мощность: <strong class="player-power">24</strong> | Золото: <strong class="player-gold">1000</strong></div>
+<div class="post"><strong>Простой гарпун</strong> — Ат +15 — 200 зол. <button class="but" onclick="buyGun('Простой гарпун',15,200)">Купить</button></div>
+<div class="post"><strong>Стальной гарпун</strong> — Ат +45 — 1500 зол. <button class="but" onclick="buyGun('Стальной гарпун',45,1500)">Купить</button></div>
+<div class="post"><strong>Крюк-багор</strong> — Ат +120 — 12000 зол. <button class="but" onclick="buyGun('Крюк-багор',120,12000)">Купить</button></div>
+<div class="post"><strong>Гарпун-молния</strong> — Ат +400 — 150000 зол. <button class="but" onclick="buyGun('Гарпун-молния',400,150000)">Купить</button></div>
+<div class="post"><strong>Гарпун Посейдона</strong> — Ат +900 — 700000 зол. <button class="but" onclick="buyGun('Гарпун Посейдона',900,700000)">Купить</button></div>
+<div class="rek"><a href="#" onclick="closeModal('harpoonModal'); openModal('shopModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- МОРТИРА -->
@@ -425,12 +425,53 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <button class="modal-close" onclick="closeModal('mortiraModal')">&times;</button>
 <div class="title">Установка мортиры</div>
 <div class="under" style="text-align:center;">Урон мортиры: <strong class="player-mortira">0</strong> | Золото: <strong class="player-gold">1000</strong></div>
-<div class="post"><strong>Обычная Мортира</strong> — Урон 450 — <span class="info_gold">47800 зол.</span> <button class="but" onclick="buyMortira('Обычная',450,47800)">Купить</button></div>
-<div class="post"><strong>Мортира Охотника</strong> — Урон 800 — <span class="info_gold">125690 зол.</span> <button class="but" onclick="buyMortira('Охотника',800,125690)">Купить</button></div>
-<div class="post"><strong>Глаз Тукана</strong> — Урон 1500 — <span class="info_gold">789000 зол.</span> <button class="but" onclick="buyMortira('Глаз Тукана',1500,789000)">Купить</button></div>
-<div class="post"><strong>Ленточный Взрыв</strong> — Урон 2850 — <span class="info_gold">2337000 зол.</span> <button class="but" onclick="buyMortira('Ленточный',2850,2337000)">Купить</button></div>
-<div class="post"><strong>Взрыв Небес</strong> — Урон 4150 — <span class="info_gold">4310500 зол.</span> <button class="but" onclick="buyMortira('Взрыв Небес',4150,4310500)">Купить</button></div>
+<div class="post"><strong>Обычная Мортира</strong> — Урон 450 — 47800 зол. <button class="but" onclick="buyMortira('Обычная',450,47800)">Купить</button></div>
+<div class="post"><strong>Мортира Охотника</strong> — Урон 800 — 125690 зол. <button class="but" onclick="buyMortira('Охотника',800,125690)">Купить</button></div>
+<div class="post"><strong>Глаз Тукана</strong> — Урон 1500 — 789000 зол. <button class="but" onclick="buyMortira('Глаз Тукана',1500,789000)">Купить</button></div>
+<div class="post"><strong>Ленточный Взрыв</strong> — Урон 2850 — 2337000 зол. <button class="but" onclick="buyMortira('Ленточный',2850,2337000)">Купить</button></div>
+<div class="post"><strong>Взрыв Небес</strong> — Урон 4150 — 4310500 зол. <button class="but" onclick="buyMortira('Взрыв Небес',4150,4310500)">Купить</button></div>
 <div class="rek"><a href="#" onclick="closeModal('mortiraModal'); openModal('shopModal'); return false;">Назад</a></div>
+</div></div>
+
+<!-- ПАРУСА -->
+<div class="modal-overlay" id="sailsModal">
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('sailsModal')">&times;</button>
+<div class="title">Установка парусов</div>
+<div class="under" style="text-align:center;">Скорость: <strong class="player-speed">28</strong> | Золото: <strong class="player-gold">1000</strong></div>
+<div class="post"><strong>Простые паруса</strong> — Скор +5 — 100 зол. <button class="but" onclick="buyGun('Простые паруса',5,100)">Купить</button></div>
+<div class="post"><strong>Льняные паруса</strong> — Скор +15 — 800 зол. <button class="but" onclick="buyGun('Льняные паруса',15,800)">Купить</button></div>
+<div class="post"><strong>Шелковые паруса</strong> — Скор +40 — 6500 зол. <button class="but" onclick="buyGun('Шелковые паруса',40,6500)">Купить</button></div>
+<div class="post"><strong>Паруса Бури</strong> — Скор +120 — 65000 зол. <button class="but" onclick="buyGun('Паруса Бури',120,65000)">Купить</button></div>
+<div class="post"><strong>Паруса Дракона</strong> — Скор +300 — 500000 зол. <button class="but" onclick="buyGun('Паруса Дракона',300,500000)">Купить</button></div>
+<div class="rek"><a href="#" onclick="closeModal('sailsModal'); openModal('shopModal'); return false;">Назад</a></div>
+</div></div>
+
+<!-- БРОНЯ -->
+<div class="modal-overlay" id="armorModal">
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('armorModal')">&times;</button>
+<div class="title">Установка брони</div>
+<div class="under" style="text-align:center;">Защита: <strong class="player-defense">20</strong> | Золото: <strong class="player-gold">1000</strong></div>
+<div class="post"><strong>Деревянная броня</strong> — Защ +5 — 150 зол. <button class="but" onclick="buyGun('Деревянная броня',5,150)">Купить</button></div>
+<div class="post"><strong>Медная броня</strong> — Защ +15 — 1200 зол. <button class="but" onclick="buyGun('Медная броня',15,1200)">Купить</button></div>
+<div class="post"><strong>Стальная броня</strong> — Защ +50 — 9500 зол. <button class="but" onclick="buyGun('Стальная броня',50,9500)">Купить</button></div>
+<div class="post"><strong>Мифриловая броня</strong> — Защ +150 — 85000 зол. <button class="but" onclick="buyGun('Мифриловая броня',150,85000)">Купить</button></div>
+<div class="post"><strong>Броня Титана</strong> — Защ +400 — 800000 зол. <button class="but" onclick="buyGun('Броня Титана',400,800000)">Купить</button></div>
+<div class="rek"><a href="#" onclick="closeModal('armorModal'); openModal('shopModal'); return false;">Назад</a></div>
+</div></div>
+
+<!-- СПУТНИК -->
+<div class="modal-overlay" id="satelliteModal">
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('satelliteModal')">&times;</button>
+<div class="title">Установка спутника</div>
+<div class="under" style="text-align:center;">Мощность: <strong class="player-power">24</strong> | Золото: <strong class="player-gold">1000</strong></div>
+<div class="post"><strong>Попугай</strong> — Мощность +10 — 500 зол. <button class="but" onclick="buyGun('Попугай',10,500)">Купить</button></div>
+<div class="post"><strong>Обезьяна</strong> — Мощность +25 — 3000 зол. <button class="but" onclick="buyGun('Обезьяна',25,3000)">Купить</button></div>
+<div class="post"><strong>Морской волк</strong> — Мощность +80 — 25000 зол. <button class="but" onclick="buyGun('Морской волк',80,25000)">Купить</button></div>
+<div class="post"><strong>Ручной кракен</strong> — Мощность +250 — 250000 зол. <button class="but" onclick="buyGun('Ручной кракен',250,250000)">Купить</button></div>
+<div class="rek"><a href="#" onclick="closeModal('satelliteModal'); openModal('shopModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- МАГАЗИН КОРСАР -->
@@ -441,10 +482,14 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/img/corsar.jpg" width="50" height="50"></td><td>Обменяйте <strong>железо</strong> на ценные вещи.</td></tr></tbody></table></div>
 <div class="under">У Вас железа: <strong class="player-iron">0</strong></div>
 <div class="razd">Эксклюзив:</div>
-<div class="post">Золотой ром — 10 железа <button class="but" onclick="buyCorsar('rom',10)">Купить</button></div>
-<div class="post">Элитный комплект — 60 железа <button class="but" onclick="buyCorsar('elite',60)">Купить</button></div>
-<div class="post">Комплект Агве — 65 железа <button class="but" onclick="buyCorsar('agve',65)">Купить</button></div>
-<div class="post">Комплект Тортуги — 70 железа <button class="but" onclick="buyCorsar('tortuga',70)">Купить</button></div>
+<div class="post">Золотой ром (10 рома) — 5 железа <button class="but" onclick="buyCorsar('rom',5)">Купить</button></div>
+<div class="post">ТОП Корабль (+5000 мощности) — 200 железа <button class="but" onclick="buyCorsar('ship',200)">Купить</button></div>
+<div class="post">Элитный комплект (+2000 мощности) — 60 железа <button class="but" onclick="buyCorsar('elite',60)">Купить</button></div>
+<div class="post">Комплект Агве (+3000 мощности) — 65 железа <button class="but" onclick="buyCorsar('agve',65)">Купить</button></div>
+<div class="post">Комплект Тортуги (+5000 мощности) — 70 железа <button class="but" onclick="buyCorsar('tortuga',70)">Купить</button></div>
+<div class="post">Элитная команда (+1000 мощности) — 40 железа <button class="but" onclick="buyCorsar('command',40)">Купить</button></div>
+<div class="post">Божественные артефакты (+2500 мощности) — 100 железа <button class="but" onclick="buyCorsar('divine',100)">Купить</button></div>
+<div class="post">Артефакты монстров (+1500 мощности) — 80 железа <button class="but" onclick="buyCorsar('monster',80)">Купить</button></div>
 <div class="rek"><a href="#" onclick="closeModal('corsarModal'); openModal('shopModal'); return false;">Назад</a></div>
 </div></div>
 
@@ -471,14 +516,31 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="title">Мой тайник</div>
 <div class="under"><span id="bankName">Игрок</span>, здесь можно хранить добычу.</div>
 <div class="under">В тайнике: золото <strong class="bank-gold">0</strong>, пиастры <strong class="bank-piastr">0</strong>, жемчуг <strong class="bank-pearl">0</strong></div>
-<form onsubmit="event.preventDefault(); bankPut(this.amount.value);" style="padding:10px;">
-Положить золото в тайник:<br>
-<input type="text" name="amount" placeholder="Сумма" required><br>
+<div class="razd">Золото:</div>
+<form onsubmit="event.preventDefault(); bankOp('gold','put',this.amount.value);" style="padding:5px;">
+Положить: <input type="text" name="amount" placeholder="Сумма" required>
 <input type="submit" class="but" value="Положить">
 </form>
-<form onsubmit="event.preventDefault(); bankTake(this.amount.value);" style="padding:10px;">
-Забрать золото из тайника:<br>
-<input type="text" name="amount" placeholder="Сумма" required><br>
+<form onsubmit="event.preventDefault(); bankOp('gold','take',this.amount.value);" style="padding:5px;">
+Забрать: <input type="text" name="amount" placeholder="Сумма" required>
+<input type="submit" class="but" value="Забрать">
+</form>
+<div class="razd">Пиастры:</div>
+<form onsubmit="event.preventDefault(); bankOp('piastr','put',this.amount.value);" style="padding:5px;">
+Положить: <input type="text" name="amount" placeholder="Сумма" required>
+<input type="submit" class="but" value="Положить">
+</form>
+<form onsubmit="event.preventDefault(); bankOp('piastr','take',this.amount.value);" style="padding:5px;">
+Забрать: <input type="text" name="amount" placeholder="Сумма" required>
+<input type="submit" class="but" value="Забрать">
+</form>
+<div class="razd">Жемчуг:</div>
+<form onsubmit="event.preventDefault(); bankOp('pearl','put',this.amount.value);" style="padding:5px;">
+Положить: <input type="text" name="amount" placeholder="Сумма" required>
+<input type="submit" class="but" value="Положить">
+</form>
+<form onsubmit="event.preventDefault(); bankOp('pearl','take',this.amount.value);" style="padding:5px;">
+Забрать: <input type="text" name="amount" placeholder="Сумма" required>
 <input type="submit" class="but" value="Забрать">
 </form>
 <div class="rek"><a href="#" onclick="closeModal('bankModal'); openModal('marketModal'); return false;">Назад</a></div>
@@ -514,9 +576,9 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="modal-window">
 <button class="modal-close" onclick="closeModal('artMarketModal')">&times;</button>
 <div class="title">Рынок артефактов</div>
-<div class="post">Порох Джонса (Ат +1100, Скор +825) — 1 000 000 000 <button class="but" onclick="buyArt('Порох Джонса',1100,1000000000)">Купить</button></div>
-<div class="post">Морские Цепи (Защ +47, Жизнь +508) — 100 000 <button class="but" onclick="buyArt('Морские Цепи',47,100000)">Купить</button></div>
-<div class="post">Ядовитые Ядра (Ат +227, Скор +245) — 900 000 <button class="but" onclick="buyArt('Ядовитые Ядра',227,900000)">Купить</button></div>
+<div class="post">Порох Джонса (Ат +1100) — 1 000 000 000 <button class="but" onclick="buyArt('Порох Джонса',1100,1000000000)">Купить</button></div>
+<div class="post">Морские Цепи (Защ +47) — 100 000 <button class="but" onclick="buyArt('Морские Цепи',47,100000)">Купить</button></div>
+<div class="post">Ядовитые Ядра (Ат +227) — 900 000 <button class="but" onclick="buyArt('Ядовитые Ядра',227,900000)">Купить</button></div>
 <div class="rek"><a href="#" onclick="closeModal('artMarketModal'); openModal('marketModal'); return false;">Назад</a></div>
 </div></div>
 
@@ -541,9 +603,10 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="title">Море</div>
 <div class="gorod"><img src="https://game-seawar.com/assets/img/wargames.jpg" style="border:2px solid #4b261e;border-radius:3px;" width="220" height="85"></div>
 <div class="post"><span class="info_green"><img class="ico" src="https://game-seawar.com/assets/icons/weather/5.png" width="16" height="16"> Караваны нежити потеряли Сундуки Ванху...</span></div>
-<a class="link" href="#" onclick="openSea('Порт Мертвецов',1); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/home.jpg" width="24" height="24"> <strong>Порт Мертвецов</strong> (мощность 30+)</a>
-<a class="link" href="#" onclick="openSea('Острова Сирен',2); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/home.jpg" width="24" height="24"> <strong><span class="info_red">Острова Сирен</span></strong><span class="info_red"> от 3 ур.</span> (мощность 60+)</a>
-<a class="link" href="#" onclick="openSea('Ост-Индия',3); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/home.jpg" width="24" height="24"> <strong><span class="info_red">Ост-Индия</span></strong><span class="info_red"> от 6 ур.</span> (мощность 90+)</a>
+<div class="post">Ваш опыт: <strong class="player-xp">0</strong> / <strong class="player-xp-max">1000</strong> XP</div>
+<a class="link" href="#" onclick="openSea('Порт Мертвецов',1,500,100); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/home.jpg" width="24" height="24"> <strong>Порт Мертвецов</strong> (мощность 30+)</a>
+<a class="link" href="#" onclick="openSea('Острова Сирен',2,2000,500); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/home.jpg" width="24" height="24"> <strong><span class="info_red">Острова Сирен</span></strong><span class="info_red"> от 3 ур.</span> (мощность 60+)</a>
+<a class="link" href="#" onclick="openSea('Ост-Индия',3,5000,1500); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/home.jpg" width="24" height="24"> <strong><span class="info_red">Ост-Индия</span></strong><span class="info_red"> от 6 ур.</span> (мощность 90+)</a>
 <div class="under">Рейтинг навыка: <strong class="player-power">24</strong></div>
 <div class="foot">
 <a class="down" href="#" onclick="closeModal('locationModal'); openModal('cityModal'); return false;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
@@ -556,11 +619,12 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="modal-window">
 <button class="modal-close" onclick="closeModal('seaModal')">&times;</button>
 <div class="title" id="seaTitle">Порт Мертвецов</div>
-<div class="post"><img class="ico" src="https://game-seawar.com/assets/icons/nav/wargame.jpg" width="24" height="24"> <small>На карте: <strong>1</strong> <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"></small></div>
+<div class="post"><img class="ico" src="https://game-seawar.com/assets/icons/nav/wargame.jpg" width="24" height="24"> <small>На карте: <strong>1</strong></small></div>
 <div class="post"><span class="info_purple">Сражайтесь в море, находите артефакты и золото.</span></div>
-<a class="link" href="#" onclick="seaTrader(); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/trader.jpg" width="24" height="24"> <strong>Атаковать Торговцев</strong> <span class="info_grey">(<span class="sea-hp-trader">4.99K</span> HP)</span></a>
-<a class="link" href="#" onclick="seaBot(); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/all.jpg" width="24" height="24"> <strong>Огонь из пушек в ближайшего!</strong></a>
-<div class="post"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/rojer_gift.jpg" width="24" height="24"> Подарок Роджера <span class="info_grey">(<span class="rojer-progress">0</span>%)</span></div>
+<div class="post">Опыт: <strong class="player-xp">0</strong> / <strong class="player-xp-max">1000</strong> XP</div>
+<a class="link" href="#" onclick="seaTrader(); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/trader.jpg" width="24" height="24"> <strong>Атаковать Торговцев</strong> <span class="info_grey">(<span class="sea-hp-trader">500</span> HP)</span></a>
+<a class="link" href="#" onclick="seaBot(); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/all.jpg" width="24" height="24"> <strong>Огонь из пушек в ближайшего!</strong> <span class="info_grey">(<span class="sea-hp-bot">100</span> HP)</span></a>
+<div class="post"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/rojer_gift.jpg" width="24" height="24"> Подарок Роджера: <strong class="rojer-progress">0</strong>/10 убийств</div>
 <div class="post" id="battleLog"></div>
 <a class="link" href="#" onclick="closeModal('seaModal'); openModal('locationModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/home.jpg" width="24" height="24"> <strong>Обратно в порт!</strong></a>
 <div class="foot">
@@ -575,10 +639,10 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <button class="modal-close" onclick="closeModal('treasuresModal')">&times;</button>
 <div class="title">Поиски Сокровищ</div>
 <div class="gorod"><img src="https://game-seawar.com/assets/img/treasure.jpg" width="100" height="56"></div>
-<div class="under"><img src="https://game-seawar.com/assets/icons/weapon.png" class="ico2" width="16" height="16"> Капитан <strong id="treasuresName">Игрок</strong>! Хотите отправиться на поиски сокровищ?!</div>
+<div class="under"><img src="https://game-seawar.com/assets/icons/weapon.png" class="ico2" width="16" height="16"> Капитан <strong id="treasuresName">Игрок</strong>! Хотите на поиски?!</div>
 <div class="under">Вас ждет опасность... <span class="info_red">Три корабля уже пропали...</span></div>
 <div class="under" style="text-align:center;"><button class="but" onclick="searchTreasure()">На поиски сокровищ!</button></div>
-<div class="under"><strong class="info_green">Лучшая награда:</strong> Маленькие Ядра (Ат +150, Скор +100)</div>
+<div class="under"><strong class="info_green">Лучшая награда:</strong> Маленькие Ядра (Ат +150)</div>
 <div class="rek"><a href="#" onclick="closeModal('treasuresModal'); openModal('monstersModal'); return false;">Назад к Монстрам</a></div>
 </div></div>
 
@@ -609,7 +673,7 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <button class="modal-close" onclick="closeModal('barrakudaModal')">&times;</button>
 <div class="title">Барракуда</div>
 <div class="post"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/pic/monsters/barrakuda.jpg" width="48" height="48"></td><td>Охота на <strong>Барракуду</strong>. Требуется 21 уровень.</td></tr></tbody></table></div>
-<div class="post">Награда: <strong>Морские Цепи</strong></div>
+<div class="post">Награда: Морские Цепи, XP 200</div>
 <div class="under" style="text-align:center;"><button class="but" onclick="fightMonster2('Барракуда', 300)">Атаковать!</button></div>
 <div class="under" style="text-align:center;">Мощность: <strong class="player-power">24</strong> | HP: <strong class="player-hp">140</strong></div>
 <div class="rek"><a href="#" onclick="closeModal('barrakudaModal'); openModal('monstersModal'); return false;">Назад</a></div>
@@ -641,7 +705,6 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <button class="modal-close" onclick="closeModal('zinaModal')">&times;</button>
 <div class="title">Мемозина</div>
 <div class="post"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/pic/monsters/zina.jpg" width="48" height="48"></td><td>Поиски <strong>Мемозины</strong>. Требуется 13 уровень.</td></tr></tbody></table></div>
-<div class="post">Награда: <strong>Чешуя Мемозины</strong></div>
 <div class="under" style="text-align:center;"><button class="but" onclick="fightMonster2('Мемозина', 500)">Атаковать!</button></div>
 <div class="rek"><a href="#" onclick="closeModal('zinaModal'); openModal('monstersModal'); return false;">Назад</a></div>
 </div></div>
@@ -653,7 +716,7 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="title">Пещеры Инь-Янь</div>
 <div class="gorod"><img src="https://game-seawar.com/assets/img/black22.jpg" style="border-radius:12px;" width="220" height="80"></div>
 <div class="post"><strong class="info_red">Достигните 35 уровня!</strong></div>
-<div class="under">Награда за каждые 100K урона: <strong class="info_gold">250K</strong></div>
+<div class="under">Награда за 100K урона: <strong class="info_gold">250K</strong></div>
 <div class="under" style="text-align:center;"><button class="but" onclick="fightMonster2('Пещерный монстр', 1500)">Атаковать!</button></div>
 <div class="rek"><a href="#" onclick="closeModal('blackModal'); openModal('monstersModal'); return false;">Назад</a></div>
 </div></div>
@@ -702,7 +765,6 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="post" style="text-align:center;"><button class="but" onclick="exchangeGems()">Обменять 3 изумруда</button></div>
 <div class="rek"><a href="#" onclick="closeModal('kotelModal'); openModal('monstersModal'); return false;">Назад</a></div>
 </div></div>
-
 <!-- ОБЩЕНИЕ -->
 <div class="modal-overlay" id="comuniModal">
 <div class="modal-window">
@@ -713,6 +775,7 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <a class="link" href="#" onclick="closeModal('comuniModal'); openModal('newsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/kafe.png" width="16" height="16"> Новости</a>
 <a class="link" href="#" onclick="closeModal('comuniModal'); openModal('forumMainModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/kafe.png" width="16" height="16"> Форум</a>
 <a class="link" href="#" onclick="closeModal('comuniModal'); openModal('onlineModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/man.png" width="16" height="16"> Кто онлайн</a>
+<a class="link" href="#" onclick="closeModal('comuniModal'); openModal('chatModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/kafe.png" width="16" height="16"> Пообщаться с пиратами</a>
 <div class="rek"><a href="#" onclick="closeModal('comuniModal'); openModal('cityModal'); return false;">Назад в Город</a></div>
 </div></div>
 
@@ -729,7 +792,7 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 </div>
 <div class="post">
 <form onsubmit="event.preventDefault(); sendChatMessage(this.msg.value); this.msg.value='';">
-<input type="text" name="msg" placeholder="Ваше сообщение..." style="width:80%;">
+<input type="text" name="msg" placeholder="Ваше сообщение..." style="width:70%;">
 <input type="submit" class="but" value="Отправить">
 </form>
 </div>
@@ -746,7 +809,7 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="post"><strong>Вильям Кидд</strong>, 2 дня назад<br>Нужны активные игроки на флот</div>
 <div class="post"><strong>Веселый Роджер</strong>, 6 дней назад<br>да только ник смени</div>
 <div class="post"><strong>Cocok B Hocok</strong>, 2 месяца назад<br>Примите в флот</div>
-<div class="rek"><a href="#" onclick="closeModal('clanChatModal'); openModal('comuniModal'); return false;">Назад</a></div>
+<div class="rek"><a href="#" onclick="closeModal('clanChatModal'); openModal('chatModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ТОРГОВЫЙ ЧАТ -->
@@ -757,7 +820,7 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="post"><strong>Alukard</strong>, 3 минуты назад<br>Куплю сундуки 380 штук по 1 ляму</div>
 <div class="post"><strong>Герой4</strong>, 11 часов назад<br>Скупаю сундуки</div>
 <div class="post"><strong>Alex999</strong>, 2 дня назад<br>Купаю артефакты по 100к</div>
-<div class="rek"><a href="#" onclick="closeModal('traderChatModal'); openModal('comuniModal'); return false;">Назад</a></div>
+<div class="rek"><a href="#" onclick="closeModal('traderChatModal'); openModal('chatModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ФОРУМ ГЛАВНАЯ -->
@@ -768,8 +831,9 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="razd">Разделы</div>
 <a class="link" href="#" onclick="closeModal('forumMainModal'); openModal('newsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> Новости</a>
 <a class="link" href="#" onclick="closeModal('forumMainModal'); openModal('forumModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> Таверна Веселый Роджер</a>
-<a class="link" href="#" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> Вопросы по игре</a>
-<a class="link" href="#" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> Ошибки в игре</a>
+<a class="link" href="#" onclick="closeModal('forumMainModal'); openModal('newsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> Предложения по игре</a>
+<a class="link" href="#" onclick="closeModal('forumMainModal'); openModal('newsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> Вопросы по игре</a>
+<a class="link" href="#" onclick="closeModal('forumMainModal'); openModal('newsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> Ошибки в игре</a>
 <div class="rek"><a href="#" onclick="closeModal('forumMainModal'); openModal('comuniModal'); return false;">Назад</a></div>
 </div></div>
 
@@ -779,9 +843,9 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <button class="modal-close" onclick="closeModal('forumModal')">&times;</button>
 <div class="title">Таверна Веселый Роджер</div>
 <div id="forumTopics">
-<div class="post"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> <a href="#" onclick="openTopic('тест'); return false;" style="color:#e3ba7c;">тест</a> <small style="color:#888;">(23 сен. 2026 11:49)</small></div>
-<div class="post"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> <a href="#" onclick="openTopic('Как вы играете?'); return false;" style="color:#e3ba7c;">Как вы играете?</a> <small style="color:#888;">(01 мая 2026 23:23)</small></div>
-<div class="post"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> <a href="#" onclick="openTopic('Анекдоты'); return false;" style="color:#e3ba7c;">Анекдоты</a> <small style="color:#888;">(30 апр. 2026 01:56)</small></div>
+<div class="post"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> <a href="#" onclick="openTopic('тест'); return false;" style="color:#e3ba7c;">тест</a> <small style="color:#888;">(23 сен. 2026)</small></div>
+<div class="post"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> <a href="#" onclick="openTopic('Как вы играете?'); return false;" style="color:#e3ba7c;">Как вы играете?</a> <small style="color:#888;">(01 мая 2026)</small></div>
+<div class="post"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> <a href="#" onclick="openTopic('Анекдоты'); return false;" style="color:#e3ba7c;">Анекдоты</a> <small style="color:#888;">(30 апр. 2026)</small></div>
 </div>
 <div class="post" style="text-align:center;">
 <form onsubmit="event.preventDefault(); createTopic(this.topic.value); this.topic.value='';">
@@ -841,7 +905,8 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <button class="modal-close" onclick="closeModal('mailModal')">&times;</button>
 <div class="title">Почта</div>
 <div class="rek" style="text-align:center;padding:10px;">
-<span class="info_pearl">Чаты</span> | <a href="#" style="color:#e3ba7c;">Принятые</a> | <a href="#" style="color:#e3ba7c;">Отправленные</a>
+<a href="#" onclick="showMail('in'); return false;" style="color:#e3ba7c;">📥 Принятые</a> | 
+<a href="#" onclick="showMail('out'); return false;" style="color:#e3ba7c;">📤 Отправленные</a>
 </div>
 <div id="mailList" class="post" style="text-align:center;">У вас пока нет писем...</div>
 <div class="post">
@@ -873,12 +938,29 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="modal-window">
 <button class="modal-close" onclick="closeModal('shipModal')">&times;</button>
 <div class="title">Мой корабль</div>
-<div class="post"><strong>Таблички</strong> — временное усиление</div>
-<div class="post"><strong>Команда</strong> — капитан, кок, рабы...</div>
-<div class="post"><strong>Комплектующее корабля</strong> — пушка, гарпун, бронь...</div>
+<div class="under" style="text-align:center;">Ваш корабль: <strong class="player-ship-name">Пинас</strong></div>
+<div class="post"><strong>Таблички</strong> — временное усиление (заглушка)</div>
+<div class="post"><strong>Команда</strong> — капитан, кок, рабы (заглушка)</div>
+<div class="post"><strong>Комплектующее корабля</strong> — пушка, гарпун, бронь</div>
 <div class="post" style="text-align:center;">5 основных артефактов — все <strong>Пусто</strong></div>
 <div class="post" style="text-align:center;">Свадебный, Божественный, Монстров — все <strong>Пусто</strong></div>
 <div class="rek"><a href="#" onclick="closeModal('shipModal'); openUserModal(); return false;">Назад</a></div>
+</div></div>
+
+<!-- ПУТЕШЕСТВИЕ -->
+<div class="modal-overlay" id="travelModal">
+<div class="modal-window">
+<button class="modal-close" onclick="closeModal('travelModal')">&times;</button>
+<div class="title">Путешествие по миру</div>
+<div class="gorod"><img src="https://game-seawar.com/assets/img/city/1.jpg" style="border:1px solid #4e525e;border-radius:5px;" width="200" height="100"></div>
+<div class="post"><span class="info_green">Сейчас Вы в <strong><span class="info_purple" id="travelCity">Толедо</span></strong>.</span></div>
+<a class="link" href="#" onclick="travelTo('Роатан'); return false;" style="display:block;"><img src="https://game-seawar.com/assets/icons/nav/travel_key.png" class="ico2" width="24" height="24"> <strong>Роатан</strong> [от 1 ур.] — 500 зол.</a>
+<a class="link" href="#" onclick="travelTo('Белиз'); return false;" style="display:block;"><img src="https://game-seawar.com/assets/icons/nav/travel_key.png" class="ico2" width="24" height="24"> <strong>Белиз</strong> [от 1 ур.] — 500 зол.</a>
+<div class="post"><img src="https://game-seawar.com/assets/icons/nav/travel_key.png" class="ico2" width="24" height="24"> <strong><span class="info_red">Грамвуса</span></strong> [от 4 ур.]</div>
+<div class="post"><img src="https://game-seawar.com/assets/icons/nav/travel_key.png" class="ico2" width="24" height="24"> <strong><span class="info_red">Порт Ройал</span></strong> [от 10 ур.]</div>
+<div class="post"><img src="https://game-seawar.com/assets/icons/nav/travel_key.png" class="ico2" width="24" height="24"> <strong><span class="info_red">Гавана</span></strong> [от 21 ур.]</div>
+<div class="post"><img class="ico" src="https://game-seawar.com/assets/icons/info.png" width="16" height="16"> Новые города доступны с уровнем!</div>
+<div class="rek"><a href="#" onclick="closeModal('travelModal'); openModal('cityModal'); return false;">Назад</a></div>
 </div></div>
 <!-- КВЕСТЫ -->
 <div class="modal-overlay" id="questsModal">
@@ -900,7 +982,6 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="post"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico2" src="https://game-seawar.com/assets/pic/quests/all.jpg" width="64" height="64"></td><td><strong class="info_red">Квест SeaWars</strong><br>Выполни все задания. Награда: Сундук Сокровищ</td></tr></tbody></table></div>
 
 <div class="under">Очки квестов: <strong class="quest-points">0</strong></div>
-<div class="under"><button class="but" onclick="checkQuests();">Проверить квесты</button></div>
 <div class="rek"><a href="#" onclick="closeModal('questsModal'); openUserModal(); return false;">Назад</a></div>
 </div></div>
 
@@ -921,6 +1002,26 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="post">Убийца Барракуд (25 очков) — <strong class="label-barrakuda">0</strong>/75</div>
 <div class="post">Гроза Барракуд (75 очков) — <strong class="label-barrakuda">0</strong>/500</div>
 <div class="post">Видел Морскую Змею (10 очков) — <strong class="label-snake">0</strong>/10</div>
+<div class="post">Убийца Морских Змей (25 очков) — <strong class="label-snake">0</strong>/75</div>
+<div class="post">Гроза Морских Змей (75 очков) — <strong class="label-snake">0</strong>/500</div>
+<div class="post">Видел Гидру (10 очков) — <strong class="label-hydra">0</strong>/10</div>
+<div class="post">Убийца Гидр (25 очков) — <strong class="label-hydra">0</strong>/75</div>
+<div class="post">Гроза Гидр (75 очков) — <strong class="label-hydra">0</strong>/500</div>
+<div class="post">Богач (50 очков) — золото <strong class="player-gold">1000</strong>/1000000</div>
+<div class="post">Коллекционер (50 очков) — коллекций <strong class="col-total">0</strong>/6</div>
+<div class="post">Квестоман (50 очков) — очков квестов <strong class="quest-points">0</strong>/10000</div>
+<div class="post">Мореход (25 очков) — путешествий <strong class="quest-travel">0</strong>/10</div>
+<div class="post">Пилот (50 очков) — путешествий <strong class="quest-travel">0</strong>/50</div>
+<div class="post">Морской волк (25 очков) — побед в море <strong class="quest-ships">0</strong>/50</div>
+<div class="post">Адмирал (75 очков) — побед в море <strong class="quest-ships">0</strong>/500</div>
+<div class="post">Рыбак (10 очков) — уловов 0/10</div>
+<div class="post">Рудокоп (10 очков) — добыто руды 0/100</div>
+<div class="post">Бокорщик (25 очков) — слитков сброшено <strong class="player-slitok">0</strong>/100</div>
+<div class="post">Контрабандист (25 очков) — изумрудов <strong class="player-gems">0</strong>/50</div>
+<div class="post">Мастер (100 очков) — навыков <strong class="skill-spent">0</strong>/1000</div>
+<div class="post">Легенда (200 очков) — навыков <strong class="skill-spent">0</strong>/5000</div>
+<div class="post">Пират года (500 очков) — уровень <strong class="player-level">1</strong>/100</div>
+<div class="post">Бессмертный (1000 очков) — уровень <strong class="player-level">1</strong>/200</div>
 
 <div class="under">Каждое очко меток = +1 к атаке, защите, скорости.</div>
 <a class="link" href="#" onclick="checkLabels(); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/progress_no.jpg" width="16" height="16"> <strong>Проверить метки</strong></a>
@@ -1001,25 +1102,9 @@ function deleteCookie(name) { document.cookie = name + '=; expires=Thu, 01 Jan 1
 <div class="modal-window">
 <button class="modal-close" onclick="closeModal('trophyModal')">&times;</button>
 <div class="title">Трофеи</div>
-<div class="post" style="text-align:center;padding:30px;"><strong>У вас пока нет трофеев!</strong></div>
+<div id="trophyList" class="post" style="text-align:center;padding:30px;"><strong>У вас пока нет трофеев!</strong></div>
 <div class="under" style="text-align:center;">Трофеи выдают за победы над боссами.</div>
 <div class="rek"><a href="#" onclick="closeModal('trophyModal'); openUserModal(); return false;">Назад</a></div>
-</div></div>
-
-<!-- ПУТЕШЕСТВИЕ -->
-<div class="modal-overlay" id="travelModal">
-<div class="modal-window">
-<button class="modal-close" onclick="closeModal('travelModal')">&times;</button>
-<div class="title">Путешествие по миру</div>
-<div class="gorod"><img src="https://game-seawar.com/assets/img/city/1.jpg" style="border:1px solid #4e525e;border-radius:5px;" width="200" height="100"></div>
-<div class="post"><span class="info_green">Сейчас Вы в <strong><span class="info_purple" id="travelCity">Толедо</span></strong>.</span></div>
-<a class="link" href="#" onclick="travelTo('Роатан'); return false;" style="display:block;"><img src="https://game-seawar.com/assets/icons/nav/travel_key.png" class="ico2" width="24" height="24"> <strong>Роатан</strong> [от 1 ур.] — 500 зол.</a>
-<a class="link" href="#" onclick="travelTo('Белиз'); return false;" style="display:block;"><img src="https://game-seawar.com/assets/icons/nav/travel_key.png" class="ico2" width="24" height="24"> <strong>Белиз</strong> [от 1 ур.] — 500 зол.</a>
-<div class="post"><img src="https://game-seawar.com/assets/icons/nav/travel_key.png" class="ico2" width="24" height="24"> <strong><span class="info_red">Грамвуса</span></strong> [от 4 ур.]</div>
-<div class="post"><img src="https://game-seawar.com/assets/icons/nav/travel_key.png" class="ico2" width="24" height="24"> <strong><span class="info_red">Порт Ройал</span></strong> [от 10 ур.]</div>
-<div class="post"><img src="https://game-seawar.com/assets/icons/nav/travel_key.png" class="ico2" width="24" height="24"> <strong><span class="info_red">Гавана</span></strong> [от 21 ур.]</div>
-<div class="post"><img class="ico" src="https://game-seawar.com/assets/icons/info.png" width="16" height="16"> Новые города доступны с уровнем!</div>
-<div class="rek"><a href="#" onclick="closeModal('travelModal'); openModal('cityModal'); return false;">Назад</a></div>
 </div></div>
 <script>
 // ================== STORAGE ==================
@@ -1074,7 +1159,7 @@ function saveCurrentPlayer(p) {
 function createPlayer(login, password, sex) {
     return {
         login:login, password:password, sex:sex, level:1, rank:'Молодой',
-        gold:1000, piastr:0, pearl:0, iron:0, crystal:0, rum:0,
+        xp:0, gold:1000, piastr:0, pearl:0, iron:0, crystal:0, rum:0,
         ore:0, steel:0, sapfir:0, slitok:0, gems:0,
         hp:140, power:24, defense:20, speed:28, mortira:0, progress:0,
         lastFish:0, lastMine:0, lastPrizeDate:0, prizeStreak:0,
@@ -1088,7 +1173,10 @@ function createPlayer(login, password, sex) {
         skillFree:4, skillSpent:0, skillTotal:4,
         profession:null, lastWork:0,
         shipName:'Пинас', shipPower:0,
-        chestItems:0, bankGold:0, bankPiastr:0, bankPearl:0,
+        chestItems:0, chestList:[],
+        bankGold:0, bankPiastr:0, bankPearl:0,
+        rojerKills:0,
+        email:'', phone:'', twoFA:false, autoLogin:false,
         city:'Толедо', created:Date.now(), lastSeen:Date.now()
     };
 }
@@ -1159,12 +1247,35 @@ function updateAll() {
         'player-crystal': p.crystal, 'player-level': p.level,
         'player-mortira': p.mortira, 'player-ship-name': p.shipName,
         'player-prof': p.profession || 'нет',
+        'player-xp': p.xp || 0, 'player-xp-max': p.level * 1000,
         'bank-gold': p.bankGold, 'bank-piastr': p.bankPiastr, 'bank-pearl': p.bankPearl,
-        'chest-count': p.chestItems || 0
+        'chest-count': p.chestItems || 0,
+        'col-total': p.colDone.length
     };
     for (var cls in map) {
         document.querySelectorAll('.' + cls).forEach(function(el){ el.textContent = map[cls]; });
     }
+}
+
+// ================== ОПЫТ И УРОВНИ ==================
+function addXP(amount) {
+    var p = getCurrentPlayer(); if (!p) return;
+    p.xp = (p.xp || 0) + amount;
+    var xpMax = p.level * 1000;
+    while (p.xp >= xpMax) {
+        p.xp -= xpMax;
+        p.level += 1;
+        p.skillFree += 4;
+        p.skillTotal += 4;
+        p.hp += 10;
+        p.power += 5;
+        p.defense += 3;
+        p.speed += 2;
+        alert('🎉 Новый уровень: ' + p.level + '!\n+4 очка навыка, +10 HP, +5 мощности!');
+        xpMax = p.level * 1000;
+    }
+    saveCurrentPlayer(p);
+    updateAll();
 }
 
 // ================== МОДАЛЬНЫЕ ОКНА ==================
@@ -1181,6 +1292,9 @@ function openModal(id) {
     if (id === 'collectionsModal') updateCollections();
     if (id === 'effectsModal') updateSkills();
     if (id === 'onlineModal') showOnline();
+    if (id === 'mailModal') updateMail();
+    if (id === 'trophyModal') updateTrophies();
+    if (id === 'securityModal') updateSecurity();
 }
 function closeModal(id) {
     var el = document.getElementById(id);
@@ -1320,11 +1434,6 @@ function addQuestProgress(type, amount) {
     } else saveCurrentPlayer(p);
     updateQuests(); updateAll();
 }
-function checkQuests() {
-    var p = getCurrentPlayer(); if (!p) return;
-    updateQuests();
-    alert('Прогресс обновлён.');
-}
 
 // ================== МЕТКИ ==================
 var LABELS = [
@@ -1337,7 +1446,25 @@ var LABELS = [
     {id:'b1', req:'barrakuda', val:10, pts:10},
     {id:'b2', req:'barrakuda', val:75, pts:25},
     {id:'b3', req:'barrakuda', val:500, pts:75},
-    {id:'s1', req:'snake', val:10, pts:10}
+    {id:'s1', req:'snake', val:10, pts:10},
+    {id:'s2', req:'snake', val:75, pts:25},
+    {id:'s3', req:'snake', val:500, pts:75},
+    {id:'h1', req:'hydra', val:10, pts:10},
+    {id:'h2', req:'hydra', val:75, pts:25},
+    {id:'h3', req:'hydra', val:500, pts:75},
+    {id:'rich1', req:'gold', val:1000000, pts:50},
+    {id:'col1', req:'colDone', val:6, pts:50},
+    {id:'qp1', req:'questPoints', val:10000, pts:50},
+    {id:'tr1', req:'questTravel', val:10, pts:25},
+    {id:'tr2', req:'questTravel', val:50, pts:50},
+    {id:'sea1', req:'questShips', val:50, pts:25},
+    {id:'sea2', req:'questShips', val:500, pts:75},
+    {id:'boc1', req:'slitok', val:100, pts:25},
+    {id:'gem1', req:'gems', val:50, pts:25},
+    {id:'sk1', req:'skillSpent', val:1000, pts:100},
+    {id:'sk2', req:'skillSpent', val:5000, pts:200},
+    {id:'lvl1', req:'level', val:100, pts:500},
+    {id:'lvl2', req:'level', val:200, pts:1000}
 ];
 function checkLabels() {
     var p = getCurrentPlayer(); if (!p) return;
@@ -1348,10 +1475,21 @@ function checkLabels() {
         if (label.req === 'level') current = p.level;
         else if (label.req === 'barrakuda') current = p.labelBarrakudaKills;
         else if (label.req === 'snake') current = p.labelSnakeKills;
+        else if (label.req === 'hydra') current = p.labelHydraKills;
+        else if (label.req === 'gold') current = p.gold;
+        else if (label.req === 'colDone') current = p.colDone.length;
+        else if (label.req === 'questPoints') current = p.questPoints;
+        else if (label.req === 'questTravel') current = p.questTravel;
+        else if (label.req === 'questShips') current = p.questShips;
+        else if (label.req === 'slitok') current = p.slitok;
+        else if (label.req === 'gems') current = p.gems;
+        else if (label.req === 'skillSpent') current = p.skillSpent;
         if (current >= label.val) {
             p.labelDone.push(label.id);
             p.labelPoints += label.pts;
-            p.power += label.pts; p.defense += label.pts; p.speed += label.pts;
+            p.power += label.pts;
+            p.defense += label.pts;
+            p.speed += label.pts;
             newLabels.push(label.id + ' (+' + label.pts + ')');
         }
     });
@@ -1365,6 +1503,7 @@ function updateLabels() {
     document.querySelectorAll('.player-metka-points').forEach(function(el){ el.textContent = p.labelPoints; });
     document.querySelectorAll('.label-barrakuda').forEach(function(el){ el.textContent = p.labelBarrakudaKills; });
     document.querySelectorAll('.label-snake').forEach(function(el){ el.textContent = p.labelSnakeKills; });
+    document.querySelectorAll('.label-hydra').forEach(function(el){ el.textContent = p.labelHydraKills; });
 }
 function addLabelKill(type) {
     var p = getCurrentPlayer(); if (!p) return;
@@ -1425,7 +1564,7 @@ function addCollectionItem(type, amount) {
 }
 
 // ================== НАВЫКИ ==================
-var SKILL_MAX = 5000, SKILL_PER_LEVEL = 4;
+var SKILL_MAX = 5000;
 function updateSkills() {
     var p = getCurrentPlayer(); if (!p) return;
     document.querySelectorAll('.skill-power').forEach(function(el){ el.textContent = p.skillPower; });
@@ -1498,7 +1637,7 @@ function showOnline(sortBy) {
         html += '<div class="post" ' + meClass + '>' + medal +
             '<img class="ico2" src="https://game-seawar.com/assets/icons/sex/' + sexIcon + '.png" width="16" height="16"> ' +
             '<strong>' + p.login + '</strong>' + meBadge + ', <strong>' + p.level + ' ур.</strong><br>' +
-            '<small style="color:#888;">💰 ' + formatGold(p.gold) + ' | Общий счёт: <strong class="info_gold">' + formatGold(p.total) + '</strong> | 🏴 ' + p.city + '</small></div>';
+            '<small style="color:#888;">💰 ' + formatGold(p.gold) + ' | Счёт: <strong class="info_gold">' + formatGold(p.total) + '</strong> | 🏴 ' + p.city + '</small></div>';
         rank++;
     });
     container.innerHTML = html;
@@ -1508,83 +1647,94 @@ function showOnline(sortBy) {
 }
 function sortOnline(by) { showOnline(by); }
 
-// ================== ИГРОВЫЕ ДЕЙСТВИЯ ==================
-function drinkRum() {
-    var p = getCurrentPlayer(); if (!p) return;
-    if (p.gold < 250) { alert('Недостаточно золота!'); return; }
-    p.gold -= 250; p.hp = Math.min(p.hp + 20, 200);
-    saveCurrentPlayer(p); updateAll();
-    alert('Вы выпили ром! +20 к жизни.');
-}
-
 // ================== МОРЕ ==================
-function openSea(name, diff) {
+var tradersHP = 500, botHP = 100, seaDiff = 1;
+function openSea(name, diff, tHP, bHP) {
     var p = getCurrentPlayer(); if (!p) return;
     closeModal('locationModal');
     openModal('seaModal');
     document.getElementById('seaTitle').textContent = name;
-    window.currentSeaDiff = diff;
+    seaDiff = diff;
+    tradersHP = tHP;
+    botHP = bHP;
+    document.querySelectorAll('.sea-hp-trader').forEach(function(el){ el.textContent = tHP; });
+    document.querySelectorAll('.sea-hp-bot').forEach(function(el){ el.textContent = bHP; });
     var log = document.getElementById('battleLog');
     if (log) log.innerHTML = '';
     updateRojer();
 }
-var tradersHP = 4990;
-var botHP = 123;
-var rojerProgress = 0;
-
 function seaTrader() {
     var p = getCurrentPlayer(); if (!p) return;
     var dmg = Math.floor(5 + p.power * 0.5);
-    var enemyDmg = Math.floor(10 + Math.random() * 15);
+    var enemyDmg = Math.floor(10 * seaDiff + Math.random() * 15);
     tradersHP -= dmg;
     if (tradersHP < 0) tradersHP = 0;
     p.hp = Math.max(10, p.hp - enemyDmg);
+    addXP(Math.floor(10 * seaDiff));
     saveCurrentPlayer(p); updateAll();
-    addBattleLog('traders', dmg, enemyDmg);
+    addBattleLog('Торговцы', dmg, enemyDmg);
     addQuestProgress('traders', 1);
-    var hpEl = document.querySelector('.sea-hp-trader');
-    if (hpEl) hpEl.textContent = tradersHP;
+    document.querySelectorAll('.sea-hp-trader').forEach(function(el){ el.textContent = tradersHP; });
     if (tradersHP === 0) {
-        var gold = 500 + Math.floor(Math.random() * 1500);
+        var gold = Math.floor(200 * seaDiff + Math.random() * 500);
         p.gold += gold;
+        addXP(Math.floor(50 * seaDiff));
+        p.rojerKills = (p.rojerKills || 0) + 1;
         saveCurrentPlayer(p); updateAll();
         alert('🎉 Торговцы разбиты! +' + gold + ' золота!');
         addQuestProgress('ships', 1);
-        tradersHP = 4990;
-        if (hpEl) hpEl.textContent = tradersHP;
+        checkRojerGift();
+        tradersHP = seaDiff === 1 ? 500 : (seaDiff === 2 ? 2000 : 5000);
+        document.querySelectorAll('.sea-hp-trader').forEach(function(el){ el.textContent = tradersHP; });
     }
 }
 function seaBot() {
     var p = getCurrentPlayer(); if (!p) return;
     var dmg = Math.floor(5 + p.power * 0.5);
-    var enemyDmg = Math.floor(5 + Math.random() * 10);
+    var enemyDmg = Math.floor(5 * seaDiff + Math.random() * 10);
     botHP -= dmg;
     if (botHP < 0) botHP = 0;
     p.hp = Math.max(10, p.hp - enemyDmg);
-    var gold = Math.floor(50 + Math.random() * 200);
+    var gold = Math.floor(50 * seaDiff + Math.random() * 200);
     p.gold += gold;
+    addXP(Math.floor(15 * seaDiff));
     saveCurrentPlayer(p); updateAll();
-    addBattleLog('bot', dmg, enemyDmg);
+    addBattleLog('Бот', dmg, enemyDmg);
+    document.querySelectorAll('.sea-hp-bot').forEach(function(el){ el.textContent = botHP; });
     if (botHP === 0) {
         p.gold += 300;
+        p.rojerKills = (p.rojerKills || 0) + 1;
+        addXP(Math.floor(100 * seaDiff));
         saveCurrentPlayer(p); updateAll();
-        alert('🎉 Оннил побеждён! +' + (gold + 300) + ' золота!');
-        botHP = 123;
-        rojerProgress = Math.min(rojerProgress + 10, 100);
-        updateRojer();
+        alert('🎉 Бот побеждён!');
+        checkRojerGift();
+        botHP = seaDiff === 1 ? 100 : (seaDiff === 2 ? 500 : 1500);
+        document.querySelectorAll('.sea-hp-bot').forEach(function(el){ el.textContent = botHP; });
     }
 }
-function addBattleLog(type, myDmg, enemyDmg) {
+function addBattleLog(name, myDmg, enemyDmg) {
     var log = document.getElementById('battleLog');
     if (!log) return;
-    var name = type === 'traders' ? 'Торговцы' : 'Оннил';
     var html = '<img class="ico" src="https://game-seawar.com/assets/icons/nav/sword.png" width="16" height="16">' +
         '<span class="info_red"> Вас атаковали ' + name + ' на ' + enemyDmg + '!</span><br>' +
         '<span class="info_trader"><img class="ico" src="https://game-seawar.com/assets/icons/nav/sword.png" width="16" height="16"> Вы атаковали ' + name + ' на ' + myDmg + '!</span><br>';
     log.innerHTML = html + log.innerHTML;
 }
+function checkRojerGift() {
+    var p = getCurrentPlayer(); if (!p) return;
+    if ((p.rojerKills || 0) >= 10) {
+        p.rojerKills = 0;
+        var gold = 1000 + Math.floor(Math.random() * 2000);
+        var pearl = 10 + Math.floor(Math.random() * 20);
+        p.gold += gold; p.pearl += pearl;
+        saveCurrentPlayer(p); updateAll();
+        alert('🎁 Подарок Роджера!\n+' + gold + ' золота\n+' + pearl + ' жемчуга');
+    }
+    updateRojer();
+}
 function updateRojer() {
-    document.querySelectorAll('.rojer-progress').forEach(function(el){ el.textContent = rojerProgress; });
+    var p = getCurrentPlayer(); if (!p) return;
+    document.querySelectorAll('.rojer-progress').forEach(function(el){ el.textContent = (p.rojerKills || 0); });
 }
 
 // ================== МОНСТРЫ ==================
@@ -1593,16 +1743,13 @@ function fightMonster2(name, reward) {
     if (p.power < reward / 5) { alert('Нужна мощность ' + Math.ceil(reward/5) + ', у вас ' + p.power); return; }
     if (Math.random() < 0.55) {
         p.gold += reward; p.pearl += Math.floor(reward / 10); p.slitok += 2;
-        if (name === 'Барракуда') addLabelKill('barrakuda');
-        else if (name === 'Морской Змей') addLabelKill('snake');
-        else if (name === 'Гидра') addLabelKill('hydra');
-        if (Math.random() < 0.3) {
-            if (name === 'Барракуда') addCollectionItem('Ghost', 1);
-            if (name === 'Гидра') addCollectionItem('Ruby', 1);
-            if (name === 'Морской Змей') addCollectionItem('Treasure', 1);
-        }
+        addXP(reward);
+        if (name === 'Барракуда') { addLabelKill('barrakuda'); addCollectionItem('Ghost', 1); }
+        else if (name === 'Морской Змей') { addLabelKill('snake'); addCollectionItem('Treasure', 1); }
+        else if (name === 'Гидра') { addLabelKill('hydra'); addCollectionItem('Ruby', 1); }
+        if (Math.random() < 0.3) addChestItem(name);
         saveCurrentPlayer(p); updateAll();
-        alert('Победа над ' + name + '!\n+' + reward + ' золота');
+        alert('Победа над ' + name + '!\n+' + reward + ' золота\n+' + reward + ' XP');
     } else {
         var loss = Math.floor(reward / 10);
         p.hp = Math.max(10, p.hp - loss);
@@ -1611,17 +1758,47 @@ function fightMonster2(name, reward) {
     }
 }
 
-function searchTreasure() {
+// ================== СУНДУК ==================
+var CHEST_ITEMS = [
+    {name:'Маленькие Ядра', stat:'power', val:150},
+    {name:'Чешуя Мемозины', stat:'defense', val:150},
+    {name:'Морские Цепи', stat:'defense', val:100},
+    {name:'Регенеративные Ядра', stat:'power', val:205},
+    {name:'Небесный Взрыв', stat:'speed', val:350},
+    {name:'Ядовитые Ядра', stat:'power', val:227},
+    {name:'Адские Сокровища', stat:'power', val:200},
+    {name:'Порох Джонса', stat:'power', val:1100}
+];
+function addChestItem(source) {
     var p = getCurrentPlayer(); if (!p) return;
-    if (Math.random() < 0.5) {
-        var gold = Math.floor(100 + Math.random() * 900);
-        p.gold += gold; p.pearl += Math.floor(Math.random() * 10);
-        saveCurrentPlayer(p); updateAll();
-        if (Math.random() < 0.4) addCollectionItem('Treasure', 1);
-        if (Math.random() < 0.2) addCollectionItem('CalypsoSea', 1);
-        if (Math.random() < 0.1) addCollectionItem('CalypsoTreasure', 1);
-        alert('Клад найден! +' + gold + ' золота!');
-    } else alert('Пусто...');
+    if (!p.chestList) p.chestList = [];
+    if (p.chestList.length >= 20) { alert('Сундук полон!'); return; }
+    var item = CHEST_ITEMS[Math.floor(Math.random() * CHEST_ITEMS.length)];
+    p.chestList.push(item);
+    p.chestItems = p.chestList.length;
+    if (item.stat === 'power') p.power += item.val;
+    else if (item.stat === 'defense') p.defense += item.val;
+    else if (item.stat === 'speed') p.speed += item.val;
+    saveCurrentPlayer(p); updateAll();
+    alert('🎁 Получен артефакт: ' + item.name + '\n+' + item.val + ' к ' + item.stat);
+}
+function openChest() {
+    var p = getCurrentPlayer(); if (!p) return;
+    if (p.gold < 100) { alert('Нужно 100 золота!'); return; }
+    p.gold -= 100;
+    addChestItem('сундук');
+    updateChest();
+}
+function updateChest() {
+    var p = getCurrentPlayer(); if (!p) return;
+    var el = document.getElementById('chestItems');
+    if (!el) return;
+    if (!p.chestList || !p.chestList.length) { el.innerHTML = 'В сундуке нет ни одной вещи.'; return; }
+    var html = '';
+    p.chestList.forEach(function(item) {
+        html += '<div>' + item.name + ' (+' + item.val + ')</div>';
+    });
+    el.innerHTML = html;
 }
 
 // ================== ВЕРФЬ ==================
@@ -1641,17 +1818,13 @@ var SHIPS = [
 ];
 function buyShip(id) {
     var p = getCurrentPlayer(); if (!p) return;
-    var ship = SHIPS[id];
-    if (!ship) return;
+    var ship = SHIPS[id]; if (!ship) return;
     if (p.level < ship.level) { alert('Нужен ' + ship.level + ' уровень!'); return; }
     if (p.gold < ship.gold) { alert('Нужно ' + formatGold(ship.gold) + ' золота!'); return; }
-    if (!confirm('Купить ' + ship.name + ' за ' + formatGold(ship.gold) + ' золота?\n\nМощность: +' + ship.power)) return;
-    p.gold -= ship.gold;
-    p.power += ship.power;
-    p.shipName = ship.name;
-    p.shipPower = ship.power;
+    if (!confirm('Купить ' + ship.name + ' за ' + formatGold(ship.gold) + '?\n\nМощность: +' + ship.power)) return;
+    p.gold -= ship.gold; p.power += ship.power; p.shipName = ship.name;
     saveCurrentPlayer(p); updateAll();
-    alert('✅ Куплен ' + ship.name + '! Мощность +' + ship.power);
+    alert('✅ Куплен ' + ship.name + '!');
 }
 function upgradeShip() {
     var p = getCurrentPlayer(); if (!p) return;
@@ -1663,10 +1836,10 @@ function upgradeShip() {
 function buyGun(name, atk, price) {
     var p = getCurrentPlayer(); if (!p) return;
     if (p.gold < price) { alert('Нужно ' + formatGold(price) + ' золота!'); return; }
-    if (!confirm('Купить ' + name + ' за ' + formatGold(price) + '?\n\nАтака +' + atk)) return;
+    if (!confirm('Купить ' + name + ' за ' + formatGold(price) + '?\n\n+' + atk)) return;
     p.gold -= price; p.power += atk;
     saveCurrentPlayer(p); updateAll();
-    alert('✅ ' + name + ' установлена! Атака +' + atk);
+    alert('✅ ' + name + ' установлено! +' + atk);
 }
 function buyMortira(name, dmg, price) {
     var p = getCurrentPlayer(); if (!p) return;
@@ -1674,48 +1847,51 @@ function buyMortira(name, dmg, price) {
     if (!confirm('Купить мортиру ' + name + ' за ' + formatGold(price) + '?\n\nУрон +' + dmg)) return;
     p.gold -= price; p.mortira = dmg;
     saveCurrentPlayer(p); updateAll();
-    alert('✅ Мортира ' + name + ' установлена! Урон: ' + dmg);
+    alert('✅ Мортира установлена! Урон: ' + dmg);
 }
 
-// ================== МАГАЗИН КОРСАР ==================
+// ================== КОРСАР ==================
 function buyCorsar(type, ironCost) {
     var p = getCurrentPlayer(); if (!p) return;
-    if (p.iron < ironCost) { alert('Нужно ' + ironCost + ' железа! У вас: ' + p.iron); return; }
+    if (p.iron < ironCost) { alert('Нужно ' + ironCost + ' железа!'); return; }
     p.iron -= ironCost;
-    if (type === 'rom') { p.rum += 10; alert('✅ Куплено 10 золотого рома!'); }
-    else if (type === 'elite') { p.power += 500; alert('✅ Элитный комплект! Мощность +500'); }
-    else if (type === 'agve') { p.power += 800; alert('✅ Комплект Агве! Мощность +800'); }
-    else if (type === 'tortuga') { p.power += 1200; alert('✅ Комплект Тортуги! Мощность +1200'); }
+    if (type === 'rom') { p.rum += 10; alert('✅ +10 золотого рома!'); }
+    else if (type === 'ship') { p.power += 5000; alert('✅ ТОП Корабль! +5000 мощности'); }
+    else if (type === 'elite') { p.power += 2000; alert('✅ Элитный комплект! +2000'); }
+    else if (type === 'agve') { p.power += 3000; alert('✅ Комплект Агве! +3000'); }
+    else if (type === 'tortuga') { p.power += 5000; alert('✅ Комплект Тортуги! +5000'); }
+    else if (type === 'command') { p.power += 1000; alert('✅ Элитная команда! +1000'); }
+    else if (type === 'divine') { p.power += 2500; alert('✅ Божественные артефакты! +2500'); }
+    else if (type === 'monster') { p.power += 1500; alert('✅ Артефакты монстров! +1500'); }
     saveCurrentPlayer(p); updateAll();
 }
 
-// ================== ЧЁРНЫЙ РЫНОК ==================
+// ================== РЫНОК ==================
 function sellPearl() {
     var p = getCurrentPlayer(); if (!p) return;
     if (p.pearl <= 0) { alert('Нет жемчуга.'); return; }
     var sold = p.pearl; p.gold += sold * 100; p.pearl = 0;
     saveCurrentPlayer(p); updateAll();
     addQuestProgress('buys', 1);
-    alert('Продано ' + sold + ' жемчуга за ' + (sold * 100) + ' золота!');
+    alert('Продано ' + sold + ' жемчуга!');
 }
 function sellOre() {
     var p = getCurrentPlayer(); if (!p) return;
     if (p.ore <= 0) { alert('Нет руды.'); return; }
     var sold = p.ore; p.gold += sold * 50; p.ore = 0;
     saveCurrentPlayer(p); updateAll();
-    alert('Продано ' + sold + ' руды за ' + (sold * 50) + ' золота!');
+    alert('Продано ' + sold + ' руды!');
 }
 function buyPiastr(amount, price) {
     var p = getCurrentPlayer(); if (!p) return;
-    if (p.gold < price * amount) { alert('Нужно ' + formatGold(price * amount) + ' золота!'); return; }
-    p.gold -= price * amount;
-    p.piastr += amount;
+    if (p.gold < price * amount) { alert('Не хватает золота!'); return; }
+    p.gold -= price * amount; p.piastr += amount;
     saveCurrentPlayer(p); updateAll();
-    alert('+ ' + amount + ' пиастров!');
+    alert('+' + amount + ' пиастров!');
 }
 function buyRes(type, amount, price) {
     var p = getCurrentPlayer(); if (!p) return;
-    if (p.gold < price * amount) { alert('Нужно ' + formatGold(price * amount) + ' золота!'); return; }
+    if (p.gold < price * amount) { alert('Не хватает золота!'); return; }
     p.gold -= price * amount;
     if (type === 'pearl') p.pearl += amount;
     else if (type === 'crystal') p.crystal += amount;
@@ -1725,34 +1901,32 @@ function buyRes(type, amount, price) {
 }
 function buyArt(name, stat, price) {
     var p = getCurrentPlayer(); if (!p) return;
-    if (p.gold < price) { alert('Нужно ' + formatGold(price) + ' золота!'); return; }
+    if (p.gold < price) { alert('Не хватает золота!'); return; }
     if (!confirm('Купить ' + name + ' за ' + formatGold(price) + '?')) return;
-    p.gold -= price;
-    p.power += stat;
+    p.gold -= price; p.power += stat;
     saveCurrentPlayer(p); updateAll();
     alert('✅ Куплено: ' + name);
 }
 
 // ================== БАНК ==================
-function bankPut(amount) {
+function bankOp(resource, op, amount) {
     var p = getCurrentPlayer(); if (!p) return;
     amount = parseInt(amount);
     if (isNaN(amount) || amount <= 0) { alert('Введите число!'); return; }
-    if (p.gold < amount) { alert('Недостаточно золота!'); return; }
-    p.gold -= amount;
-    p.bankGold = (p.bankGold || 0) + amount;
+    var map = {gold:['gold','bankGold'], piastr:['piastr','bankPiastr'], pearl:['pearl','bankPearl']};
+    var r = map[resource]; if (!r) return;
+    var field = r[0], bankField = r[1];
+    if (op === 'put') {
+        if ((p[field] || 0) < amount) { alert('Недостаточно!'); return; }
+        p[field] -= amount;
+        p[bankField] = (p[bankField] || 0) + amount;
+    } else {
+        if ((p[bankField] || 0) < amount) { alert('Недостаточно в тайнике!'); return; }
+        p[bankField] -= amount;
+        p[field] += amount;
+    }
     saveCurrentPlayer(p); updateAll();
-    alert('Положили ' + amount + ' золота в тайник.');
-}
-function bankTake(amount) {
-    var p = getCurrentPlayer(); if (!p) return;
-    amount = parseInt(amount);
-    if (isNaN(amount) || amount <= 0) { alert('Введите число!'); return; }
-    if ((p.bankGold || 0) < amount) { alert('Недостаточно в тайнике!'); return; }
-    p.bankGold -= amount;
-    p.gold += amount;
-    saveCurrentPlayer(p); updateAll();
-    alert('Забрали ' + amount + ' золота из тайника.');
+    alert((op === 'put' ? 'Положили ' : 'Забрали ') + amount + ' ' + resource);
 }
 
 // ================== МАСТЕРА ==================
@@ -1774,11 +1948,10 @@ function askMaster(name) {
 // ================== РЫБАЛКА / РУДНИК ==================
 function startFishing() {
     var p = getCurrentPlayer(); if (!p) return;
-    var now = Date.now(), fourHours = 4 * 60 * 60 * 1000;
-    if (now - (p.lastFish || 0) < fourHours) {
-        var left = Math.ceil((fourHours - (now - p.lastFish)) / 60000);
-        alert('Ждать: ' + left + ' мин.');
-        return;
+    var now = Date.now();
+    if (now - (p.lastFish || 0) < 4*60*60*1000) {
+        var left = Math.ceil((4*60*60*1000 - (now - p.lastFish)) / 60000);
+        alert('Ждать: ' + left + ' мин.'); return;
     }
     var gold = Math.floor(100 + Math.random() * 400);
     var pearl = Math.floor(1 + Math.random() * 5);
@@ -1789,10 +1962,9 @@ function startFishing() {
 function startMining() {
     var p = getCurrentPlayer(); if (!p) return;
     var now = Date.now();
-    if (now - (p.lastMine || 0) < 60 * 60 * 1000) {
-        var left = Math.ceil((60 * 60 * 1000 - (now - p.lastMine)) / 60000);
-        alert('Ждать: ' + left + ' мин.');
-        return;
+    if (now - (p.lastMine || 0) < 60*60*1000) {
+        var left = Math.ceil((60*60*1000 - (now - p.lastMine)) / 60000);
+        alert('Ждать: ' + left + ' мин.'); return;
     }
     var ore = Math.floor(1 + Math.random() * 5);
     p.ore += ore; p.lastMine = now;
@@ -1801,7 +1973,7 @@ function startMining() {
 }
 function dropSlitok() {
     var p = getCurrentPlayer(); if (!p) return;
-    if (p.slitok < 10) { alert('Нужно 10 слитков! У вас: ' + p.slitok); return; }
+    if (p.slitok < 10) { alert('Нужно 10 слитков!'); return; }
     p.slitok -= 10;
     var reward = Math.floor(500 + Math.random() * 5000);
     p.piastr += reward;
@@ -1811,12 +1983,32 @@ function dropSlitok() {
 }
 function exchangeGems() {
     var p = getCurrentPlayer(); if (!p) return;
-    if (p.gems < 3) { alert('Нужно 3 изумруда! У вас: ' + p.gems); return; }
+    if (p.gems < 3) { alert('Нужно 3 изумруда!'); return; }
     p.gems -= 3;
     p.piastr += 1000; p.iron += 25; p.rum += 12;
     saveCurrentPlayer(p); updateAll();
     addQuestProgress('exchange', 1);
     alert('+1000 пиастров, +25 железа, +12 рома');
+}
+function searchTreasure() {
+    var p = getCurrentPlayer(); if (!p) return;
+    if (Math.random() < 0.5) {
+        var gold = Math.floor(100 + Math.random() * 900);
+        p.gold += gold; p.pearl += Math.floor(Math.random() * 10);
+        addXP(100);
+        if (Math.random() < 0.4) addCollectionItem('Treasure', 1);
+        if (Math.random() < 0.2) addCollectionItem('CalypsoSea', 1);
+        if (Math.random() < 0.1) addCollectionItem('CalypsoTreasure', 1);
+        saveCurrentPlayer(p); updateAll();
+        alert('Клад найден! +' + gold + ' золота!');
+    } else alert('Пусто...');
+}
+function drinkRum() {
+    var p = getCurrentPlayer(); if (!p) return;
+    if (p.gold < 250) { alert('Недостаточно золота!'); return; }
+    p.gold -= 250; p.hp = Math.min(p.hp + 20, 200);
+    saveCurrentPlayer(p); updateAll();
+    alert('Вы выпили ром! +20 HP.');
 }
 
 // ================== СМЕНА НИКА/ПОЛА ==================
@@ -1851,8 +2043,7 @@ function changeSex() {
 function travelTo(city) {
     var p = getCurrentPlayer(); if (!p) return;
     if (p.gold < 500) { alert('Нужно 500 золота!'); return; }
-    p.gold -= 500;
-    p.city = city;
+    p.gold -= 500; p.city = city;
     saveCurrentPlayer(p); updateAll();
     var el = document.getElementById('travelCity');
     if (el) el.textContent = city;
@@ -1888,16 +2079,55 @@ function workProfession() {
     saveCurrentPlayer(p); updateAll();
 }
 
-// ================== СУНДУК ==================
-function openChest() {
+// ================== ТРОФЕИ ==================
+function updateTrophies() {
     var p = getCurrentPlayer(); if (!p) return;
-    if (p.gold < 100) { alert('Нужно 100 золота!'); return; }
-    p.gold -= 100;
-    p.chestItems = (p.chestItems || 0) + 1;
-    var gold = Math.floor(200 + Math.random() * 1000);
-    p.gold += gold;
-    saveCurrentPlayer(p); updateAll();
-    alert('Сундук открыт!\n+1 артефакт\n+' + gold + ' золота');
+    var el = document.getElementById('trophyList');
+    if (!el) return;
+    var trophies = [];
+    if (p.labelDone.indexOf('rich1') !== -1) trophies.push('Богач');
+    if (p.labelDone.indexOf('col1') !== -1) trophies.push('Коллекционер');
+    if (p.labelDone.indexOf('lvl1') !== -1) trophies.push('Пират года');
+    if (p.labelDone.indexOf('lvl2') !== -1) trophies.push('Бессмертный');
+    if (!trophies.length) { el.innerHTML = '<strong>У вас пока нет трофеев!</strong>'; return; }
+    el.innerHTML = trophies.map(function(t){ return '<div>🏆 ' + t + '</div>'; }).join('');
+}
+
+// ================== БЕЗОПАСНОСТЬ ==================
+function updateSecurity() {
+    var p = getCurrentPlayer(); if (!p) return;
+    var el;
+    el = document.getElementById('secEmail'); if (el) el.textContent = p.email || 'не указан';
+    el = document.getElementById('secPhone'); if (el) el.textContent = p.phone || 'не указан';
+    el = document.getElementById('sec2FA'); if (el) el.textContent = p.twoFA ? 'включена' : 'отключена';
+    el = document.getElementById('secAuto'); if (el) el.textContent = p.autoLogin ? 'вкл' : 'выкл';
+}
+function setEmail() {
+    var p = getCurrentPlayer(); if (!p) return;
+    var e = prompt('Введите Email:', p.email || '');
+    if (e !== null) { p.email = e; saveCurrentPlayer(p); updateSecurity(); alert('Email сохранён'); }
+}
+function setPhone() {
+    var p = getCurrentPlayer(); if (!p) return;
+    var e = prompt('Введите телефон:', p.phone || '');
+    if (e !== null) { p.phone = e; saveCurrentPlayer(p); updateSecurity(); alert('Телефон сохранён'); }
+}
+function changePassword() {
+    var p = getCurrentPlayer(); if (!p) return;
+    var np = prompt('Введите новый пароль (от 8 символов):');
+    if (!np || np.length < 8) { alert('Пароль от 8 символов'); return; }
+    p.password = np; saveCurrentPlayer(p);
+    alert('Пароль изменён!');
+}
+function toggle2FA() {
+    var p = getCurrentPlayer(); if (!p) return;
+    p.twoFA = !p.twoFA; saveCurrentPlayer(p); updateSecurity();
+    alert('2FA ' + (p.twoFA ? 'включена' : 'отключена'));
+}
+function toggleAuto() {
+    var p = getCurrentPlayer(); if (!p) return;
+    p.autoLogin = !p.autoLogin; saveCurrentPlayer(p); updateSecurity();
+    alert('Автологин ' + (p.autoLogin ? 'включен' : 'выключен'));
 }
 
 // ================== ЧАТ ==================
@@ -1913,20 +2143,22 @@ function sendChatMessage(msg) {
 }
 
 // ================== ФОРУМ ==================
+var topicsData = JSON.parse(localStorage.getItem('seawars_topics') || '{}');
+if (!topicsData['тест']) topicsData['тест'] = [{author:'nwstdio', text:'Работа — не волк. Работа — это ворк', time:'23 сен.'}];
+if (!topicsData['Как вы играете?']) topicsData['Как вы играете?'] = [{author:'Игрок', text:'Интересно как вы играете?', time:'01 мая'}];
+if (!topicsData['Анекдоты']) topicsData['Анекдоты'] = [{author:'Игрок', text:'Расскажите анекдот', time:'30 апр.'}];
+var currentTopic = '';
 function createTopic(name) {
     var p = getCurrentPlayer(); if (!p) return;
     if (!name || name.length < 3) { alert('Название 3+ символа'); return; }
+    if (!topicsData[name]) topicsData[name] = [];
+    topicsData[name].push({author:p.login, text:'(тема создана)', time:new Date().toLocaleString('ru-RU')});
+    localStorage.setItem('seawars_topics', JSON.stringify(topicsData));
     var topics = document.getElementById('forumTopics');
     var html = '<div class="post"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.png" width="24" height="24"> <a href="#" onclick="openTopic(\'' + name.replace(/'/g, "\\'") + '\'); return false;" style="color:#e3ba7c;">' + name + '</a> <small style="color:#888;">(сейчас)</small></div>';
     topics.innerHTML = html + topics.innerHTML;
     alert('Тема создана!');
 }
-var topicsData = {
-    'тест': [{author:'nwstdio', text:'Работа — не волк. Работа — это ворк, а волк — это ходить', time:'23 сен.'}],
-    'Как вы играете?': [{author:'Игрок', text:'Интересно как вы играете?', time:'01 мая'}],
-    'Анекдоты': [{author:'Игрок', text:'Расскажите анекдот', time:'30 апр.'}]
-};
-var currentTopic = '';
 function openTopic(name) {
     closeModal('forumModal');
     openModal('topicModal');
@@ -1943,20 +2175,19 @@ function addTopicMessage(msg) {
     var p = getCurrentPlayer(); if (!p) return;
     if (!msg || msg.length < 2) return;
     if (!topicsData[currentTopic]) topicsData[currentTopic] = [];
-    topicsData[currentTopic].push({author:p.login, text:msg, time:'сейчас'});
+    topicsData[currentTopic].push({author:p.login, text:msg, time:new Date().toLocaleString('ru-RU')});
+    localStorage.setItem('seawars_topics', JSON.stringify(topicsData));
     openTopic(currentTopic);
 }
 
 // ================== ПОЧТА ==================
-var mailData = {};
+var mailData = JSON.parse(localStorage.getItem('seawars_mail') || '{}');
 function sendMail(to, msg) {
     var p = getCurrentPlayer(); if (!p) return;
     if (!to || !msg) return;
-    var all = getAllPlayers();
-    if (!all[to]) { alert('Игрок ' + to + ' не найден'); return; }
     if (!mailData[to]) mailData[to] = [];
     mailData[to].push({from:p.login, text:msg, date:new Date().toLocaleString('ru-RU')});
-    saveAllPlayers(all);
+    localStorage.setItem('seawars_mail', JSON.stringify(mailData));
     alert('Письмо отправлено игроку ' + to);
     updateMail();
 }
@@ -1972,6 +2203,7 @@ function updateMail() {
     });
     el.innerHTML = html;
 }
+function showMail(type) { updateMail(); }
 
 // ================== ЭКСПОРТ / ИМПОРТ ==================
 function exportProgress() {
@@ -1986,7 +2218,7 @@ function exportProgress() {
     a.download = 'seawars_save_' + p.login + '_' + Date.now() + '.json';
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    alert('✅ Файл сохранения скачан!');
+    alert('✅ Файл скачан!');
 }
 function importProgress(event) {
     var file = event.target.files[0]; if (!file) return;
@@ -2013,7 +2245,7 @@ function showTransferCode() {
         var json = JSON.stringify(p);
         var code = btoa(unescape(encodeURIComponent(json)));
         var formatted = code.match(/.{1,60}/g).join('\n');
-        prompt('🔑 КОД ПЕРЕНОСА (скопируйте и вставьте на другом устройстве):', formatted);
+        prompt('🔑 КОД ПЕРЕНОСА (скопируйте):', formatted);
     } catch(e) { alert('Ошибка: ' + e.message); }
 }
 function enterTransferCode() {
@@ -2070,13 +2302,10 @@ setInterval(function() {
     var el = document.getElementById('prizeModal');
     if (el && el.classList.contains('active')) updatePrizeStatus();
 }, 1000);
-
-// Автосохранение
 setInterval(function() {
     var p = getCurrentPlayer();
     if (p) { var all = getAllPlayers(); all[p.login] = p; saveAllPlayers(all); }
 }, 30000);
-
 window.addEventListener('beforeunload', function() {
     var p = getCurrentPlayer();
     if (p) { var all = getAllPlayers(); all[p.login] = p; saveAllPlayers(all); }
@@ -2094,6 +2323,7 @@ window.addEventListener('DOMContentLoaded', function() {
         updateCollections();
         updateSkills();
         updateMail();
+        updateTrophies();
         p.lastSeen = Date.now();
         saveCurrentPlayer(p);
     }
