@@ -1397,40 +1397,89 @@ function logoutPlayer() {
     location.reload();
 }
 
-// ---------- МОДАЛЬНЫЕ ОКНА ----------
+// стек открытых модалок — чтобы знать, куда вернуться
+var modalStack = [];
+
 function openModal(id) {
     var el = document.getElementById(id);
-    if (el) {
-        el.style.display = 'flex';
-        // обновляем данные при открытии
-        if (id === 'cityModal') updateCity();
-        if (id === 'userModal') updateUser();
-        if (id === 'prizeModal') updatePrizeStatus();
-        if (id === 'marketModal') updateMarket();
-        if (id === 'bankModal') updateBank();
-        if (id === 'chestModal') updateChest();
-        if (id === 'shipModal') updateShip();
-        if (id === 'questsModal') updateQuests();
-        if (id === 'labelsModal') updateLabels();
-        if (id === 'collectionsModal') updateCollections();
-        if (id === 'effectsModal') updateEffects();
-        if (id === 'trophyModal') updateTrophy();
-        if (id === 'locationModal') updateSea();
-        if (id === 'monstersModal') updateMonsters();
-        if (id === 'fishModal') updateFish();
-        if (id === 'mineModal') updateMine();
-        if (id === 'chatModal') updateChat();
-        if (id === 'forumModal') updateForum();
-        if (id === 'mailModal') updateMail();
-        if (id === 'onlineModal') updateOnline();
-        if (id === 'settingsModal') updateSettings();
-        if (id === 'tablesModal') updateTableStatus();
+    if (!el) return;
+
+    // если открываем что-то новое — кладём текущее в стек
+    var current = modalStack[modalStack.length - 1];
+    if (current && current !== id) {
+        // не кладём главную в стек
+    } else if (!current) {
+        // первый открытый
     }
+
+    // если это не город/профиль и стек не пуст — запоминаем
+    if (modalStack[modalStack.length - 1] !== id) {
+        modalStack.push(id);
+    }
+
+    el.style.display = 'flex';
+
+    if (id === 'cityModal') updateCity();
+    if (id === 'userModal') updateUser();
+    if (id === 'prizeModal') updatePrizeStatus();
+    if (id === 'marketModal') updateMarket();
+    if (id === 'bankModal') updateBank();
+    if (id === 'chestModal') updateChest();
+    if (id === 'shipModal') updateShip();
+    if (id === 'questsModal') updateQuests();
+    if (id === 'labelsModal') updateLabels();
+    if (id === 'collectionsModal') updateCollections();
+    if (id === 'effectsModal') updateEffects();
+    if (id === 'trophyModal') updateTrophy();
+    if (id === 'locationModal') updateSea();
+    if (id === 'monstersModal') updateMonsters();
+    if (id === 'fishModal') updateFish();
+    if (id === 'mineModal') updateMine();
+    if (id === 'chatModal') updateChat();
+    if (id === 'forumModal') updateForum();
+    if (id === 'mailModal') updateMail();
+    if (id === 'onlineModal') updateOnline();
+    if (id === 'settingsModal') updateSettings();
+    if (id === 'tablesModal') updateTableStatus();
 }
 
+// закрыть конкретное окно (крестик)
 function closeModal(id) {
     var el = document.getElementById(id);
     if (el) el.style.display = 'none';
+
+    // убираем из стека
+    modalStack = modalStack.filter(function(x) { return x !== id; });
+
+    // если это было "корневое" окно (город/профиль) — не возвращаемся никуда
+    if (id === 'cityModal' || id === 'userModal') {
+        return;
+    }
+
+    // возвращаемся к предыдущему окну, если оно есть
+    var prev = modalStack[modalStack.length - 1];
+    if (prev) {
+        var prevEl = document.getElementById(prev);
+        if (prevEl) prevEl.style.display = 'flex';
+    } else {
+        // нет предыдущего — если игрок авторизован, открываем город
+        var p = getCurrentPlayer();
+        if (p) {
+            var city = document.getElementById('cityModal');
+            if (city) city.style.display = 'flex';
+            modalStack.push('cityModal');
+        }
+        // иначе остаёмся на главной
+    }
+}
+
+        //отдельная функция для кнопки "Назад" (не крестик)
+function backModal(id) {
+    closeModal(id);
+}
+
+function openUserModal() {
+    openModal('userModal');
 }
 
 function openUserModal() {
