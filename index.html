@@ -8,6 +8,73 @@
 <link rel="stylesheet" href="default_x2.css">
 <meta name="mobile-web-app-capable" content="yes">
 <link rel="apple-touch-icon" sizes="180x180" href="https://game-seawar.com/touch-icon-iphone-retina.png">
+    <style>
+/* === ФИКС: модалки поверх всего, без скролла === */
+html, body {
+    overflow: hidden !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: fixed !important;
+    width: 100% !important;
+}
+
+/* Каждое модальное окно — поверх всего, на весь экран */
+.modal-overlay {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.85) !important;
+    z-index: 9999 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    align-items: flex-start !important;
+    justify-content: center !important;
+}
+
+/* Когда модалка открыта (display: flex от JS) — она на весь экран */
+.modal-overlay[style*="display: flex"],
+.modal-overlay[style*="display:flex"] {
+    display: flex !important;
+}
+
+/* Само окно внутри модалки */
+.modal-window {
+    position: relative !important;
+    max-width: 500px !important;
+    width: 100% !important;
+    margin: 20px auto !important;
+    max-height: calc(100vh - 40px) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Крестик — всегда виден */
+.modal-close {
+    position: absolute !important;
+    top: 5px !important;
+    right: 5px !important;
+    z-index: 10000 !important;
+    cursor: pointer !important;
+}
+
+/* Главная страница (когда модалки закрыты) — тоже без скролла */
+.game-container {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1 !important;
+}
+</style>
 </head>
 <body>
 
