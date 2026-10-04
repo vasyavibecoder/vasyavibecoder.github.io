@@ -29,9 +29,6 @@
 <center style="color:#6e5f4a;"><span class="current-time-short">--:--</span> <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>24</strong></center>
 <center><small>game-seawar.com ©tg:dev_nwstdio, 2026</small><br># 0.00121 s.</center>
 </div>
-
-</body>
-</html>
 <!-- РЕГИСТРАЦИЯ -->
 <div class="modal-overlay" id="regModal">
 <div class="modal-window">
@@ -78,7 +75,6 @@
 <div class="post" style="text-align:center;">
 <a href="#" onclick="enterTransferCode(); return false;" style="color:#e3ba7c;font-size:14px;">🔑 Ввести код переноса с другого устройства</a>
 </div>
-<a class="link" href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <strong>Забыли пароль?</strong></a>
 <a class="link" href="#" onclick="closeModal('authModal'); return false;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> <strong>На главную</strong></a><br>
 <center style="color:#6e5f4a;"><span class="current-time-short">--:--</span> <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>25</strong></center>
 </div></div>
@@ -112,11 +108,7 @@
 <button class="but" onclick="claimPrize(2)" id="prizeBtn2">Забрать</button>
 </div>
 <div id="prizeResult" style="display:none;padding:15px;text-align:center;"></div>
-<div class="rek"><a href="#" onclick="closeModal('prizeModal'); openModal('cityModal'); return false;">Вернуться в Город</a></div>
-<div class="foot">
-<a class="down" href="#" onclick="closeModal('prizeModal'); openModal('cityModal'); return false;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
-<a class="down" href="#" onclick="closeModal('prizeModal'); openUserModal(); return false;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
-</div>
+<div class="rek"><a href="#" onclick="openModal('cityModal'); return false;">Вернуться в Город</a></div>
 </div></div>
 
 <!-- ГОРОД -->
@@ -141,28 +133,28 @@
 <td style="vertical-align:middle;"><span id="cityName">Игрок</span>, на Пинасе далеко не уплыть. Нужно в <strong>Верфи</strong> купить новый корабль!<br>В <strong>Таверне</strong> есть задания.</td>
 </tr></tbody></table></div>
 <div class="razd">Приключения</div>
-<a class="link" href="#" onclick="closeModal('cityModal'); openModal('locationModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/more.jpg" width="24" height="24"> В море!</a>
-<a class="link" href="#" onclick="closeModal('cityModal'); openModal('treasuresModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/treasure.jpg" width="24" height="24"> Поиски сокровищ</a>
-<a class="link" href="#" onclick="closeModal('cityModal'); openModal('monstersModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/monsters_ico.jpg" width="24" height="24"> Монстры <strong><span class="info_green">(+)</span></strong></a>
-<a class="link" href="#" onclick="closeModal('cityModal'); openModal('travelModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/travel.jpg" width="24" height="24"> Путешествие</a>
+<a class="link" href="#" onclick="openModal('locationModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/more.jpg" width="24" height="24"> В море!</a>
+<a class="link" href="#" onclick="openModal('treasuresModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/treasure.jpg" width="24" height="24"> Поиски сокровищ</a>
+<a class="link" href="#" onclick="openModal('monstersModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/monsters_ico.jpg" width="24" height="24"> Монстры <strong><span class="info_green">(+)</span></strong></a>
+<a class="link" href="#" onclick="openModal('travelModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/travel.jpg" width="24" height="24"> Путешествие</a>
 <div class="razd">Город</div>
-<a class="link" href="#" onclick="closeModal('cityModal'); openModal('tavernaModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/taverna.jpg" width="24" height="24"> Таверна <span class="info_pearl">(+)</span></a>
-<a class="link" href="#" onclick="closeModal('cityModal'); openModal('shopModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/shop.jpg" width="24" height="24"> Верфь</a>
-<a class="link" href="#" onclick="closeModal('cityModal'); openModal('marketModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk.jpg" width="24" height="24"> Черный рынок</a>
-<a class="link" href="#" onclick="closeModal('cityModal'); openModal('mastersModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/masters.jpg" width="24" height="24"> Пиратские мастера</a>
-<a class="link" href="#" onclick="closeModal('cityModal'); openModal('comuniModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/comuni.jpg" width="24" height="24"> Общение <span class="info_grey">(31)</span></a>
-<a class="link" href="#" onclick="closeModal('cityModal'); openModal('prizeModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="24" height="24"> Ежедневный подарок</a>
+<a class="link" href="#" onclick="openModal('tavernaModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/taverna.jpg" width="24" height="24"> Таверна <span class="info_pearl">(+)</span></a>
+<a class="link" href="#" onclick="openModal('shopModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/shop.jpg" width="24" height="24"> Верфь</a>
+<a class="link" href="#" onclick="openModal('marketModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk.jpg" width="24" height="24"> Черный рынок</a>
+<a class="link" href="#" onclick="openModal('mastersModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/masters.jpg" width="24" height="24"> Пиратские мастера</a>
+<a class="link" href="#" onclick="openModal('comuniModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/comuni.jpg" width="24" height="24"> Общение</a>
+<a class="link" href="#" onclick="openModal('prizeModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="24" height="24"> Ежедневный подарок</a>
 <div class="foot">
 <a class="down" href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
-<a class="down" href="#" onclick="closeModal('cityModal'); openUserModal(); return false;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
+<a class="down" href="#" onclick="openUserModal(); return false;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
 </div>
 <div class="foot_help">
 <a href="#">Наставник</a> | 
 <a href="https://t.me/okacste" target="_blank">Поддержка</a> | 
-<a href="#">Правила</a>
+<a href="#" onclick="openModal('rulesModal'); return false;">Правила</a>
 </div>
 <div class="foot_help">
-<a href="#">Общий чат</a> | <a href="#">Форум</a>
+<a href="#" onclick="openModal('chatModal'); return false;">Общий чат</a> | <a href="#" onclick="openModal('forumModal'); return false;">Форум</a>
 </div>
 <center style="color:#6e5f4a;"><span class="current-time-short">--:--</span> <img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="13" height="13"><strong>31</strong></center>
 </div></div>
@@ -191,15 +183,15 @@
 <div class="under" style="text-align:center;">
 Команда: <strong id="profileCrew">нет</strong>
 </div>
-<a class="link" href="#" onclick="closeModal('userModal'); openModal('mailModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/mail.jpg" width="24" height="24"> <strong>Почта</strong></a>
-<a class="link" href="#" onclick="closeModal('userModal'); openModal('chestModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="24" height="24"> <strong>Сундук (<span class="chest-count">0</span>)</strong></a>
-<a class="link" href="#" onclick="closeModal('userModal'); openModal('shipModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/artefact.jpg" width="24" height="24"> <strong>Мой корабль</strong></a>
-<a class="link" href="#" onclick="closeModal('userModal'); openModal('questsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/quest.jpg" width="24" height="24"> Квесты <span class="info_green">(+)</span></a>
-<a class="link" href="#" onclick="closeModal('userModal'); openModal('collectionsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/colect.jpg" width="24" height="24"> Коллекции</a>
-<a class="link" href="#" onclick="closeModal('userModal'); openModal('professionModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/profi.jpg" width="24" height="24"> Профессия</a>
-<a class="link" href="#" onclick="closeModal('userModal'); openModal('effectsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/navi.jpg" width="24" height="24"> Навыки</a>
-<a class="link" href="#" onclick="closeModal('userModal'); openModal('labelsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/progress.jpg" width="24" height="24"> Метки</a>
-<a class="link" href="#" onclick="closeModal('userModal'); openModal('trophyModal'); return false;" style="display:block;"><img src="https://game-seawar.com/assets/icons/nav/trophy.jpg" class="ico2" width="24" height="24"> Трофеи</a>
+<a class="link" href="#" onclick="openModal('mailModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/mail.jpg" width="24" height="24"> <strong>Почта</strong></a>
+<a class="link" href="#" onclick="openModal('chestModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/box.jpg" width="24" height="24"> <strong>Сундук (<span class="chest-count">0</span>)</strong></a>
+<a class="link" href="#" onclick="openModal('shipModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/artefact.jpg" width="24" height="24"> <strong>Мой корабль</strong></a>
+<a class="link" href="#" onclick="openModal('questsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/quest.jpg" width="24" height="24"> Квесты <span class="info_green">(+)</span></a>
+<a class="link" href="#" onclick="openModal('collectionsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/colect.jpg" width="24" height="24"> Коллекции</a>
+<a class="link" href="#" onclick="openModal('professionModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/profi.jpg" width="24" height="24"> Профессия</a>
+<a class="link" href="#" onclick="openModal('effectsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/navi.jpg" width="24" height="24"> Навыки</a>
+<a class="link" href="#" onclick="openModal('labelsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/progress.jpg" width="24" height="24"> Метки</a>
+<a class="link" href="#" onclick="openModal('trophyModal'); return false;" style="display:block;"><img src="https://game-seawar.com/assets/icons/nav/trophy.jpg" class="ico2" width="24" height="24"> Трофеи</a>
 <div class="under">
 <img class="ico" src="https://game-seawar.com/assets/icons/skills/pistol.png" width="16" height="16">Мощность: <strong class="player-power">24</strong><br>
 <img class="ico" src="https://game-seawar.com/assets/icons/skills/swords.png" width="16" height="16">Защита: <strong class="player-defense">20</strong><br>
@@ -209,9 +201,9 @@
 <div class="under">
 Ресурсы: золото <span class="player-gold">1000</span>, пиастры <span class="player-piastr">0</span>, жемчуг <span class="player-pearl">0</span>, кристаллы <span class="player-crystal">0</span>
 </div>
-<a class="link" href="#" onclick="closeModal('userModal'); openModal('settingsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/set.png" width="24" height="24"> <strong>Настройки</strong></a>
+<a class="link" href="#" onclick="openModal('settingsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/set.png" width="24" height="24"> <strong>Настройки</strong></a>
 <div class="foot">
-<a class="down" href="#" onclick="closeModal('userModal'); openModal('cityModal'); return false;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
+<a class="down" href="#" onclick="openModal('cityModal'); return false;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/city.png" width="16" height="16"> Город</a>
 <a class="down" href="#"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pirat.png" width="16" height="16"> Пират</a>
 </div>
 </div></div>
@@ -228,14 +220,13 @@
 <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importProgress(event)">
 <a class="link" href="#" onclick="showTransferCode(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/set.png" width="24" height="24"> <strong>🔑 Получить код переноса</strong></a>
 <div class="razd">Персонаж:</div>
-<a class="link" href="#" onclick="closeModal('settingsModal'); openModal('changeAvatarModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/map.png" width="24" height="24"> Изменить аватар</a>
-<a class="link" href="#" onclick="closeModal('settingsModal'); openModal('changeNickColorModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/map.png" width="24" height="24"> Изменить цвет ника</a>
-<a class="link" href="#" onclick="closeModal('settingsModal'); openModal('changeLoginModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/text.png" width="24" height="24"> Изменить ник</a>
-<a class="link" href="#" onclick="closeModal('settingsModal'); openModal('changeSexModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/kafe.png" width="24" height="24"> Изменить пол</a>
-<a class="link" href="#" onclick="closeModal('settingsModal'); openModal('securityModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/text.png" width="24" height="24"> Безопасность</a>
+<a class="link" href="#" onclick="openModal('changeAvatarModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/map.png" width="24" height="24"> Изменить аватар</a>
+<a class="link" href="#" onclick="openModal('changeNickColorModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/map.png" width="24" height="24"> Изменить цвет ника</a>
+<a class="link" href="#" onclick="openModal('changeLoginModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/text.png" width="24" height="24"> Изменить ник</a>
+<a class="link" href="#" onclick="openModal('changeSexModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/kafe.png" width="24" height="24"> Изменить пол</a>
+<a class="link" href="#" onclick="openModal('securityModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/text.png" width="24" height="24"> Безопасность</a>
 <a class="link" href="#" onclick="toggleAutoLogin(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/kafe.png" width="24" height="24"> Автологин: <strong id="autoLoginStatus">выкл</strong></a>
 <a class="link" href="#" onclick="logoutPlayer(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/frend.png" width="24" height="24"> <strong>Выйти из игры</strong></a>
-<div class="rek"><a href="#" onclick="closeModal('settingsModal'); openUserModal(); return false;">Назад</a></div>
 </div></div>
 
 <!-- ИЗМЕНИТЬ АВАТАР -->
@@ -252,7 +243,6 @@
 <div class="avatar-option" onclick="setAvatar('taverna_cask', this)"><img src="https://game-seawar.com/assets/img/taverna_cask.jpg"></div>
 <div class="avatar-option" onclick="setAvatar('shop1', this)"><img src="https://game-seawar.com/assets/img/shop1.png"></div>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('changeAvatarModal'); openModal('settingsModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ИЗМЕНИТЬ ЦВЕТ НИКА -->
@@ -272,7 +262,6 @@
 <div class="color-option" style="background:#000;border:2px solid #666;" onclick="setNickColor('#000000', this)"></div>
 </div>
 <div class="post" style="text-align:center;">Стоимость смены: <strong>5000 золота</strong></div>
-<div class="rek"><a href="#" onclick="closeModal('changeNickColorModal'); openModal('settingsModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- СМЕНА НИКА -->
@@ -287,7 +276,6 @@
 <input type="text" name="newlogin" required><br>
 <input type="submit" class="but" value="сменить">
 </form></div>
-<div class="rek"><a href="#" onclick="closeModal('changeLoginModal'); openModal('settingsModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- СМЕНА ПОЛА -->
@@ -297,7 +285,7 @@
 <div class="title">Смена пола</div>
 <div class="post">Стоимость: 25000 пиастров</div>
 <a class="link" href="#" onclick="changeSex(); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Да, уверен!</a>
-<a class="link" href="#" onclick="closeModal('changeSexModal'); openModal('settingsModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Нет, назад!</a>
+<a class="link" href="#" onclick="closeModal('changeSexModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Нет, назад!</a>
 </div></div>
 
 <!-- БЕЗОПАСНОСТЬ -->
@@ -310,7 +298,6 @@
 <div class="post">Пароль: <button class="but" onclick="changePassword()">Изменить пароль</button></div>
 <div class="post">2FA: <strong id="sec2FA">отключена</strong> <button class="but" onclick="toggle2FA()">Вкл/Выкл</button></div>
 <div class="under"><span class="info_red">Прежде чем что-то изменить, подумайте несколько раз!</span></div>
-<div class="rek"><a href="#" onclick="closeModal('securityModal'); openModal('settingsModal'); return false;">Назад</a></div>
 </div></div>
 <!-- ТАВЕРНА -->
 <div class="modal-overlay" id="tavernaModal">
@@ -320,11 +307,10 @@
 <div class="gorod"><img src="https://game-seawar.com/assets/img/taverna.jpg" width="200" height="100"></div>
 <div class="under"><img class="ico" src="https://game-seawar.com/assets/img/taverna_cask.jpg" width="24" height="24"> <span style="color:#49c6b9;"><span id="tavernaName">Игрок</span>, Якорь мне в ребро! Сегодня эль вкуснее!</span></div>
 <a class="link" href="#" onclick="drinkRum(); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/res/rum.png" width="16" height="16"> Выпить ром! <strong class="info_gold">250<img class="ico2" src="https://game-seawar.com/assets/icons/res/money.png" width="16" height="16"></strong></a>
-<a class="link" href="#" onclick="closeModal('tavernaModal'); openModal('chapelModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Отец МакФэн (Церковь)</a>
-<a class="link" href="#" onclick="closeModal('tavernaModal'); openModal('forumModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Таверна Веселый Роджер (Форум)</a>
-<a class="link" href="#" onclick="closeModal('tavernaModal'); openModal('chatModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Пообщаться с пиратами (Чат)</a>
+<a class="link" href="#" onclick="openModal('chapelModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Отец МакФэн (Церковь)</a>
+<a class="link" href="#" onclick="openModal('forumModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Таверна Веселый Роджер (Форум)</a>
+<a class="link" href="#" onclick="openModal('chatModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Пообщаться с пиратами (Чат)</a>
 <div class="under">Золото: <span class="player-gold">1000</span> | Жизнь: <span class="player-hp">140</span></div>
-<div class="rek"><a href="#" onclick="closeModal('tavernaModal'); openModal('cityModal'); return false;">Назад в Город</a></div>
 </div></div>
 
 <!-- ЦЕРКОВЬ -->
@@ -337,9 +323,8 @@
 <a class="link" href="#" onclick="chapelPropose(); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Сделать предложение</a>
 <a class="link" href="#" onclick="chapelWedding(); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Сыграть свадьбу (50000 зол.)</a>
 <a class="link" href="#" onclick="chapelDivorce(); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Развестись (10000 зол.)</a>
-<a class="link" href="#" onclick="closeModal('chapelModal'); openModal('chapelShopModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Магазин редкостей</a>
-<a class="link" href="#" onclick="closeModal('chapelModal'); openModal('engravingModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Снять гравировку</a>
-<div class="rek"><a href="#" onclick="closeModal('chapelModal'); openModal('tavernaModal'); return false;">Назад</a></div>
+<a class="link" href="#" onclick="openModal('chapelShopModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Магазин редкостей</a>
+<a class="link" href="#" onclick="openModal('engravingModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/base/dir.png" width="16" height="16"> Снять гравировку</a>
 </div></div>
 
 <!-- МАГАЗИН ЦЕРКВИ -->
@@ -352,7 +337,6 @@
 <div class="post"><strong>Медальон Любви</strong> (+50 мощности) — 50 000 <button class="but" onclick="buyChapelItem('medallion',50000,'power',50)">Купить</button></div>
 <div class="post"><strong>Амулет Верности</strong> (+100 HP) — 25 000 <button class="but" onclick="buyChapelItem('amulet',25000,'hp',100)">Купить</button></div>
 <div class="post"><strong>Свадебная вуаль</strong> (+50 скорости) — 75 000 <button class="but" onclick="buyChapelItem('veil',75000,'speed',50)">Купить</button></div>
-<div class="rek"><a href="#" onclick="closeModal('chapelShopModal'); openModal('chapelModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ГРАВИРОВКА -->
@@ -364,7 +348,6 @@
 <div class="post">Стоимость снятия: <strong>5 000 золота</strong></div>
 <div class="post" style="text-align:center;"><button class="but" onclick="doEngraving()">Снять гравировку</button></div>
 <div class="under">Гравировка даёт <strong>+25 к мощности, защите и скорости</strong>.</div>
-<div class="rek"><a href="#" onclick="closeModal('engravingModal'); openModal('chapelModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ВЕРФЬ -->
@@ -373,17 +356,16 @@
 <button class="modal-close" onclick="closeModal('shopModal')">&times;</button>
 <div class="title">Верфь</div>
 <div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/img/shop1.png" width="72" height="72"></td><td><span class="info_green"><strong class="info_pearl" id="shopName">Игрок</strong>, верфь города <strong class="info_purple">Толедо</strong> к вашим услугам!</span></td></tr></tbody></table></div>
-<a class="link" href="#" onclick="closeModal('shopModal'); openModal('corsarModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/upgrade.png" width="24" height="24"> <strong class="info_salat">Железный Корсар</strong></a>
-<a class="link" href="#" onclick="closeModal('shopModal'); openModal('shipsModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/ship.png" width="24" height="24"> <strong>Купить корабль</strong></a>
-<a class="link" href="#" onclick="closeModal('shopModal'); openModal('gunsModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pushka.png" width="24" height="24"> Установить пушки</a>
-<a class="link" href="#" onclick="closeModal('shopModal'); openModal('harpoonModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить гарпуны</a>
-<a class="link" href="#" onclick="closeModal('shopModal'); openModal('mortiraModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить мортиру</a>
-<a class="link" href="#" onclick="closeModal('shopModal'); openModal('sailsModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить паруса</a>
-<a class="link" href="#" onclick="closeModal('shopModal'); openModal('armorModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить броню</a>
-<a class="link" href="#" onclick="closeModal('shopModal'); openModal('satelliteModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить спутник</a>
+<a class="link" href="#" onclick="openModal('corsarModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/upgrade.png" width="24" height="24"> <strong class="info_salat">Железный Корсар</strong></a>
+<a class="link" href="#" onclick="openModal('shipsModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/ship.png" width="24" height="24"> <strong>Купить корабль</strong></a>
+<a class="link" href="#" onclick="openModal('gunsModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pushka.png" width="24" height="24"> Установить пушки</a>
+<a class="link" href="#" onclick="openModal('harpoonModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить гарпуны</a>
+<a class="link" href="#" onclick="openModal('mortiraModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить мортиру</a>
+<a class="link" href="#" onclick="openModal('sailsModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить паруса</a>
+<a class="link" href="#" onclick="openModal('armorModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить броню</a>
+<a class="link" href="#" onclick="openModal('satelliteModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/pointer.png" width="24" height="24"> Установить спутник</a>
 <a class="link" href="#" onclick="upgradeShip(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/upgrade.png" width="24" height="24"> <strong>Улучшить корабль (+10 мощности, 500 золота)</strong></a>
 <div class="under">Мощность: <strong class="player-power">24</strong> | Золото: <span class="player-gold">1000</span></div>
-<div class="rek"><a href="#" onclick="closeModal('shopModal'); openModal('cityModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- КОРАБЛИ -->
@@ -393,7 +375,6 @@
 <div class="title">Покупка корабля</div>
 <div class="under" style="text-align:center;">Ваш корабль: <strong class="player-ship-name">Пинас</strong> | Золото: <strong class="player-gold">1000</strong></div>
 <div id="shipsList"></div>
-<div class="rek"><a href="#" onclick="closeModal('shipsModal'); openModal('shopModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ПУШКИ -->
@@ -403,7 +384,6 @@
 <div class="title">Установка пушек</div>
 <div class="under" style="text-align:center;">Мощность: <strong class="player-power">24</strong> | Золото: <strong class="player-gold">1000</strong></div>
 <div id="gunsList"></div>
-<div class="rek"><a href="#" onclick="closeModal('gunsModal'); openModal('shopModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ГАРПУНЫ -->
@@ -412,7 +392,6 @@
 <button class="modal-close" onclick="closeModal('harpoonModal')">&times;</button>
 <div class="title">Установка гарпунов</div>
 <div id="harpoonsList"></div>
-<div class="rek"><a href="#" onclick="closeModal('harpoonModal'); openModal('shopModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- МОРТИРА -->
@@ -422,7 +401,6 @@
 <div class="title">Установка мортиры</div>
 <div class="under" style="text-align:center;">Урон мортиры: <strong class="player-mortira">0</strong></div>
 <div id="mortiraList"></div>
-<div class="rek"><a href="#" onclick="closeModal('mortiraModal'); openModal('shopModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ПАРУСА -->
@@ -431,7 +409,6 @@
 <button class="modal-close" onclick="closeModal('sailsModal')">&times;</button>
 <div class="title">Установка парусов</div>
 <div id="sailsList"></div>
-<div class="rek"><a href="#" onclick="closeModal('sailsModal'); openModal('shopModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- БРОНЯ -->
@@ -440,7 +417,6 @@
 <button class="modal-close" onclick="closeModal('armorModal')">&times;</button>
 <div class="title">Установка брони</div>
 <div id="armorList"></div>
-<div class="rek"><a href="#" onclick="closeModal('armorModal'); openModal('shopModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- СПУТНИК -->
@@ -449,7 +425,6 @@
 <button class="modal-close" onclick="closeModal('satelliteModal')">&times;</button>
 <div class="title">Установка спутника</div>
 <div id="satelliteList"></div>
-<div class="rek"><a href="#" onclick="closeModal('satelliteModal'); openModal('shopModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- МАГАЗИН КОРСАР -->
@@ -467,7 +442,6 @@
 <div class="post">Комплект Тортуги (+5000) — 70 <button class="but" onclick="buyCorsar('tortuga',70)">Купить</button></div>
 <div class="post">Божественные артефакты (+2500) — 100 <button class="but" onclick="buyCorsar('divine',100)">Купить</button></div>
 <div class="post">Артефакты монстров (+1500) — 80 <button class="but" onclick="buyCorsar('monster',80)">Купить</button></div>
-<div class="rek"><a href="#" onclick="closeModal('corsarModal'); openModal('shopModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ЧЁРНЫЙ РЫНОК -->
@@ -476,11 +450,11 @@
 <button class="modal-close" onclick="closeModal('marketModal')">&times;</button>
 <div class="title">Черный рынок</div>
 <div class="post"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/img/auk_index.png" width="64" height="64"></td><td><span id="marketName">Игрок</span>, добро пожаловать на <strong>Черный Рынок</strong>!</td></tr></tbody></table></div>
-<a class="link" href="#" onclick="closeModal('marketModal'); openModal('bankModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/bank.jpg" width="24" height="24"> <strong>Мой тайник</strong></a>
-<a class="link" href="#" onclick="closeModal('marketModal'); openModal('piastrMarketModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk_piastr.jpg" width="24" height="24"> <strong>Рынок пиастров</strong></a>
-<a class="link" href="#" onclick="closeModal('marketModal'); openModal('resMarketModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk_res.jpg" width="24" height="24"> <strong>Ресурсы</strong></a>
-<a class="link" href="#" onclick="closeModal('marketModal'); openModal('artMarketModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk_art.jpg" width="24" height="24"> <strong>Артефакты</strong></a>
-<a class="link" href="#" onclick="closeModal('marketModal'); openModal('tableMarketModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk_table.jpg" width="24" height="24"> <strong>Таблички</strong></a>
+<a class="link" href="#" onclick="openModal('bankModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/bank.jpg" width="24" height="24"> <strong>Мой тайник</strong></a>
+<a class="link" href="#" onclick="openModal('piastrMarketModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk_piastr.jpg" width="24" height="24"> <strong>Рынок пиастров</strong></a>
+<a class="link" href="#" onclick="openModal('resMarketModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk_res.jpg" width="24" height="24"> <strong>Ресурсы</strong></a>
+<a class="link" href="#" onclick="openModal('artMarketModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk_art.jpg" width="24" height="24"> <strong>Артефакты</strong></a>
+<a class="link" href="#" onclick="openModal('tableMarketModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk_table.jpg" width="24" height="24"> <strong>Таблички</strong></a>
 <div class="razd">Продажа:</div>
 <a class="link" href="#" onclick="sellPearl(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/trade_chat.jpg" width="24" height="24"> <strong>Продать жемчуг (100 за шт.)</strong></a>
 <a class="link" href="#" onclick="sellOre(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk_res.jpg" width="24" height="24"> <strong>Продать руду (50 за шт.)</strong></a>
@@ -488,7 +462,6 @@
 <a class="link" href="#" onclick="sellIron(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk_res.jpg" width="24" height="24"> <strong>Продать железо (500 за шт.)</strong></a>
 <a class="link" href="#" onclick="sellRum(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/auk_res.jpg" width="24" height="24"> <strong>Продать ром (300 за шт.)</strong></a>
 <div class="under">У вас: жемчуг <span class="player-pearl">0</span>, руда <span class="player-ore">0</span>, кристаллы <span class="player-crystal">0</span>, железо <span class="player-iron">0</span>, ром <span class="player-rum">0</span></div>
-<div class="rek"><a href="#" onclick="closeModal('marketModal'); openModal('cityModal'); return false;">Назад в Город</a></div>
 </div></div>
 
 <!-- БАНК -->
@@ -513,7 +486,6 @@
 <div class="razd">Железо:</div>
 <form onsubmit="event.preventDefault(); bankOp('iron','put',this.amount.value);" style="padding:5px;"><input type="text" name="amount" placeholder="Сумма" required><input type="submit" class="but" value="Положить"></form>
 <form onsubmit="event.preventDefault(); bankOp('iron','take',this.amount.value);" style="padding:5px;"><input type="text" name="amount" placeholder="Сумма" required><input type="submit" class="but" value="Забрать"></form>
-<div class="rek"><a href="#" onclick="closeModal('bankModal'); openModal('marketModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- РЫНОК ПИАСТРОВ -->
@@ -524,7 +496,6 @@
 <div class="post">Пиастры (243550) — 25900 за 1 <button class="but" onclick="buyPiastr(1,25900)">Купить 1</button></div>
 <div class="post">Пиастры (249025) — 25900 за 1 <button class="but" onclick="buyPiastr(1,25900)">Купить 1</button></div>
 <div class="post">Пиастры (43648) — 29900 за 1 <button class="but" onclick="buyPiastr(1,29900)">Купить 1</button></div>
-<div class="rek"><a href="#" onclick="closeModal('piastrMarketModal'); openModal('marketModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- РЫНОК РЕСУРСОВ -->
@@ -535,7 +506,6 @@
 <div class="post">Жемчуг — 1299 за 1 <button class="but" onclick="buyRes('pearl',1,1299)">Купить 1</button></div>
 <div class="post">Кристаллы — 1300 за 1 <button class="but" onclick="buyRes('crystal',1,1300)">Купить 1</button></div>
 <div class="post">Железо — 600000 за 1 <button class="but" onclick="buyRes('iron',1,600000)">Купить 1</button></div>
-<div class="rek"><a href="#" onclick="closeModal('resMarketModal'); openModal('marketModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- РЫНОК АРТЕФАКТОВ -->
@@ -546,7 +516,6 @@
 <div class="post">Порох Джонса (+1100) — 1 000 000 000 <button class="but" onclick="buyArt('Порох Джонса',1100,1000000000)">Купить</button></div>
 <div class="post">Морские Цепи (+47 защ) — 100 000 <button class="but" onclick="buyArt('Морские Цепи',47,100000)">Купить</button></div>
 <div class="post">Ядовитые Ядра (+227) — 900 000 <button class="but" onclick="buyArt('Ядовитые Ядра',227,900000)">Купить</button></div>
-<div class="rek"><a href="#" onclick="closeModal('artMarketModal'); openModal('marketModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- РЫНОК ТАБЛИЧЕК -->
@@ -558,7 +527,6 @@
 <div class="post">Табличка Защиты +100 — 50000 <button class="but" onclick="buyTable('defense_big')">Купить</button></div>
 <div class="post">Табличка Скорости +100 — 50000 <button class="but" onclick="buyTable('speed_big')">Купить</button></div>
 <div class="post">Табличка Удачи (+5%) — 100000 <button class="but" onclick="buyTable('luck')">Купить</button></div>
-<div class="rek"><a href="#" onclick="closeModal('tableMarketModal'); openModal('marketModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- МАСТЕРА -->
@@ -573,7 +541,6 @@
 <div class="under">Старый пират Джон — обучает пиратству</div>
 <div class="under">Калипсо — создаёт артефакты</div>
 <div class="under">Эрик — мастер флотов</div>
-<div class="rek"><a href="#" onclick="closeModal('mastersModal'); openModal('cityModal'); return false;">Город</a></div>
 </div></div>
 <!-- МОРЕ -->
 <div class="modal-overlay" id="locationModal">
@@ -586,10 +553,9 @@
 <div class="razd">Локации:</div>
 <div id="seaLocationsList"></div>
 <div class="under" style="text-align:center;">
-<a class="link" href="#" onclick="closeModal('locationModal'); openModal('invisibleModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/set.png" width="16" height="16"> Режим невидимки</a>
-<a class="link" href="#" onclick="closeModal('locationModal'); openModal('skillRatingModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/progress.jpg" width="16" height="16"> Рейтинг навыка</a>
+<a class="link" href="#" onclick="openModal('invisibleModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/set.png" width="16" height="16"> Режим невидимки</a>
+<a class="link" href="#" onclick="openModal('skillRatingModal'); return false;" style="display:block;"><img class="ico2" src="https://game-seawar.com/assets/icons/nav/progress.jpg" width="16" height="16"> Рейтинг навыка</a>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('locationModal'); openModal('cityModal'); return false;">Назад в Город</a></div>
 </div></div>
 
 <!-- ПОГОДА -->
@@ -598,7 +564,6 @@
 <button class="modal-close" onclick="closeModal('weatherModal')">&times;</button>
 <div class="title">Погода в море</div>
 <div id="weatherList"></div>
-<div class="rek"><a href="#" onclick="closeModal('weatherModal'); openModal('locationModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- БОЙ С ТОРГОВЦАМИ -->
@@ -619,7 +584,6 @@ HP: <strong id="traderHP">4990</strong> / 4990
 <button class="but" onclick="seaBoard()">⚔️ На абордаж!</button>
 </div>
 <div id="seaFightLog" class="under" style="max-height:150px;overflow-y:auto;"></div>
-<div class="rek"><a href="#" onclick="closeModal('traderFightModal'); openModal('locationModal'); return false;">Отступить</a></div>
 </div></div>
 
 <!-- БОЙ С БОТОМ -->
@@ -636,7 +600,6 @@ HP: <strong id="botHP">500</strong> / 500
 <button class="but" onclick="botFire()">🔥 Огонь!</button>
 </div>
 <div id="botFightLog" class="under" style="max-height:150px;overflow-y:auto;"></div>
-<div class="rek"><a href="#" onclick="closeModal('botFightModal'); openModal('locationModal'); return false;">Отступить</a></div>
 </div></div>
 
 <!-- КРАХ КОРАБЛЯ -->
@@ -648,7 +611,7 @@ HP: <strong id="botHP">500</strong> / 500
 <div class="under" style="text-align:center;">
 <span class="info_red">Ваш корабль пошёл ко дну...</span><br><br>
 Вы потеряли часть золота и ресурсов.<br>
-<a class="link" href="#" onclick="closeModal('crashedModal'); openModal('cityModal'); return false;">Вернуться в город</a>
+<a class="link" href="#" onclick="openModal('cityModal'); return false;">Вернуться в город</a>
 </div>
 </div></div>
 
@@ -667,7 +630,6 @@ HP: <strong id="botHP">500</strong> / 500
 <button class="but" onclick="activateInvisible()">Активировать</button>
 </div>
 <div class="under"><span class="info_red">В невидимке вы не можете атаковать и быть атакованным.</span></div>
-<div class="rek"><a href="#" onclick="closeModal('invisibleModal'); openModal('locationModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- РЕЙТИНГ НАВЫКА -->
@@ -684,7 +646,6 @@ HP: <strong id="botHP">500</strong> / 500
 <strong>Молодые Стволы</strong> — 1499- очков
 </div>
 <div class="under"><span class="info_purple">На Сент-Люсии Легенды и Стволы могут взаимодействовать только в диапазоне 1475-1525.</span></div>
-<div class="rek"><a href="#" onclick="closeModal('skillRatingModal'); openModal('locationModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- МОНСТРЫ -->
@@ -695,7 +656,6 @@ HP: <strong id="botHP">500</strong> / 500
 <div class="gorod"><img src="https://game-seawar.com/assets/img/monsters.jpg" width="200" height="100"></div>
 <div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/pic/monsters/zina.jpg" width="52" height="52"></td><td><span id="monstersName">Игрок</span>, выбирай монстра и вперёд!</td></tr></tbody></table></div>
 <div id="monstersList"></div>
-<div class="rek"><a href="#" onclick="closeModal('monstersModal'); openModal('cityModal'); return false;">Назад в Город</a></div>
 </div></div>
 
 <!-- БОЙ С МОНСТРОМ -->
@@ -715,7 +675,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <button class="but" onclick="monsterAttack()">⚔️ Атаковать!</button>
 </div>
 <div id="monsterFightLog" class="under" style="max-height:150px;overflow-y:auto;"></div>
-<div class="rek"><a href="#" onclick="closeModal('monsterFightModal'); openModal('monstersModal'); return false;">Отступить</a></div>
 </div></div>
 
 <!-- СОКРОВИЩА -->
@@ -733,7 +692,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <button class="but" onclick="startTreasure()">🔍 Начать поиск</button>
 </div>
 <div id="treasureResult" class="under" style="text-align:center;"></div>
-<div class="rek"><a href="#" onclick="closeModal('treasuresModal'); openModal('cityModal'); return false;">Назад в Город</a></div>
 </div></div>
 
 <!-- ЧАША БОКОРА -->
@@ -751,7 +709,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 </div>
 <div class="under"><span class="info_purple">Джек-пот: 75 очков метки или Сундук Ванху X50-X150!</span></div>
 <div class="under"><span class="info_red">Слитки сгорают до 03:00 UA/МСК!</span></div>
-<div class="rek"><a href="#" onclick="closeModal('bocorModal'); openModal('cityModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- КОНТРАБАНДИСТ -->
@@ -768,7 +725,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <button class="but" onclick="kotelExchange()">Обменять</button>
 </div>
 <div class="under"><span class="info_purple">Джек-пот: 25000 пиастр, 300 железа, 200 рома или 12 молотков!</span></div>
-<div class="rek"><a href="#" onclick="closeModal('kotelModal'); openModal('cityModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- НАШЕСТВИЕ ГАРПИЙ -->
@@ -787,7 +743,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <div style="text-align:center;padding:10px;">
 <button class="but" onclick="joinRaid()">Присоединиться</button>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('raidModal'); openModal('monstersModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- РЫБАЛКА -->
@@ -806,7 +761,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <div class="under" style="text-align:center;">
 <a class="link" href="#" onclick="openFishShop()">Магазин «Великий Улов»</a>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('fishModal'); openModal('cityModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- РУДНИК -->
@@ -826,7 +780,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <a class="link" href="#" onclick="sellOre()">Продать руду (7 пиастр за шт.)</a>
 </div>
 <div id="mineResult" class="under" style="text-align:center;"></div>
-<div class="rek"><a href="#" onclick="closeModal('mineModal'); openModal('cityModal'); return false;">Назад</a></div>
 </div></div>
 <!-- ОБЩЕНИЕ -->
 <div class="modal-overlay" id="comuniModal">
@@ -836,18 +789,17 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <div class="gorod"><img src="https://game-seawar.com/assets/img/comuni.jpg" width="200" height="100"></div>
 <div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/comuni.jpg" width="52" height="52"></td><td><span id="comuniName">Игрок</span>, общайся с пиратами!</td></tr></tbody></table></div>
 <div class="razd">Чаты:</div>
-<a class="link" href="#" onclick="closeModal('comuniModal'); openModal('chatModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/chat.jpg" width="24" height="24"> <strong>Общий чат</strong></a>
-<a class="link" href="#" onclick="closeModal('comuniModal'); openClanChat(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/clan.jpg" width="24" height="24"> <strong>Чат флота</strong></a>
-<a class="link" href="#" onclick="closeModal('comuniModal'); openTraderChat(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/trade_chat.jpg" width="24" height="24"> <strong>Торговый чат</strong></a>
-<a class="link" href="#" onclick="closeModal('comuniModal'); openLoveChat(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/love.jpg" width="24" height="24"> <strong>Чат любви</strong></a>
+<a class="link" href="#" onclick="openModal('chatModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/chat.jpg" width="24" height="24"> <strong>Общий чат</strong></a>
+<a class="link" href="#" onclick="openClanChat(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/clan.jpg" width="24" height="24"> <strong>Чат флота</strong></a>
+<a class="link" href="#" onclick="openTraderChat(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/trade_chat.jpg" width="24" height="24"> <strong>Торговый чат</strong></a>
+<a class="link" href="#" onclick="openLoveChat(); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/love.jpg" width="24" height="24"> <strong>Чат любви</strong></a>
 <div class="razd">Социальное:</div>
-<a class="link" href="#" onclick="closeModal('comuniModal'); openModal('forumModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.jpg" width="24" height="24"> <strong>Форум</strong></a>
-<a class="link" href="#" onclick="closeModal('comuniModal'); openModal('mailModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/mail.jpg" width="24" height="24"> <strong>Почта</strong></a>
-<a class="link" href="#" onclick="closeModal('comuniModal'); openModal('onlineModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/online.jpg" width="24" height="24"> <strong>Онлайн</strong></a>
+<a class="link" href="#" onclick="openModal('forumModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/forum.jpg" width="24" height="24"> <strong>Форум</strong></a>
+<a class="link" href="#" onclick="openModal('mailModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/mail.jpg" width="24" height="24"> <strong>Почта</strong></a>
+<a class="link" href="#" onclick="openModal('onlineModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/online.jpg" width="24" height="24"> <strong>Онлайн</strong></a>
 <div class="razd">Информация:</div>
-<a class="link" href="#" onclick="closeModal('comuniModal'); openModal('moderatorsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/moders.jpg" width="24" height="24"> Модераторы</a>
-<a class="link" href="#" onclick="closeModal('comuniModal'); openModal('socialModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/social.jpg" width="24" height="24"> Соцсети</a>
-<div class="rek"><a href="#" onclick="closeModal('comuniModal'); openModal('cityModal'); return false;">Назад в Город</a></div>
+<a class="link" href="#" onclick="openModal('moderatorsModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/moders.jpg" width="24" height="24"> Модераторы</a>
+<a class="link" href="#" onclick="openModal('socialModal'); return false;" style="display:block;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/social.jpg" width="24" height="24"> Соцсети</a>
 </div></div>
 
 <!-- ОБЩИЙ ЧАТ -->
@@ -860,7 +812,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <input type="text" name="msg" placeholder="Введите сообщение..." style="width:70%;" required>
 <input type="submit" class="but" value="Отправить">
 </form>
-<div class="rek"><a href="#" onclick="closeModal('chatModal'); openModal('comuniModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ФОРУМ -->
@@ -870,7 +821,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <div class="title">Таверна Веселый Роджер (Форум)</div>
 <div class="gorod"><img src="https://game-seawar.com/assets/img/forum.jpg" width="200" height="100"></div>
 <div id="forumSections"></div>
-<div class="rek"><a href="#" onclick="closeModal('forumModal'); openModal('comuniModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ТЕМА ФОРУМА -->
@@ -883,7 +833,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <input type="text" name="msg" placeholder="Ваше сообщение..." style="width:70%;" required>
 <input type="submit" class="but" value="Отправить">
 </form>
-<div class="rek"><a href="#" onclick="closeModal('forumTopicModal'); openModal('forumModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ПОЧТА -->
@@ -892,14 +841,13 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <button class="modal-close" onclick="closeModal('mailModal')">&times;</button>
 <div class="title">Почта</div>
 <div class="under" style="text-align:center;">
-<a class="link" href="#" onclick="showMailTab('in')">📥 Входящие</a> |
-<a class="link" href="#" onclick="showMailTab('out')">📤 Исходящие</a> |
-<a class="link" href="#" onclick="showMailTab('new')">✉️ Написать</a> |
-<a class="link" href="#" onclick="showMailTab('friends')">👥 Друзья</a> |
-<a class="link" href="#" onclick="showMailTab('ignor')">🚫 ЧС</a>
+<a class="link" href="#" onclick="showMailTab('in'); return false;">📥 Входящие</a> |
+<a class="link" href="#" onclick="showMailTab('out'); return false;">📤 Исходящие</a> |
+<a class="link" href="#" onclick="showMailTab('new'); return false;">✉️ Написать</a> |
+<a class="link" href="#" onclick="showMailTab('friends'); return false;">👥 Друзья</a> |
+<a class="link" href="#" onclick="showMailTab('ignor'); return false;">🚫 ЧС</a>
 </div>
 <div id="mailContent" class="under" style="min-height:200px;"></div>
-<div class="rek"><a href="#" onclick="closeModal('mailModal'); openModal('comuniModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ОНЛАЙН -->
@@ -908,12 +856,11 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <button class="modal-close" onclick="closeModal('onlineModal')">&times;</button>
 <div class="title">Кто онлайн</div>
 <div class="under" style="text-align:center;">
-<a class="link" href="#" onclick="loadOnline('all')">Все</a> |
-<a class="link" href="#" onclick="loadOnline('noclan')">Без флота</a> |
-<a class="link" href="#" onclick="loadOnline('search')">🔍 Поиск</a>
+<a class="link" href="#" onclick="loadOnline('all'); return false;">Все</a> |
+<a class="link" href="#" onclick="loadOnline('noclan'); return false;">Без флота</a> |
+<a class="link" href="#" onclick="loadOnline('search'); return false;">🔍 Поиск</a>
 </div>
 <div id="onlineList" class="under" style="min-height:200px;"></div>
-<div class="rek"><a href="#" onclick="closeModal('onlineModal'); openModal('comuniModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- МОДЕРАТОРЫ -->
@@ -928,7 +875,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 🛡️ <span class="info_blue">BlackPearl</span> — модератор<br>
 🛡️ <span class="info_blue">Corsair</span> — модератор
 </div>
-<div class="rek"><a href="#" onclick="closeModal('moderatorsModal'); openModal('comuniModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- СОЦСЕТИ -->
@@ -941,7 +887,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <a class="link" href="#" target="_blank">💬 Discord</a><br>
 <a class="link" href="#" target="_blank">📘 VK</a>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('socialModal'); openModal('comuniModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- СУНДУК -->
@@ -963,7 +908,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <button class="but" onclick="openAllChests()">Открыть все сундуки (250 отмычек)</button>
 <button class="but" onclick="openAllVanhu()">Открыть все Ванху</button>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('chestModal'); openUserModal(); return false;">Назад</a></div>
 </div></div>
 
 <!-- КОРАБЛЬ -->
@@ -983,7 +927,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <div style="text-align:center;padding:10px;">
 <button class="but" onclick="takeOffAllArtifacts()">Снять все артефакты</button>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('shipModal'); openUserModal(); return false;">Назад</a></div>
 </div></div>
 
 <!-- ТРЮМ -->
@@ -992,7 +935,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <button class="modal-close" onclick="closeModal('holdModal')">&times;</button>
 <div class="title">Трюм</div>
 <div class="under" id="holdContent"></div>
-<div class="rek"><a href="#" onclick="closeModal('holdModal'); openModal('shipModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ВИТРИНА -->
@@ -1001,7 +943,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <button class="modal-close" onclick="closeModal('showcaseModal')">&times;</button>
 <div class="title">Витрина</div>
 <div class="under" id="showcaseContent"></div>
-<div class="rek"><a href="#" onclick="closeModal('showcaseModal'); openModal('marketModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ТАЙНИК АРТЕФАКТОВ -->
@@ -1010,7 +951,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <button class="modal-close" onclick="closeModal('cacheArtsModal')">&times;</button>
 <div class="title">Тайник артефактов</div>
 <div class="under" id="cacheArtsContent"></div>
-<div class="rek"><a href="#" onclick="closeModal('cacheArtsModal'); openModal('shipModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ПУТЕШЕСТВИЕ -->
@@ -1027,9 +967,8 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <div class="post">Тортуга (уровень 15) — 15000 золота <button class="but" onclick="travelTo('Тортуга',15000)">Плыть</button></div>
 <div class="post">Порт-Рояль (уровень 20) — 50000 золота <button class="but" onclick="travelTo('Порт-Рояль',50000)">Плыть</button></div>
 <div class="under" style="text-align:center;">
-<a class="link" href="#" onclick="checkWeather()">🌤️ Проверить погоду</a>
+<a class="link" href="#" onclick="checkWeather(); return false;">🌤️ Проверить погоду</a>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('travelModal'); openModal('cityModal'); return false;">Назад в Город</a></div>
 </div></div>
 <!-- КВЕСТЫ -->
 <div class="modal-overlay" id="questsModal">
@@ -1045,10 +984,9 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 </div>
 <div id="questsList"></div>
 <div class="under" style="text-align:center;">
-<a class="link" href="#" onclick="openLegbeShop()">Магазин Легбе</a> |
-<a class="link" href="#" onclick="showQuestRules()">Правила</a>
+<a class="link" href="#" onclick="openLegbeShop(); return false;">Магазин Легбе</a> |
+<a class="link" href="#" onclick="showQuestRules(); return false;">Правила</a>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('questsModal'); openUserModal(); return false;">Назад</a></div>
 </div></div>
 
 <!-- МЕТКИ -->
@@ -1061,16 +999,15 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 Меток: <strong id="labelsCount">0</strong> / 230
 </div>
 <div class="under" style="text-align:center;">
-<a class="link" href="#" onclick="showLabelsTab('ready')">✅ Готовые</a> |
-<a class="link" href="#" onclick="showLabelsTab('event')">🎉 Ивенты</a> |
-<a class="link" href="#" onclick="showLabelsTab('all')">📋 Все</a> |
-<a class="link" href="#" onclick="showLabelsTab('ranks')">🏆 Ранги</a>
+<a class="link" href="#" onclick="showLabelsTab('ready'); return false;">✅ Готовые</a> |
+<a class="link" href="#" onclick="showLabelsTab('event'); return false;">🎉 Ивенты</a> |
+<a class="link" href="#" onclick="showLabelsTab('all'); return false;">📋 Все</a> |
+<a class="link" href="#" onclick="showLabelsTab('ranks'); return false;">🏆 Ранги</a>
 </div>
 <div id="labelsContent" class="under" style="min-height:200px;max-height:300px;overflow-y:auto;"></div>
 <div class="under" style="text-align:center;">
 <button class="but" onclick="clearTitle()">Удалить титул</button>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('labelsModal'); openUserModal(); return false;">Назад</a></div>
 </div></div>
 
 <!-- КОЛЛЕКЦИИ -->
@@ -1082,12 +1019,11 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <div class="under"><table><tbody><tr><td style="width:1%;padding:2px;"><img class="ico" src="https://game-seawar.com/assets/icons/nav/colect.jpg" width="52" height="52"></td><td><span id="collectionsName">Игрок</span>, собирай коллекции!</td></tr></tbody></table></div>
 <div id="collectionsList"></div>
 <div class="under" style="text-align:center;">
-<a class="link" href="#" onclick="openCollectionsShop()">Магазин Коллекционер</a> |
-<a class="link" href="#" onclick="showCollectionChances()">Шансы</a> |
-<a class="link" href="#" onclick="showCollectionLabels()">Метки</a> |
-<a class="link" href="#" onclick="showCollectionRules()">Правила</a>
+<a class="link" href="#" onclick="openCollectionsShop(); return false;">Магазин Коллекционер</a> |
+<a class="link" href="#" onclick="showCollectionChances(); return false;">Шансы</a> |
+<a class="link" href="#" onclick="showCollectionLabels(); return false;">Метки</a> |
+<a class="link" href="#" onclick="showCollectionRules(); return false;">Правила</a>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('collectionsModal'); openUserModal(); return false;">Назад</a></div>
 </div></div>
 
 <!-- НАВЫКИ -->
@@ -1107,13 +1043,12 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 </div>
 <div class="razd">Дополнительно:</div>
 <div class="under" style="text-align:center;">
-<a class="link" href="#" onclick="openTalants()">Таланты (10)</a> |
-<a class="link" href="#" onclick="openSouls()">Души пиратов (500)</a> |
-<a class="link" href="#" onclick="openOpryatia()">Опрятия (1000)</a> |
-<a class="link" href="#" onclick="openRunduk()">Рундуки (50)</a> |
-<a class="link" href="#" onclick="openDurability()">Пиратская прочность</a>
+<a class="link" href="#" onclick="openTalants(); return false;">Таланты (10)</a> |
+<a class="link" href="#" onclick="openSouls(); return false;">Души пиратов (500)</a> |
+<a class="link" href="#" onclick="openOpryatia(); return false;">Опрятия (1000)</a> |
+<a class="link" href="#" onclick="openRunduk(); return false;">Рундуки (50)</a> |
+<a class="link" href="#" onclick="openDurability(); return false;">Пиратская прочность</a>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('effectsModal'); openUserModal(); return false;">Назад</a></div>
 </div></div>
 
 <!-- ПРОФЕССИЯ -->
@@ -1128,7 +1063,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <div class="post">🧪 Алхимик — создание зелий <button class="but" onclick="chooseProf('alchemist')">Выбрать</button></div>
 <div class="post">⛏️ Рудокоп — добыча руды <button class="but" onclick="chooseProf('miner')">Выбрать</button></div>
 <div class="post">🎣 Рыбак — ловля рыбы <button class="but" onclick="chooseProf('fisher')">Выбрать</button></div>
-<div class="rek"><a href="#" onclick="closeModal('professionModal'); openUserModal(); return false;">Назад</a></div>
 </div></div>
 
 <!-- ТРОФЕИ -->
@@ -1141,9 +1075,8 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 </div>
 <div id="trophyList" class="under" style="min-height:200px;max-height:300px;overflow-y:auto;"></div>
 <div class="under" style="text-align:center;">
-<a class="link" href="#" onclick="showTrophyRules()">Правила</a>
+<a class="link" href="#" onclick="showTrophyRules(); return false;">Правила</a>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('trophyModal'); openUserModal(); return false;">Назад</a></div>
 </div></div>
 
 <!-- VIP -->
@@ -1161,7 +1094,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <div class="post">🥇 Золотой — 1000 пиастр <button class="but" onclick="buyVip('gold')">Купить</button></div>
 <div class="post">💎 Диамантовый — 5000 пиастр <button class="but" onclick="buyVip('diamond')">Купить</button></div>
 <div class="post">💠 Платиновый — 10000 пиастр <button class="but" onclick="buyVip('platinum')">Купить</button></div>
-<div class="rek"><a href="#" onclick="closeModal('vipModal'); openModal('cityModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- СОБЫТИЯ -->
@@ -1170,7 +1102,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <button class="modal-close" onclick="closeModal('eventsModal')">&times;</button>
 <div class="title">События</div>
 <div id="eventsList" class="under"></div>
-<div class="rek"><a href="#" onclick="closeModal('eventsModal'); openModal('cityModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ДОСТИЖЕНИЯ -->
@@ -1182,7 +1113,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 Получено: <strong id="achCount">0</strong> / 50
 </div>
 <div id="achList" class="under" style="min-height:200px;max-height:300px;overflow-y:auto;"></div>
-<div class="rek"><a href="#" onclick="closeModal('achievementsModal'); openUserModal(); return false;">Назад</a></div>
 </div></div>
 
 <!-- СУДОВОЙ ЖУРНАЛ -->
@@ -1191,13 +1121,12 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <button class="modal-close" onclick="closeModal('journalModal')">&times;</button>
 <div class="title">Судовой журнал</div>
 <div class="under" style="text-align:center;">
-<a class="link" href="#" onclick="showJournal('all')">Все записи</a> |
-<a class="link" href="#" onclick="showJournal('battle')">Бои</a> |
-<a class="link" href="#" onclick="showJournal('trade')">Торговля</a> |
-<a class="link" href="#" onclick="showJournal('quest')">Квесты</a>
+<a class="link" href="#" onclick="showJournal('all'); return false;">Все записи</a> |
+<a class="link" href="#" onclick="showJournal('battle'); return false;">Бои</a> |
+<a class="link" href="#" onclick="showJournal('trade'); return false;">Торговля</a> |
+<a class="link" href="#" onclick="showJournal('quest'); return false;">Квесты</a>
 </div>
 <div id="journalContent" class="under" style="min-height:200px;max-height:300px;overflow-y:auto;"></div>
-<div class="rek"><a href="#" onclick="closeModal('journalModal'); openUserModal(); return false;">Назад</a></div>
 </div></div>
 
 <!-- АНКЕТА -->
@@ -1218,7 +1147,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <textarea id="anketaAbout" rows="4" style="width:90%;" placeholder="Расскажите о себе..."></textarea><br>
 <button class="but" onclick="saveAnketa()">Сохранить</button>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('questionaryModal'); openUserModal(); return false;">Назад</a></div>
 </div></div>
 
 <!-- ТАБЛИЧКИ -->
@@ -1234,7 +1162,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <div class="post">🛡️ Защита +100 — 50000 <button class="but" onclick="buyTable('defense_big')">Купить</button></div>
 <div class="post">💨 Скорость +100 — 50000 <button class="but" onclick="buyTable('speed_big')">Купить</button></div>
 <div class="post">🍀 Удача +5% — 100000 <button class="but" onclick="buyTable('luck')">Купить</button></div>
-<div class="rek"><a href="#" onclick="closeModal('tablesModal'); openUserModal(); return false;">Назад</a></div>
 </div></div>
 
 <!-- КОМАНДА -->
@@ -1246,11 +1173,10 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 Ваша команда: <strong id="crewName">нет</strong>
 </div>
 <div class="razd">Действия:</div>
-<a class="link" href="#" onclick="createCrew()" style="display:block;">➕ Создать команду (10000 золота)</a>
-<a class="link" href="#" onclick="joinCrew()" style="display:block;">🔗 Присоединиться к команде</a>
-<a class="link" href="#" onclick="leaveCrew()" style="display:block;">🚪 Покинуть команду</a>
+<a class="link" href="#" onclick="createCrew(); return false;" style="display:block;">➕ Создать команду (10000 золота)</a>
+<a class="link" href="#" onclick="joinCrew(); return false;" style="display:block;">🔗 Присоединиться к команде</a>
+<a class="link" href="#" onclick="leaveCrew(); return false;" style="display:block;">🚪 Покинуть команду</a>
 <div id="crewMembers" class="under"></div>
-<div class="rek"><a href="#" onclick="closeModal('commandsModal'); openModal('cityModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- FAQ -->
@@ -1271,9 +1197,8 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 Это достижения. Собирайте их для получения титулов.
 </div>
 <div class="under" style="text-align:center;">
-<a class="link" href="#" onclick="showSeaMaps()">🗺️ Карты морей</a>
+<a class="link" href="#" onclick="showSeaMaps(); return false;">🗺️ Карты морей</a>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('faqModal'); openModal('cityModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ПРАВИЛА -->
@@ -1309,7 +1234,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <strong>25.</strong> Запрещено нарушение правил чата.<br>
 <strong>26.</strong> Администрация оставляет за собой право изменять правила.
 </div>
-<div class="rek"><a href="#" onclick="closeModal('rulesModal'); openModal('cityModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- ПОДДЕРЖКА -->
@@ -1324,7 +1248,6 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 <a class="link" href="#" target="_blank">💬 Discord</a><br><br>
 <small>Отвечаем в течение 24 часов.</small>
 </div>
-<div class="rek"><a href="#" onclick="closeModal('supportModal'); openModal('cityModal'); return false;">Назад</a></div>
 </div></div>
 
 <!-- УДАЧА -->
@@ -1342,11 +1265,10 @@ HP: <strong id="monsterFightHP">1000</strong> / <span id="monsterFightMaxHP">100
 • Некоторые артефакты<br>
 • VIP статус
 </div>
-<div class="rek"><a href="#" onclick="closeModal('luckModal'); openUserModal(); return false;">Назад</a></div>
 </div></div>
 <script>
 // ============================================================
-// ЧАСТЬ 7 — ЯДРО ИГРЫ
+// ЧАСТЬ 7 — ЯДРО ИГРЫ (storage, окна, регистрация, XP, навыки)
 // ============================================================
 
 // ---------- УТИЛИТЫ ----------
@@ -1397,22 +1319,14 @@ function logoutPlayer() {
     location.reload();
 }
 
-// стек открытых модалок — чтобы знать, куда вернуться
+// ---------- МОДАЛЬНЫЕ ОКНА (ИСПРАВЛЕННЫЙ КРЕСТИК) ----------
 var modalStack = [];
 
 function openModal(id) {
     var el = document.getElementById(id);
     if (!el) return;
 
-    // если открываем что-то новое — кладём текущее в стек
-    var current = modalStack[modalStack.length - 1];
-    if (current && current !== id) {
-        // не кладём главную в стек
-    } else if (!current) {
-        // первый открытый
-    }
-
-    // если это не город/профиль и стек не пуст — запоминаем
+    // запоминаем в стек, если это новое окно
     if (modalStack[modalStack.length - 1] !== id) {
         modalStack.push(id);
     }
@@ -1443,7 +1357,6 @@ function openModal(id) {
     if (id === 'tablesModal') updateTableStatus();
 }
 
-// закрыть конкретное окно (крестик)
 function closeModal(id) {
     var el = document.getElementById(id);
     if (el) el.style.display = 'none';
@@ -1451,12 +1364,12 @@ function closeModal(id) {
     // убираем из стека
     modalStack = modalStack.filter(function(x) { return x !== id; });
 
-    // если это было "корневое" окно (город/профиль) — не возвращаемся никуда
+    // если закрыли город или профиль — никуда не возвращаемся
     if (id === 'cityModal' || id === 'userModal') {
         return;
     }
 
-    // возвращаемся к предыдущему окну, если оно есть
+    // возвращаемся к предыдущему окну
     var prev = modalStack[modalStack.length - 1];
     if (prev) {
         var prevEl = document.getElementById(prev);
@@ -1466,27 +1379,19 @@ function closeModal(id) {
         var p = getCurrentPlayer();
         if (p) {
             var city = document.getElementById('cityModal');
-            if (city) city.style.display = 'flex';
-            modalStack.push('cityModal');
+            if (city) {
+                city.style.display = 'flex';
+                modalStack.push('cityModal');
+            }
         }
-        // иначе остаёмся на главной
     }
 }
 
-        //отдельная функция для кнопки "Назад" (не крестик)
-function backModal(id) {
-    closeModal(id);
-}
-
 function openUserModal() {
     openModal('userModal');
 }
 
-function openUserModal() {
-    openModal('userModal');
-}
-
-// ---------- РЕГИСТРАЦИЯ ----------
+// ---------- РЕГИСТРАЦИЯ / ВХОД ----------
 document.addEventListener('DOMContentLoaded', function() {
     var regForm = document.getElementById('regForm');
     if (regForm) {
@@ -1504,6 +1409,7 @@ document.addEventListener('DOMContentLoaded', function() {
             saveAllPlayers(players);
             saveCurrentPlayer(p);
             closeModal('regModal');
+            modalStack = [];
             openModal('cityModal');
             updateAll();
         });
@@ -1520,6 +1426,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (players[login].password !== password) { alert('Неверный пароль!'); return; }
             saveCurrentPlayer(players[login]);
             closeModal('authModal');
+            modalStack = [];
             openModal('cityModal');
             updateAll();
         });
@@ -1530,6 +1437,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (p) {
         var auto = localStorage.getItem('seawars_autologin');
         if (auto === '1') {
+            modalStack = [];
             openModal('cityModal');
             updateAll();
         }
@@ -1602,6 +1510,7 @@ function createNewPlayer(login, password, sex) {
         invisibleEnd: 0,
         skillRating: 1500,
         vip: null,
+        currentCity: 'Толедо',
         createdAt: Date.now()
     };
 }
@@ -1625,7 +1534,7 @@ function updateAll() {
     document.querySelectorAll('.player-speed').forEach(function(el) { el.textContent = p.speed; });
     document.querySelectorAll('.player-xp').forEach(function(el) { el.textContent = p.xp; });
     document.querySelectorAll('.player-xp-max').forEach(function(el) { el.textContent = p.xpMax; });
-    document.querySelectorAll('.chest-count').forEach(function(el) { el.textContent = p.chest.length; });
+    document.querySelectorAll('.chest-count').forEach(function(el) { el.textContent = (p.chest || []).length; });
     var nameEls = ['cityName','tavernaName','chapelName','shopName','marketName','bankName','seaName','monstersName','treasuresName','bocorName','kotelName','fishName','mineName','travelName','questsName','labelsName','collectionsName','effectsName','profName','comuniName','userTitle'];
     nameEls.forEach(function(id) {
         var el = document.getElementById(id);
@@ -1645,6 +1554,8 @@ function updateAll() {
     if (crewEl) crewEl.textContent = p.crew || 'нет';
     var luckEl = document.getElementById('luckValue');
     if (luckEl) luckEl.textContent = (p.activeTable === 'luck' ? 5 : 0) + '%';
+    var cityEl = document.getElementById('currentCity');
+    if (cityEl) cityEl.textContent = p.currentCity || 'Толедо';
     updateCityTime();
 }
 
@@ -1781,7 +1692,6 @@ function updateEffects() {
     }
 }
 </script>
-<script>
 // ============================================================
 // ЧАСТЬ 8 — ИГРОВАЯ ЛОГИКА
 // ============================================================
@@ -1999,17 +1909,12 @@ var COLLECTIONS = [
     {id:'calypso', name:'Дар Калипсо', items:['Жемчужина Калипсо','Коралл Калипсо','Ракушка Калипсо','Звезда Калипсо'], reward:'+250 защиты'}
 ];
 
-var CHEST_CAPACITY = {
-    current: 20, max: 60,
-    upgrade: {23:100, 26:250, 30:500, 35:1000, 40:2500, 45:5000, 50:10000, 55:25000, 60:50000}
-};
-
-var BOCOR_BOWL = { minSlitkov:10, exchangePiastr:2000, maxExchanges:4, resetTime:'03:00' };
-var SMUGGLER = { minGems:3, exchangeGems:3, exchangePiastr:1000, maxExchanges:10, resetTime:'03:00' };
+var CHEST_CAPACITY = { current: 20, max: 60, upgrade: {23:100, 26:250, 30:500, 35:1000, 40:2500, 45:5000, 50:10000, 55:25000, 60:50000} };
+var BOCOR_BOWL = { minSlitkov:10, exchangePiastr:2000, maxExchanges:4 };
+var SMUGGLER = { minGems:3, exchangeGems:3, exchangePiastr:1000, maxExchanges:10 };
 var FISHING = { cooldown:4*60*60*1000, nets:10, maxLevel:55, levelReq:500 };
 var MINING = { cooldown:2*60*1000, baseYield:20, maxLevel:55, levelReq:200 };
 var TREASURES = { cooldown:30*60*1000 };
-var SKILL_RATING = { legend:1500, young:1499, range:[1475,1525] };
 
 // ---------- МОРЕ ----------
 function updateSea() {
@@ -2045,22 +1950,17 @@ function seaFight(locId, type) {
         var hpEl = document.getElementById('traderHP');
         if (hpEl) hpEl.textContent = loc.traderHP;
         window._seaFightHP = loc.traderHP;
-        window._seaFightMaxHP = loc.traderHP;
         window._seaFightLoc = loc;
-        window._seaFightType = 'trader';
         var log = document.getElementById('seaFightLog');
         if (log) log.innerHTML = '<span class="info_blue">Бой начался! Торговец HP: ' + loc.traderHP + '</span>';
-        closeModal('locationModal');
         openModal('traderFightModal');
     } else {
         var hpEl2 = document.getElementById('botHP');
         if (hpEl2) hpEl2.textContent = loc.botHP;
         window._botFightHP = loc.botHP;
-        window._botFightMaxHP = loc.botHP;
         window._botFightLoc = loc;
         var log2 = document.getElementById('botFightLog');
         if (log2) log2.innerHTML = '<span class="info_blue">Бой начался! Бот HP: ' + loc.botHP + '</span>';
-        closeModal('locationModal');
         openModal('botFightModal');
     }
 }
@@ -2081,7 +1981,7 @@ function seaFire() {
         saveCurrentPlayer(p);
         updateAll();
         if (log) log.innerHTML += '<br><span class="info_green">💰 Получено ' + gold + ' золота, ' + xp + ' XP</span>';
-        setTimeout(function() { closeModal('traderFightModal'); openModal('locationModal'); }, 2000);
+        setTimeout(function() { closeModal('traderFightModal'); }, 2000);
         return;
     }
     var hpEl = document.getElementById('traderHP');
@@ -2104,7 +2004,7 @@ function seaBoard() {
         saveCurrentPlayer(p);
         updateAll();
         if (log) log.innerHTML += '<br><span class="info_green">💰 Получено ' + gold + ' золота, ' + xp + ' XP</span>';
-        setTimeout(function() { closeModal('traderFightModal'); openModal('locationModal'); }, 2000);
+        setTimeout(function() { closeModal('traderFightModal'); }, 2000);
         return;
     }
     var hpEl = document.getElementById('traderHP');
@@ -2127,7 +2027,7 @@ function botFire() {
         saveCurrentPlayer(p);
         updateAll();
         if (log) log.innerHTML += '<br><span class="info_green">💰 Получено ' + gold + ' золота, ' + xp + ' XP</span>';
-        setTimeout(function() { closeModal('botFightModal'); openModal('locationModal'); }, 2000);
+        setTimeout(function() { closeModal('botFightModal'); }, 2000);
         return;
     }
     var hpEl = document.getElementById('botHP');
@@ -2186,7 +2086,6 @@ function monsterFight(id) {
     if (imgEl) imgEl.src = 'https://game-seawar.com/assets/pic/monsters/' + m.id + '.jpg';
     var log = document.getElementById('monsterFightLog');
     if (log) log.innerHTML = '<span class="info_blue">Бой начался! ' + m.name + ' HP: ' + m.hp + '</span>';
-    closeModal('monstersModal');
     openModal('monsterFightModal');
 }
 
@@ -2208,7 +2107,7 @@ function monsterAttack() {
         saveCurrentPlayer(p);
         updateAll();
         if (log) log.innerHTML += '<br><span class="info_green">💰 Получено ' + gold + ' золота, ' + xp + ' XP</span>';
-        setTimeout(function() { closeModal('monsterFightModal'); openModal('monstersModal'); }, 2000);
+        setTimeout(function() { closeModal('monsterFightModal'); }, 2000);
         return;
     }
     var hpEl = document.getElementById('monsterFightHP');
@@ -2242,20 +2141,6 @@ function startTreasure() {
     updateAll();
     var resEl = document.getElementById('treasureResult');
     if (resEl) resEl.innerHTML = result;
-    updateTreasureStatus();
-}
-
-function updateTreasureStatus() {
-    var p = getCurrentPlayer();
-    if (!p) return;
-    var now = Date.now();
-    var el = document.getElementById('treasureStatus');
-    if (!el) return;
-    if (now - (p.lastTreasure || 0) < TREASURES.cooldown) {
-        el.textContent = '⏳ Кулдаун: ' + Math.ceil((TREASURES.cooldown - (now - p.lastTreasure)) / 60000) + ' мин.';
-    } else {
-        el.textContent = '✅ Готово к поиску';
-    }
 }
 
 // ---------- ЧАША БОКОРА ----------
@@ -2388,18 +2273,14 @@ function sellOre() {
 }
 
 // ---------- РЫНОК ----------
-function updateMarket() {
-    updateAll();
-}
+function updateMarket() { updateAll(); }
 
 function sellPearl() {
     var p = getCurrentPlayer();
     if (!p || p.pearl < 1) { alert('Нет жемчуга!'); return; }
     var gold = p.pearl * 100;
-    p.gold += gold;
-    p.pearl = 0;
-    saveCurrentPlayer(p);
-    updateAll();
+    p.gold += gold; p.pearl = 0;
+    saveCurrentPlayer(p); updateAll();
     alert('💰 Продано ' + gold + ' золота');
 }
 
@@ -2407,10 +2288,8 @@ function sellCrystal() {
     var p = getCurrentPlayer();
     if (!p || p.crystal < 1) { alert('Нет кристаллов!'); return; }
     var gold = p.crystal * 200;
-    p.gold += gold;
-    p.crystal = 0;
-    saveCurrentPlayer(p);
-    updateAll();
+    p.gold += gold; p.crystal = 0;
+    saveCurrentPlayer(p); updateAll();
     alert('💰 Продано ' + gold + ' золота');
 }
 
@@ -2418,10 +2297,8 @@ function sellIron() {
     var p = getCurrentPlayer();
     if (!p || p.iron < 1) { alert('Нет железа!'); return; }
     var gold = p.iron * 500;
-    p.gold += gold;
-    p.iron = 0;
-    saveCurrentPlayer(p);
-    updateAll();
+    p.gold += gold; p.iron = 0;
+    saveCurrentPlayer(p); updateAll();
     alert('💰 Продано ' + gold + ' золота');
 }
 
@@ -2429,20 +2306,16 @@ function sellRum() {
     var p = getCurrentPlayer();
     if (!p || p.rum < 1) { alert('Нет рома!'); return; }
     var gold = p.rum * 300;
-    p.gold += gold;
-    p.rum = 0;
-    saveCurrentPlayer(p);
-    updateAll();
+    p.gold += gold; p.rum = 0;
+    saveCurrentPlayer(p); updateAll();
     alert('💰 Продано ' + gold + ' золота');
 }
 
 function buyPiastr(count, price) {
     var p = getCurrentPlayer();
     if (!p || p.gold < price * count) { alert('Недостаточно золота!'); return; }
-    p.gold -= price * count;
-    p.piastr += count;
-    saveCurrentPlayer(p);
-    updateAll();
+    p.gold -= price * count; p.piastr += count;
+    saveCurrentPlayer(p); updateAll();
     alert('✅ Куплено ' + count + ' пиастр');
 }
 
@@ -2451,8 +2324,7 @@ function buyRes(type, count, price) {
     if (!p || p.gold < price * count) { alert('Недостаточно золота!'); return; }
     p.gold -= price * count;
     p[type] = (p[type] || 0) + count;
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('✅ Куплено ' + count + ' ' + type);
 }
 
@@ -2461,8 +2333,7 @@ function buyArt(name, bonus, price) {
     if (!p || p.gold < price) { alert('Недостаточно золота!'); return; }
     p.gold -= price;
     p.artifacts.push({ name: name, bonus: bonus });
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('✅ Куплен артефакт: ' + name);
 }
 
@@ -2494,9 +2365,7 @@ function buyTable(type) {
     if (t.bonus === 'defense') { p.defense += t.val; p.activeTableBonus.defense = t.val; }
     if (t.bonus === 'speed') { p.speed += t.val; p.activeTableBonus.speed = t.val; }
     if (t.bonus === 'luck') { p.activeTableBonus.luck = t.val; }
-    saveCurrentPlayer(p);
-    updateAll();
-    updateTableStatus();
+    saveCurrentPlayer(p); updateAll(); updateTableStatus();
     alert('✅ Табличка активирована на 60 минут!');
 }
 
@@ -2554,9 +2423,7 @@ function bankOp(type, op, amount) {
         p[bankKey] -= amount;
         p[type] += amount;
     }
-    saveCurrentPlayer(p);
-    updateAll();
-    updateBank();
+    saveCurrentPlayer(p); updateAll(); updateBank();
 }
 
 // ---------- СУНДУК ----------
@@ -2581,9 +2448,7 @@ function upgradeChest() {
     if (p.piastr < 100) { alert('Нужно 100 пиастр!'); return; }
     p.piastr -= 100;
     p.chestMaxCapacity = (p.chestMaxCapacity || 20) + 5;
-    saveCurrentPlayer(p);
-    updateAll();
-    updateChest();
+    saveCurrentPlayer(p); updateAll(); updateChest();
     alert('✅ Вместимость увеличена до ' + p.chestMaxCapacity);
 }
 
@@ -2595,11 +2460,8 @@ function openAllChests() {
     p.piastr -= 250;
     var totalGold = 0;
     (p.chest || []).forEach(function() { totalGold += 500 + Math.floor(Math.random() * 1500); });
-    p.gold += totalGold;
-    p.chest = [];
-    saveCurrentPlayer(p);
-    updateAll();
-    updateChest();
+    p.gold += totalGold; p.chest = [];
+    saveCurrentPlayer(p); updateAll(); updateChest();
     alert('✅ Открыто! Получено ' + totalGold + ' золота');
 }
 
@@ -2609,11 +2471,8 @@ function openAllVanhu() {
     if ((p.chestVanhu || []).length === 0) { alert('Нет сундуков Ванху!'); return; }
     var totalGold = 0;
     (p.chestVanhu || []).forEach(function() { totalGold += 2000 + Math.floor(Math.random() * 5000); });
-    p.gold += totalGold;
-    p.chestVanhu = [];
-    saveCurrentPlayer(p);
-    updateAll();
-    updateChest();
+    p.gold += totalGold; p.chestVanhu = [];
+    saveCurrentPlayer(p); updateAll(); updateChest();
     alert('✅ Открыто! Получено ' + totalGold + ' золота');
 }
 
@@ -2641,18 +2500,14 @@ function takeOffArtifact(name) {
     var p = getCurrentPlayer();
     if (!p) return;
     p.artifacts = (p.artifacts || []).filter(function(a) { return a.name !== name; });
-    saveCurrentPlayer(p);
-    updateShip();
-    updateAll();
+    saveCurrentPlayer(p); updateShip(); updateAll();
 }
 
 function takeOffAllArtifacts() {
     var p = getCurrentPlayer();
     if (!p) return;
     p.artifacts = [];
-    saveCurrentPlayer(p);
-    updateShip();
-    updateAll();
+    saveCurrentPlayer(p); updateShip(); updateAll();
     alert('✅ Все артефакты сняты');
 }
 
@@ -2663,8 +2518,7 @@ function travelTo(city, price) {
     if (p.gold < price) { alert('Недостаточно золота!'); return; }
     p.gold -= price;
     p.currentCity = city;
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     var el = document.getElementById('currentCity');
     if (el) el.textContent = city;
     alert('✅ Вы прибыли в ' + city);
@@ -2686,11 +2540,11 @@ function updateQuests() {
     var list = document.getElementById('questsList');
     if (!list) return;
     var quests = [
-        { id:'q1', name:'Убить 10 торговцев', progress: p.quests && p.quests.q1 || 0, max:10, reward:100 },
-        { id:'q2', name:'Поймать 50 рыб', progress: p.quests && p.quests.q2 || 0, max:50, reward:200 },
-        { id:'q3', name:'Добыть 100 руды', progress: p.quests && p.quests.q3 || 0, max:100, reward:150 },
-        { id:'q4', name:'Найти 5 сокровищ', progress: p.quests && p.quests.q4 || 0, max:5, reward:250 },
-        { id:'q5', name:'Победить 3 монстров', progress: p.quests && p.quests.q5 || 0, max:3, reward:300 }
+        { id:'q1', name:'Убить 10 торговцев', progress: (p.quests && p.quests.q1) || 0, max:10, reward:100 },
+        { id:'q2', name:'Поймать 50 рыб', progress: (p.quests && p.quests.q2) || 0, max:50, reward:200 },
+        { id:'q3', name:'Добыть 100 руды', progress: (p.quests && p.quests.q3) || 0, max:100, reward:150 },
+        { id:'q4', name:'Найти 5 сокровищ', progress: (p.quests && p.quests.q4) || 0, max:5, reward:250 },
+        { id:'q5', name:'Победить 3 монстров', progress: (p.quests && p.quests.q5) || 0, max:3, reward:300 }
     ];
     list.innerHTML = quests.map(function(q) {
         var done = q.progress >= q.max;
@@ -2701,11 +2555,8 @@ function updateQuests() {
 function exchangeQuestPoints() {
     var p = getCurrentPlayer();
     if (!p || (p.questPoints || 0) < 100) { alert('Нужно 100 очков!'); return; }
-    p.questPoints -= 100;
-    p.gold += 5000;
-    saveCurrentPlayer(p);
-    updateAll();
-    updateQuests();
+    p.questPoints -= 100; p.gold += 5000;
+    saveCurrentPlayer(p); updateAll(); updateQuests();
     alert('✅ Обменяно 100 очков на 5000 золота');
 }
 
@@ -2715,19 +2566,12 @@ function buyQuest() {
     if (p.piastr < 10000) { alert('Нужно 10000 пиастр!'); return; }
     p.piastr -= 10000;
     p.questPoints = (p.questPoints || 0) + 500;
-    saveCurrentPlayer(p);
-    updateAll();
-    updateQuests();
+    saveCurrentPlayer(p); updateAll(); updateQuests();
     alert('✅ Куплено 500 очков квестов');
 }
 
-function openLegbeShop() {
-    alert('Магазин Легбе:\n• 100 очков → 5000 золота\n• 500 очков → 25000 золота\n• 1000 очков → 100000 золота');
-}
-
-function showQuestRules() {
-    alert('Правила квестов:\n1. Квесты обновляются ежедневно в 03:00\n2. Очки можно обменивать на золото\n3. Пропущенные квесты можно выкупить за 10000 пиастр');
-}
+function openLegbeShop() { alert('Магазин Легбе:\n• 100 очков → 5000 золота\n• 500 очков → 25000 золота\n• 1000 очков → 100000 золота'); }
+function showQuestRules() { alert('Правила квестов:\n1. Квесты обновляются ежедневно в 03:00\n2. Очки можно обменивать на золото\n3. Пропущенные квесты можно выкупить за 10000 пиастр'); }
 
 // ---------- МЕТКИ ----------
 function updateLabels() {
@@ -2750,10 +2594,7 @@ function updateLabels() {
     if (content) content.innerHTML = '<small>Собрано меток: ' + Object.keys(p.labels || {}).length + ' / 230</small>';
 }
 
-function showLabelsTab(tab) {
-    updateLabels();
-}
-
+function showLabelsTab(tab) { updateLabels(); }
 function clearTitle() {
     var p = getCurrentPlayer();
     if (!p) return;
@@ -2810,8 +2651,7 @@ function buyVip(type) {
     if (p.piastr < prices[type]) { alert('Нужно ' + prices[type] + ' пиастр!'); return; }
     p.piastr -= prices[type];
     p.vip = names[type];
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     var el = document.getElementById('vipStatus');
     if (el) el.textContent = names[type];
     alert('✅ VIP статус: ' + names[type]);
@@ -2872,8 +2712,7 @@ function createCrew() {
     if (!name) return;
     p.gold -= 10000;
     p.crew = name;
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('✅ Команда "' + name + '" создана!');
 }
 
@@ -2883,8 +2722,7 @@ function joinCrew() {
     var p = getCurrentPlayer();
     if (!p) return;
     p.crew = name;
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('✅ Вы вступили в команду "' + name + '"');
 }
 
@@ -2893,8 +2731,7 @@ function leaveCrew() {
     if (!p) return;
     if (!p.crew) { alert('Вы не в команде!'); return; }
     p.crew = null;
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('✅ Вы покинули команду');
 }
 
@@ -2905,8 +2742,7 @@ function chooseProf(prof) {
     if (p.level < 12) { alert('Нужен 12 уровень!'); return; }
     var names = { alchemist:'Алхимик', miner:'Рудокоп', fisher:'Рыбак' };
     p.profession = names[prof];
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('✅ Профессия: ' + names[prof]);
 }
 
@@ -2969,9 +2805,7 @@ function sendForumPost(text) {
 }
 
 // ---------- ПОЧТА ----------
-function updateMail() {
-    showMailTab('in');
-}
+function updateMail() { showMailTab('in'); }
 
 function showMailTab(tab) {
     var el = document.getElementById('mailContent');
@@ -2984,9 +2818,7 @@ function showMailTab(tab) {
 }
 
 // ---------- ОНЛАЙН ----------
-function updateOnline() {
-    loadOnline('all');
-}
+function updateOnline() { loadOnline('all'); }
 
 function loadOnline(type) {
     var el = document.getElementById('onlineList');
@@ -3017,8 +2849,7 @@ function setAvatar(name, el) {
     var p = getCurrentPlayer();
     if (!p) return;
     p.avatar = name;
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('✅ Аватар изменён');
 }
 
@@ -3028,8 +2859,7 @@ function setNickColor(color, el) {
     if (p.gold < 5000) { alert('Нужно 5000 золота!'); return; }
     p.gold -= 5000;
     p.nickColor = color;
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('✅ Цвет ника изменён');
 }
 
@@ -3045,8 +2875,7 @@ function changeLogin(newLogin) {
     p.login = newLogin;
     players[newLogin] = p;
     saveAllPlayers(players);
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('✅ Ник изменён на ' + newLogin);
 }
 
@@ -3057,8 +2886,7 @@ function changeSex() {
     p.piastr -= 25000;
     p.sex = p.sex === 1 ? 0 : 1;
     p.avatar = 'sex_' + p.sex;
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('✅ Пол изменён');
 }
 
@@ -3127,8 +2955,7 @@ function importProgress(event) {
             var players = getAllPlayers();
             players[p.login] = p;
             saveAllPlayers(players);
-            saveCurrentPlayer(p);
-            updateAll();
+            saveCurrentPlayer(p); updateAll();
             alert('✅ Сохранение загружено!');
             location.reload();
         } catch(err) { alert('Ошибка загрузки: ' + err.message); }
@@ -3153,6 +2980,7 @@ function enterTransferCode() {
         if (players[data.login].password !== data.pass) { alert('Неверный код!'); return; }
         saveCurrentPlayer(players[data.login]);
         closeModal('authModal');
+        modalStack = [];
         openModal('cityModal');
         updateAll();
     } catch(e) { alert('Неверный код!'); }
@@ -3169,8 +2997,7 @@ function askMaster(name) {
         p.gold -= costs[name];
         if (bonuses[name].defense) p.defense += bonuses[name].defense;
         if (bonuses[name].speed) p.speed += bonuses[name].speed;
-        saveCurrentPlayer(p);
-        updateAll();
+        saveCurrentPlayer(p); updateAll();
         alert('✅ ' + name + ' улучшил ваши характеристики!');
     } else {
         alert(name + ' пока ничего не может предложить.');
@@ -3197,8 +3024,7 @@ function chapelWedding() {
     if (p.gold < 50000) { alert('Нужно 50000 золота!'); return; }
     p.gold -= 50000;
     p.married = true;
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('💒 Свадьба сыграна!');
 }
 
@@ -3210,8 +3036,7 @@ function chapelDivorce() {
     p.gold -= 10000;
     p.married = false;
     p.partner = null;
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     var el = document.getElementById('chapelPartner');
     if (el) el.textContent = 'нет';
     alert('💔 Развод оформлен');
@@ -3223,8 +3048,7 @@ function buyChapelItem(id, price, stat, val) {
     if (p.gold < price) { alert('Недостаточно золота!'); return; }
     p.gold -= price;
     p[stat] = (p[stat] || 0) + val;
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('✅ Куплено!');
 }
 
@@ -3235,8 +3059,7 @@ function doEngraving() {
     p.gold -= 5000;
     p.engraving = true;
     p.power += 25; p.defense += 25; p.speed += 25;
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('✅ Гравировка снята! +25 к мощности, защите и скорости');
 }
 
@@ -3247,8 +3070,7 @@ function drinkRum() {
     if (p.gold < 250) { alert('Нужно 250 золота!'); return; }
     p.gold -= 250;
     p.hp = Math.min(p.hpMax, p.hp + 50);
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('🍺 Вы выпили рома! +50 HP');
 }
 
@@ -3260,8 +3082,7 @@ function upgradeShip() {
     p.gold -= 500;
     p.power += 10;
     p.shipPower = (p.shipPower || 0) + 10;
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('✅ Корабль улучшен! +10 мощности');
 }
 
@@ -3277,18 +3098,24 @@ function buyCorsar(type, ironCost) {
     if (type === 'tortuga') p.power += 5000;
     if (type === 'divine') p.power += 2500;
     if (type === 'monster') p.power += 1500;
-    saveCurrentPlayer(p);
-    updateAll();
+    saveCurrentPlayer(p); updateAll();
     alert('✅ Куплено!');
 }
+
+// ---------- ЗАГЛУШКИ ДЛЯ НЕРЕАЛИЗОВАННЫХ ФУНКЦИЙ ----------
+function openTalants() { alert('Таланты: 10 штук. В разработке.'); }
+function openSouls() { alert('Души пиратов: 500. В разработке.'); }
+function openOpryatia() { alert('Опрятия: 1000. В разработке.'); }
+function openRunduk() { alert('Рундуки: 50. В разработке.'); }
+function openDurability() { alert('Пиратская прочность. В разработке.'); }
+function showSeaMaps() { alert('Карты морей: 10 локаций. В разработке.'); }
+function joinRaid() { alert('Нашествие Гарпий: следующее в 15:29.'); }
 
 // ---------- ИНИЦИАЛИЗАЦИЯ ----------
 document.addEventListener('DOMContentLoaded', function() {
     updateAll();
     updateCityTime();
 });
-
-// ---------- ЗАКРЫТИЕ ----------
 </script>
 </body>
 </html>
